@@ -15,6 +15,10 @@ bundle.js.map
 !/log/.keep
 !/tmp/.keep
 
+# Other
+.byebug_history
+.DS_Store
+
 # Ignore uploaded files in development
 /storage/*
 !/storage/.keep
