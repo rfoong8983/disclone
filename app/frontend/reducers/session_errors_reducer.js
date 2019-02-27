@@ -5,14 +5,13 @@ import {
 
 export const sessionErrorsReducer = (oldState = [], action) => {
     Object.freeze(oldState);
-    const newState = Object.assign([], oldState);
+    // const newState = Object.assign([], oldState);
 
     switch (action.type) {
         case RECEIVE_CURRENT_USER:
             return [];
         case RECEIVE_SESSION_ERRORS:
-            newState.push(...action.errors);
-            return newState;
+            return action.errors;
         default:
             return oldState;
     }

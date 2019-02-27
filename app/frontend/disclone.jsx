@@ -1,16 +1,37 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import * as SeshApi from './util/session_api_util';
-import { signup } from './actions/session_actions';
 import configureStore from './store/store';
+import Root from './components/root';
+import { signup, login, logout } from './actions/session_actions';
+// import * as SeshApi from './util/session_api_util';
 
 document.addEventListener("DOMContentLoaded", () => {
-    // window.signup = SeshApi.signup;
-    window.login = SeshApi.login;
-    window.logout = SeshApi.logout;
-    window.signup = signup;
-    const store = configureStore();
-    window.store = store;
+    let store;
+    
+    if (window.currentUser) {
+        const preloadedState = {
+            entities: { 
+                users: { [window.currentUser.id]: window.currentUser }
+            },
+            session: { id: window.currentUser.id }
+        };
+
+        store = configureStore(preloadedState);
+        delete window.currentUser;
+    } else {
+        store = configureStore();
+    }
+
     const root = document.getElementById("root");
-    ReactDOM.render(<h3>React is rendering root.html.erb</h3>, root);
+    ReactDOM.render(<Root store={store}/>, root);
 });
+
+// start of tests
+    // window.signup = SeshApi.signup;
+    // window.login = login;
+
+    // window.logout = logout;
+    // window.signup = signup;
+    // window.store = store;
+    // window.receiveCurrentUser = receiveCurrentUser;
+    // end of tests

@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+    # helper methods give `VIEWS` access to meths from `CONTROLLER`
     helper_method :current_user, :logged_in?
 
     def logged_in?
@@ -9,6 +10,7 @@ class ApplicationController < ActionController::Base
         user.reset_session_token!
         session[:session_token] = user.session_token
         @current_user = user
+        # debugger // @current_user = ActiveRecord Obj
     end
 
     def current_user
