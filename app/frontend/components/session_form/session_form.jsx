@@ -119,13 +119,11 @@ class SessionForm extends React.Component {
     renderSignup(e) {
         e.preventDefault();
         this.props.history.push("/signup")
-        this.props.errors = [];
     }
 
     renderLogin(e) {
         e.preventDefault();
         this.props.history.push("/login")
-        this.props.errors = [];
     }
 
     render() {
@@ -139,7 +137,8 @@ class SessionForm extends React.Component {
                 <div className="innerDivMount">
                     <div className="formBackground">
                         <div className="rightBackground">
-                            <img className="colorBackgorund" width="1460" height="821" src="https://discordapp.com/assets/fd91131ea693096d6be5e8aa99d18f9e.jpg">
+                            <img className="colorBackgorund" src="https://discordapp.com/assets/fd91131ea693096d6be5e8aa99d18f9e.jpg">
+                            {/* <img className="colorBackgorund" width="1480" height="821" src="https://discordapp.com/assets/fd91131ea693096d6be5e8aa99d18f9e.jpg"> */}
                             </img>
                         </div>
 
