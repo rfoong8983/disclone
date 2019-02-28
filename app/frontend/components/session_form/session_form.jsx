@@ -3,10 +3,12 @@ import React from 'react';
 class SessionForm extends React.Component {
     constructor(props) {
         super(props);
-        this.state={email:"", username:"", password:""};
+        this.state={email:"", username:"", password:"", buttonFocus:false};
+        this.buttonToggleFocusClass = this.buttonToggleFocusClass.bind(this);
+        this.labelErrorStyles = this.labelErrorStyles.bind(this);
     }
 
-    componentDidMount() {
+    componentWillUnmount() {
         this.props.clearSessionErrors();
     }
 
@@ -46,9 +48,15 @@ class SessionForm extends React.Component {
     displayBelowButton() {
         if (this.props.formType === "signup") {
             return (
-                <button className="haveAccountButton button" type="button" onClick={this.renderLogin.bind(this)}>
-                    <div className="haveAcctText medFont">Already have an account?</div>
-                </button>
+                <div className="haveAcctWrapper">
+                    <button className="haveAccountButton button" type="button" onClick={this.renderLogin.bind(this)}>
+                        <div className="haveAcctText medFont">Already have an account?</div>
+                    </button>
+                    <span className="needAcctText normFont">Who likes signing up?</span>
+                    <button className="registerButton button" type="button" onClick={this.handleDemoFromSignup.bind(this)}>
+                        <div className="registerButtonText medFont">Use the demo login!</div>
+                    </button>
+                </div >
             )
         } else {
             return (
@@ -56,6 +64,11 @@ class SessionForm extends React.Component {
                     <span className="needAcctText normFont">Need an account?</span>
                     <button className="registerButton button" type="button" onClick={this.renderSignup.bind(this)}>
                         <div className="registerButtonText medFont">Register</div>
+                    </button>
+                    <br></br>
+                    <span className="needAcctText normFont">Who likes signing up?</span>
+                    <button className="registerButton button" type="button" onClick={this.handleDemoFromLogin.bind(this)}>
+                        <div className="registerButtonText medFont">Use the demo login!</div>
                     </button>
                 </div>
             )
@@ -80,9 +93,10 @@ class SessionForm extends React.Component {
         if (this.props.formType === "signup") {
             return (
                 <div className="lsFormUserWrapper">
-                    <h5 className="inputLabel semiFont">Username</h5>
+                    <h5 className="inputLabel semiFont" id={this.labelErrorStyles('username')}>Username{this.usernameErrors()}</h5>
                     <div className="inputWrapper">
                         <input className="actualInput"
+                            id={this.labelErrorStyles('username')}
                             type="text"
                             value={this.state.username}
                             onChange={this.update('username')}
@@ -95,29 +109,63 @@ class SessionForm extends React.Component {
         }
     }
 
-    update(field) {
-        return (e) => {
-            this.setState({[field]: e.target.value});
-        };
+    emailErrors() {
+        // debugger
+        if (this.props.formType === 'signup') {
+            return (
+                <ul id="errors">
+                    &nbsp;{this.props.errors['email']}
+                </ul>
+            )   
+        } else {
+            return (
+                <ul id="errors">
+                    &nbsp;{this.props.errors['creds']}
+                </ul>
+            )   
+        }     
     }
 
-    handleSubmit(e) {
-        e.preventDefault();
-        const user = Object.assign({}, this.state);
-        this.props.processForm(user)
-            // .then((user) => this.props.history.push("/"));
-    }
-
-    displayErrors() {
+    usernameErrors() {
+        // debugger
         return (
-            <ul>
-                {this.props.errors.map((error, i) => (
-                    <li key={`err_${i}`}>
-                        {error}
-                    </li>
-                ))}
+            <ul id="errors">
+                &nbsp;{this.props.errors['username']}
             </ul>
-        )       
+        )
+    }
+
+    passwordErrors() {
+        // debugger
+        if (this.props.formType === 'signup') {
+            return (
+                <ul id="errors">
+                    &nbsp;{this.props.errors['password']}
+                </ul>
+            )
+        } else {
+            return (
+                <ul id="errors">
+                    &nbsp;{this.props.errors['creds']}
+                </ul>
+            )
+        }  
+    }
+
+    buttonToggleFocusState() {
+        if (this.state.buttonFocus === false) {
+            this.setState({ buttonFocus: true } );
+        } else {
+            this.setState({ buttonFocus: false } );
+        }
+    }
+
+    buttonToggleFocusClass() {
+        if (this.state.buttonFocus === true) {
+            return "submitFocus"
+        } else {
+            return ""
+        }
     }
 
     renderSignup(e) {
@@ -130,8 +178,53 @@ class SessionForm extends React.Component {
         this.props.history.push("/login")
     }
 
+    labelErrorStyles(field) {
+        if (this.props.errors[field] !== undefined) {
+            return "labelBorderErrorStyle"
+        } else if (this.props.errors['creds'] !== undefined) {
+            return "labelBorderErrorStyle"
+        }
+    }
+
+    update(field) {
+        return (e) => {
+            this.setState({ [field]: e.target.value });
+        };
+    }
+
+    handleSubmit(e) {
+        e.preventDefault();
+        const user = Object.assign({}, this.state);
+        this.props.processForm(user)
+    }
+
+    handleDemoFromLogin(e) {
+        e.preventDefault(e);
+        const user = { email: "not_a_dog@gmail.com".split(''), password: "passwordpassword".split('') }
+
+        setTimeout(() => {
+            setInterval(() => {
+                if (user.email.length > 0) {
+                    this.setState({ 'email': this.state.email + user['email'].shift() })
+                } else if (user.password.length > 0) {
+                    this.setState({ 'password': this.state.password + user['password'].shift() })
+                }
+            }, 40);
+        }, 0);
+
+        setTimeout(() => {
+            this.props.processForm(this.state);
+        }, 1450);
+    }
+
+    handleDemoFromSignup(e) {
+        // e.preventDefault(e);
+        this.props.history.push("/login");
+        setTimeout(() => this.handleDemoFromLogin(e), 1000);
+    }
 
     render() {
+        // debugger
         const backgroundStyles = {
             width: "1920px",
             height: "1080px"
@@ -160,8 +253,8 @@ class SessionForm extends React.Component {
                             <div 
                                 className="lsFormBoxWrapper" 
                                 style={wrapperStyles}>
-
-                                {this.displayErrors()}
+                                
+                                
                                 {/* <form className="lsFormBox" onSubmit={this.handleSubmit.bind(this)}> */}
                                 <form className={this.formBoxType()} onSubmit={this.handleSubmit.bind(this)}>
                                     <div className="lsFormWelcomeWrapper">
@@ -172,10 +265,12 @@ class SessionForm extends React.Component {
                                         <div className="lsFormContentWrapper">
 
                                             <div className="lsFormEmailWrapper">
-                                                <h5 className="inputLabel semiFont">Email</h5>
+                                                <h5 className="inputLabel semiFont" id={this.labelErrorStyles('email')}>Email{this.emailErrors()}</h5>
+                                                
                                                 <div className="inputWrapper">
                                                     <input className="actualInput"
-                                                        type="text"
+                                                        id={this.labelErrorStyles('email')}
+                                                        type="email"
                                                         value={this.state.email}
                                                         onChange={this.update('email')}
                                                     />
@@ -186,9 +281,10 @@ class SessionForm extends React.Component {
                                             {this.displayAliasSignup()}
 
                                             <div className="lsPassWrapper">
-                                                <h5 className="inputLabel semiFont">Password</h5>
+                                                <h5 className="inputLabel semiFont" id={this.labelErrorStyles('password')}>Password{this.passwordErrors()}</h5>
                                                 <div className="inputWrapper">
                                                     <input className="actualInput"
+                                                        id={this.labelErrorStyles('password')}
                                                         type="password"
                                                         value={this.state.password}
                                                         onChange={this.update('password')}
@@ -196,28 +292,25 @@ class SessionForm extends React.Component {
                                                 </div>
                                             </div>
                                             
-                                            <div className="forgotPassword"></div>
+                                            {this.props.formType === "login" ? <div className="forgotPassword"></div> : ""}
 
-                                            <button className="submitButton" type="submit">
+                                            <button 
+                                                className="submitButton"
+                                                id={this.buttonToggleFocusClass()} 
+                                                type="submit"  
+                                                onMouseUp={this.buttonToggleFocusState.bind(this)}
+                                                onMouseDown={this.buttonToggleFocusState.bind(this)}
+                                            >
                                                 <div className="submitButtonText medFont">{this.submitText()}</div>
                                             </button>
 
                                             {this.displayBelowButton()}
                                             {this.displayTerms()}
-                                            {/* <div className="registerWrapper">
-                                                <span className="needAcctText normFont">Need an account?</span>
-                                                <button className="registerButton" type="button" onClick={this.renderSignup.bind(this)}>
-                                                    <div className="registerButtonText medFont">Register</div>
-                                                </button>
-                                            </div> */}
 
                                         </div>
                                     </div>
                                 </form>
-                                {/* <p>or maybe you'd prefer to... </p> */}
-                                {/* {this.props.navLink}; */}
                             </div>
-
                         </div>
                     </div>
                 </div>

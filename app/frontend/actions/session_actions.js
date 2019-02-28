@@ -9,14 +9,24 @@ export const signup = (user) => dispatch => (
     SeshApi.signup(user)
         .then(
             (user) => (dispatch(receiveCurrentUser(user))),
-            // (newUser) => (dispatch(login(newUser))),
-            // (newUser) => (SeshApi.login(newUser)
-            //                 .then((loggedUser) => dispatch(receiveCurrentUser(loggedUser))),
             (err) => (dispatch(receiveSessionErrors(err.responseJSON)))
+            // (err) => {
+            //     debugger
+            //     dispatch(receiveSessionErrors(err.responseJSON))
+            //     }
             )
 );
 
 export const login = (user) => dispatch => {
+    return SeshApi.login(user)
+        .then(
+            (user) => dispatch(receiveCurrentUser(user)),
+            (err) => dispatch(receiveSessionErrors(err.responseJSON))
+            // (err) => dispatch(receiveSessionErrors(err.responseJSON))
+            );
+};
+
+export const demoLogin = (user) => dispatch => {
     return SeshApi.login(user)
         .then(
             (user) => dispatch(receiveCurrentUser(user)),

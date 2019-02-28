@@ -31,3 +31,21 @@
 
 en:
   hello: "Hello world"
+  activerecord:
+    attributes:
+      user:
+        # email: "This"
+        # username: "This"
+        # password: "This"
+    errors:
+      models:
+        user:
+          attributes:
+            email:
+              blank: " - This field is required"
+            username:
+              blank: " - This field is required"
+            password:
+              blank: " - This field is required"
+              too_short: " - This field is too short"
+

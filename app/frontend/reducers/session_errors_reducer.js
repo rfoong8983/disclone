@@ -3,13 +3,13 @@ import {
     RECEIVE_SESSION_ERRORS
  } from '../actions/session_actions.js';
 
-export const sessionErrorsReducer = (oldState = [], action) => {
+export const sessionErrorsReducer = (oldState = {}, action) => {
     Object.freeze(oldState);
     // const newState = Object.assign([], oldState);
 
     switch (action.type) {
         case RECEIVE_CURRENT_USER:
-            return [];
+            return {};
         case RECEIVE_SESSION_ERRORS:
             return action.errors;
         default:

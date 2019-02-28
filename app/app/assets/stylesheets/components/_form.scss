@@ -32,11 +32,11 @@
 }
 
 .rightBackground {
-    top: 0;
+    bottom: 0;
     opacity: 1;
     pointer-events: none;
     position: absolute;
-    left: 0;
+    right: 0;
     transition: opacity .4s ease;
     -webkit-box-direction: normal;
 }
@@ -163,6 +163,23 @@
     font-weight: 600;
     font-size: 12px;
     line-height: 16px;
+    display: inline-block;
+}
+
+#errors {
+    font-style: italic;
+    font-weight: 400;
+    font-size: 12px;
+    font-family: Whitney-norm;
+    line-height: 16px;
+    color: #f04747;
+    display: inline-block;
+    text-transform: lowercase;
+}
+
+#labelBorderErrorStyle {
+    color: #f04747;
+    border-color: #f04747;;
 }
 
 .inputWrapper {
@@ -198,14 +215,20 @@
     display: block;
     padding-left: 0;
     padding-right: 0;
-    padding: 2px 4px;
     margin-top: 4px;
-    margin-bottom: 36px; 
-    // subtract 16 from margin-bottom to get real dimension
+    margin-bottom: 16px; 
+    // add 16 to pad... OR
+    // remove 16 from margin-bottom to get real dimension
     // not including forgot_password? atm
     height: auto;
     width: auto;
 }
+
+.submitButton:hover {
+    background-color: #677bc4;
+    transition: background-color .17s ease,color .17s ease;
+}
+
 
 .submitButton {
     background-color: #7289da;
@@ -228,7 +251,16 @@
     padding: 2px 16px;
     position: relative;
     user-select: none;
+    outline: none;
+    cursor: pointer;
+    margin-top: 20px;
 }
+
+#submitFocus {
+    background-color: #5d6dac;
+    transition: background-color .17s ease-in,color .17s ease-in;
+}
+
 
 .submitButtonText {
     margin: 0 auto;
@@ -238,7 +270,7 @@
 }
 
 .registerWrapper {
-    margin-top: 4px;
+    margin-top: 2px;
 }
 
 .needAcctText {
@@ -272,7 +304,7 @@
     display: block;
     padding-left: 0;
     padding-right: 0;
-    padding: 2px 4px;
+    padding: 2px 0px;
     // margin-top: 8px;
     // removed margin-top: to make spacing consistent
     // without requiring conditional logic
