@@ -3,13 +3,22 @@ import React from 'react';
 class SessionForm extends React.Component {
     constructor(props) {
         super(props);
-        this.state={email:"", username:"", password:"", buttonFocus:false};
+        this.state={email:"", username:"", password:"", isDemo:false, buttonFocus:false};
         this.buttonToggleFocusClass = this.buttonToggleFocusClass.bind(this);
         this.labelErrorStyles = this.labelErrorStyles.bind(this);
     }
 
     componentWillUnmount() {
         this.props.clearSessionErrors();
+    }
+
+    componentDidMount() {
+        // this.props.location.state only ever exists
+        // b/c it is defined in my handleDemoFromSignup
+        // don't need to check for .isDemo spaghetti code
+        if (this.props.location.state) {
+            setTimeout(() => this.handleDemoFromLogin(), 400);
+        }
     }
 
     formBoxType() {
@@ -199,7 +208,7 @@ class SessionForm extends React.Component {
     }
 
     handleDemoFromLogin(e) {
-        e.preventDefault(e);
+        // e.preventDefault(e);
         const user = { email: "not_a_dog@gmail.com".split(''), password: "passwordpassword".split('') }
 
         setTimeout(() => {
@@ -218,9 +227,13 @@ class SessionForm extends React.Component {
     }
 
     handleDemoFromSignup(e) {
-        // e.preventDefault(e);
-        this.props.history.push("/login");
-        setTimeout(() => this.handleDemoFromLogin(e), 1000);
+        this.props.history.push({
+            pathname: "/login",
+            state:
+            {
+                isDemo: true
+            }
+        })
     }
 
     render() {
