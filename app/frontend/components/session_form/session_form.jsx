@@ -133,8 +133,8 @@ class SessionForm extends React.Component {
 
     render() {
         const backgroundStyles = {
-            width: "1682px",
-            height: "946px"
+            width: "1920px",
+            height: "1080px"
         }
         
         const wrapperStyles = {
@@ -147,7 +147,7 @@ class SessionForm extends React.Component {
                 <div className="innerDivMount">
                     <div className="formBackground">
                         <div className="rightBackground" style={backgroundStyles}>
-                            <img className="colorBackgorund" width="1682" height="946" src="https://discordapp.com/assets/fd91131ea693096d6be5e8aa99d18f9e.jpg">
+                            <img className="colorBackgorund" width="1920" height="1080" src="https://discordapp.com/assets/fd91131ea693096d6be5e8aa99d18f9e.jpg">
                             </img>
                         </div>
 
