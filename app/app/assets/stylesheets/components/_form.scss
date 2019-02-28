@@ -41,6 +41,40 @@
     transition: opacity .4s ease;
 }
 
+.colorBackground {
+    // within the rightBackground div
+    opacity: 1;
+}
+
+.leftBackground {
+    -webkit-box-align: center;
+    -webkit-box-pack: center;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    width: auto;
+    overflow: hidden;
+    height: 100%;
+}
+
+.logoWrapper {
+    // z-index: 0;
+    // background: black;
+}
+
+.logo {
+    // z-index: 1;
+    background: url("https://discordapp.com/assets/4f004ac9be168ac6ee18fc442a52ab53.svg") no-repeat;
+    -webkit-filter: invert(76%);
+    filter: invert(76%);
+    height: 36px;
+    left: 50%;
+    margin-left: -65px;
+    position: absolute;
+    top: 40px;
+    width: 130px;
+}
+
 .lsFormWrapper {
     -webkit-box-align: center;
     -webkit-box-pack: center;
@@ -50,6 +84,7 @@
     justify-content: center;
     position: absolute;
     width: auto;
+    height: auto;
 }
 
 .lsFormBox {
@@ -63,3 +98,4 @@
     width: 480px;
     height: 51.64433618vh;
 }
+

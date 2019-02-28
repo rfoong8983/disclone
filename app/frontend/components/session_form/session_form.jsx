@@ -71,36 +71,43 @@ class SessionForm extends React.Component {
                             </img>
                         </div>
 
-                        <div 
-                            className="lsFormWrapper" 
-                            style={wrapperStyles}>
+                        {/* <canvas>canvas would go here for animations</canvas> */}
+                        <div className="leftBackground">
+                            <div className="logoWrapper">
+                                <a className="logo" rel="noopener" style={wrapperStyles}></a>
+                            </div>
 
-                            {this.displayErrors()}
-                            <form className="lsFormBox" onSubmit={this.handleSubmit.bind(this)}>
-                                <label>Email:
-                                <input
-                                        type="text"
-                                        value={this.state.email}
-                                        onChange={this.update('email')}
-                                    />
-                                </label>
+                            <div 
+                                className="lsFormWrapper" 
+                                style={wrapperStyles}>
 
-                                {this.displayAliasSignup()}
+                                {this.displayErrors()}
+                                <form className="lsFormBox" onSubmit={this.handleSubmit.bind(this)}>
+                                    <label>Email:
+                                    <input
+                                            type="text"
+                                            value={this.state.email}
+                                            onChange={this.update('email')}
+                                        />
+                                    </label>
 
-                                <label>Password:
-                                <input
-                                        type="password"
-                                        value={this.state.password}
-                                        onChange={this.update('password')}
-                                    />
-                                </label>
+                                    {this.displayAliasSignup()}
 
-                                <input type="submit" value={this.props.formType} />
-                            </form>
-                            {/* <p>or maybe you'd prefer to... </p> */}
-                            {/* {this.props.navLink}; */}
+                                    <label>Password:
+                                    <input
+                                            type="password"
+                                            value={this.state.password}
+                                            onChange={this.update('password')}
+                                        />
+                                    </label>
+
+                                    <input type="submit" value={this.props.formType} />
+                                </form>
+                                {/* <p>or maybe you'd prefer to... </p> */}
+                                {/* {this.props.navLink}; */}
+                            </div>
+
                         </div>
-
                     </div>
                 </div>
             </div>
