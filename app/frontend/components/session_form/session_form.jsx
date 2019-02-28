@@ -97,8 +97,8 @@ class SessionForm extends React.Component {
 
                                 <input type="submit" value={this.props.formType} />
                             </form>
-                            <p>or maybe you'd prefer to... </p>
-                            {this.props.navLink};
+                            {/* <p>or maybe you'd prefer to... </p> */}
+                            {/* {this.props.navLink}; */}
                         </div>
 
                     </div>
