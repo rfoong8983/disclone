@@ -10,7 +10,7 @@ class ApplicationController < ActionController::Base
         user.reset_session_token!
         session[:session_token] = user.session_token
         @current_user = user
-        # debugger // @current_user = ActiveRecord Obj
+        # @current_user = ActiveRecord Obj
     end
 
     def current_user

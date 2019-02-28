@@ -67,38 +67,40 @@ class SessionForm extends React.Component {
                 <div className="innerDivMount">
                     <div className="formBackground">
                         <div className="rightBackground">
-                            
-                            <div 
-                                className="lsFormWrapper" 
-                                style={wrapperStyles}>
-
-                                {this.displayErrors()}
-                                <form className="lsFormBox" onSubmit={this.handleSubmit.bind(this)}>
-                                    <label>Email:
-                                    <input
-                                            type="text"
-                                            value={this.state.email}
-                                            onChange={this.update('email')}
-                                        />
-                                    </label>
-
-                                    {this.displayAliasSignup()}
-
-                                    <label>Password:
-                                    <input
-                                            type="password"
-                                            value={this.state.password}
-                                            onChange={this.update('password')}
-                                        />
-                                    </label>
-
-                                    <input type="submit" value={this.props.formType} />
-                                </form>
-                                <p>or maybe you'd prefer to... </p>
-                                {this.props.navLink};
-                            </div>
-
+                            <img className="colorBackgorund" width="1460" height="821" src="https://discordapp.com/assets/fd91131ea693096d6be5e8aa99d18f9e.jpg">
+                            </img>
                         </div>
+
+                        <div 
+                            className="lsFormWrapper" 
+                            style={wrapperStyles}>
+
+                            {this.displayErrors()}
+                            <form className="lsFormBox" onSubmit={this.handleSubmit.bind(this)}>
+                                <label>Email:
+                                <input
+                                        type="text"
+                                        value={this.state.email}
+                                        onChange={this.update('email')}
+                                    />
+                                </label>
+
+                                {this.displayAliasSignup()}
+
+                                <label>Password:
+                                <input
+                                        type="password"
+                                        value={this.state.password}
+                                        onChange={this.update('password')}
+                                    />
+                                </label>
+
+                                <input type="submit" value={this.props.formType} />
+                            </form>
+                            <p>or maybe you'd prefer to... </p>
+                            {this.props.navLink};
+                        </div>
+
                     </div>
                 </div>
             </div>
