@@ -20,7 +20,7 @@ const msp = ({ session, entities: { users } }) => (
 const mdp = ( dispatch, ownProps ) => (
     {
         logout: () => dispatch(logout())
-            .then(() => ownProps.history.push("/signup"))
+            .then(() => ownProps.history.push("/login"))
     }
 );
 
