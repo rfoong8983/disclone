@@ -11,6 +11,7 @@
     overflow: hidden;
     position: absolute;
     width: 100vw;
+    outline: none;
 }
 
 .innerDivMount {
@@ -31,20 +32,23 @@
 }
 
 .rightBackground {
-    // bottom: 0;
+    top: 0;
     opacity: 1;
     pointer-events: none;
-    position: fixed;
-    // right: 0;
+    position: absolute;
+    left: 0;
     transition: opacity .4s ease;
+    -webkit-box-direction: normal;
 }
 
 .colorBackground {
     // within the rightBackground div
     opacity: 1;
-    position: fixed;
-    top: 0;
-    left: 0;
+    // position: absolute;
+    // top: 0;
+    // left: 0;
+    // height: 100%;
+    // width: 100%;
 }
 
 .leftBackground {
@@ -181,7 +185,13 @@
     transition: background-color .15s ease,border .15s ease;
     width: 100%;
     font-size: 16px;
-    font-family: Whitney-light;
+    font-family: Whitney-norm;
+    outline: none;
+}
+
+.actualInput:focus {
+    border-color: #7289da;
+    transition: background-color .15s ease,border .15s ease;
 }
 
 .forgotPassword {
@@ -302,6 +312,14 @@
 .serviceLinks {
     color: #7289da;
     text-decoration: none;
+}
+
+.errorBorders {
+    border-color: #f04747;
+}
+
+.errorText {
+    color: #f04747;
 }
 
 

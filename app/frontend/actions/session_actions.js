@@ -45,6 +45,13 @@ const receiveSessionErrors = (errors) => {
     };
 };
 
+export const clearSessionErrors = () => {
+    return {
+        type: RECEIVE_SESSION_ERRORS,
+        errors: []
+    };
+};
+
 const logoutCurrentUser = () => (
     {
         type: LOGOUT_CURRENT_USER

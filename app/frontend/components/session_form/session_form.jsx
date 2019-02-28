@@ -6,6 +6,10 @@ class SessionForm extends React.Component {
         this.state={email:"", username:"", password:""};
     }
 
+    componentDidMount() {
+        this.props.clearSessionErrors();
+    }
+
     formBoxType() {
         if (this.props.formType === "signup") {
             return "suFormBox";
@@ -63,9 +67,9 @@ class SessionForm extends React.Component {
             return (
                 <div className="termsWrapper normFont">
                     By registering you agree to Disclone's
-                    <a className="serviceLinks" href="">Terms of Service</a>
-                    &nbsp;and&nbsp;
-                    <a className="serviceLinks" href="">Privacy Policy</a>
+                    <a className="serviceLinks" href=""> Terms of Service </a>
+                    and
+                    <a className="serviceLinks" href=""> Privacy Policy</a>
                     .
                 </div>
             )
@@ -126,7 +130,13 @@ class SessionForm extends React.Component {
         this.props.history.push("/login")
     }
 
+
     render() {
+        const backgroundStyles = {
+            width: "1682px",
+            height: "946px"
+        }
+        
         const wrapperStyles = {
             opacity: '1',
             transform: 'scale(1) translateY(0px) translateZ(0px)'
@@ -136,9 +146,8 @@ class SessionForm extends React.Component {
             <div className="applicationMount">
                 <div className="innerDivMount">
                     <div className="formBackground">
-                        <div className="rightBackground">
-                            <img className="colorBackgorund" src="https://discordapp.com/assets/fd91131ea693096d6be5e8aa99d18f9e.jpg">
-                            {/* <img className="colorBackgorund" width="1480" height="821" src="https://discordapp.com/assets/fd91131ea693096d6be5e8aa99d18f9e.jpg"> */}
+                        <div className="rightBackground" style={backgroundStyles}>
+                            <img className="colorBackgorund" width="1682" height="946" src="https://discordapp.com/assets/fd91131ea693096d6be5e8aa99d18f9e.jpg">
                             </img>
                         </div>
 
