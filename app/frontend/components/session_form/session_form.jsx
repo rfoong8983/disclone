@@ -46,7 +46,7 @@ class SessionForm extends React.Component {
     displayBelowButton() {
         if (this.props.formType === "signup") {
             return (
-                <button className="haveAccountButton" type="button" onClick={this.renderLogin.bind(this)}>
+                <button className="haveAccountButton button" type="button" onClick={this.renderLogin.bind(this)}>
                     <div className="haveAcctText medFont">Already have an account?</div>
                 </button>
             )
@@ -54,7 +54,7 @@ class SessionForm extends React.Component {
             return (
                 <div className="registerWrapper">
                     <span className="needAcctText normFont">Need an account?</span>
-                    <button className="registerButton" type="button" onClick={this.renderSignup.bind(this)}>
+                    <button className="registerButton button" type="button" onClick={this.renderSignup.bind(this)}>
                         <div className="registerButtonText medFont">Register</div>
                     </button>
                 </div>
@@ -66,10 +66,10 @@ class SessionForm extends React.Component {
         if (this.props.formType === "signup") {
             return (
                 <div className="termsWrapper normFont">
-                    By registering you agree to Disclone's
-                    <a className="serviceLinks" href=""> Terms of Service </a>
-                    and
-                    <a className="serviceLinks" href=""> Privacy Policy</a>
+                    By registering you agree to Disclone's&nbsp;&nbsp;
+                    <a className="serviceLinks button" href="">Terms of Service</a>
+                    &nbsp;&nbsp;and&nbsp;&nbsp;
+                    <a className="serviceLinks button" href="">Privacy Policy</a>
                     .
                 </div>
             )
