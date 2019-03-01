@@ -735,11 +735,15 @@
 }
 
 .splash_footerSeparator {
-    background: url('/assets/underline.svg');
+    background-image: image-url('underline.svg');
     height: 1px;
     margin: 34px 0;
     opacity: .1;
     width: 100%;
+}
+
+.splash_underline {
+    // opacity: .1;
 }
 
 .splash_footerSignUp {

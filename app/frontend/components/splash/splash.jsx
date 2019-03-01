@@ -159,7 +159,9 @@ class Splash extends React.Component {
                     </svg>
                     <div className="splash_footerContent">
                         <div className="splash_footerLinks"></div>
-                        <div className="splash_footerSeparator"></div>
+                        <div className="splash_footerSeparator">
+                            {/* <img className="splash_underline" src={window.underline}></img> */}
+                        </div>
                         <div className="splash_footerSignUp">
                             <div className="splash_footerSpiel">
                                 <h2 className="splash_footerMainText normFont">
