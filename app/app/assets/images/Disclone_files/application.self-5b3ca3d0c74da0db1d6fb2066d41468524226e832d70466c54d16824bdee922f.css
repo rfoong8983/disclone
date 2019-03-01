@@ -1,0 +1,1839 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+
+ */
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+/* line 6, /Users/ryan/documents/projects/fullstack/disclone/app/app/assets/stylesheets/base/reset.scss */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+/* line 28, /Users/ryan/documents/projects/fullstack/disclone/app/app/assets/stylesheets/base/reset.scss */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+/* line 32, /Users/ryan/documents/projects/fullstack/disclone/app/app/assets/stylesheets/base/reset.scss */
+body {
+  line-height: 1;
+}
+
+/* line 35, /Users/ryan/documents/projects/fullstack/disclone/app/app/assets/stylesheets/base/reset.scss */
+ol, ul {
+  list-style: none;
+}
+
+/* line 38, /Users/ryan/documents/projects/fullstack/disclone/app/app/assets/stylesheets/base/reset.scss */
+blockquote, q {
+  quotes: none;
+}
+
+/* line 41, /Users/ryan/documents/projects/fullstack/disclone/app/app/assets/stylesheets/base/reset.scss */
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+
+/* line 46, /Users/ryan/documents/projects/fullstack/disclone/app/app/assets/stylesheets/base/reset.scss */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* line 1, /Users/ryan/documents/projects/fullstack/disclone/app/app/assets/stylesheets/components/_form.scss */
+.applicationMount {
+  -ms-flex-direction: column;
+  -webkit-box-direction: normal;
+  -webkit-box-orient: vertical;
+  background-color: #202225;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow: hidden;
+  position: absolute;
+  width: 100vw;
+  outline: none;
+}
+
+/* line 17, /Users/ryan/documents/projects/fullstack/disclone/app/app/assets/stylesheets/components/_form.scss */
+.innerDivMount {
+  -webkit-box-flex: 1;
+  flex: 1 1 auto;
+  position: relative;
+  z-index: auto;
+}
+
+/* line 24, /Users/ryan/documents/projects/fullstack/disclone/app/app/assets/stylesheets/components/_form.scss */
+.formBackground {
+  background: #2f3136;
+  overflow-x: hidden;
+  overflow-y: auto;
+  z-index: 1;
+  height: 100%;
+  position: absolute;
+  width: 100%;
+}
+
+/* line 34, /Users/ryan/documents/projects/fullstack/disclone/app/app/assets/stylesheets/components/_form.scss */
+.rightBackground {
+  bottom: 0;
+  opacity: 1;
+  pointer-events: none;
+  position: absolute;
+  right: 0;
+  transition: opacity .4s ease;
+  -webkit-box-direction: normal;
+}
+
+/* line 44, /Users/ryan/documents/projects/fullstack/disclone/app/app/assets/stylesheets/components/_form.scss */
+.colorBackground {
+  opacity: 1;
+}
+
+/* line 54, /Users/ryan/documents/projects/fullstack/disclone/app/app/assets/stylesheets/components/_form.scss */
+.leftBackground {
+  -webkit-box-align: center;
+  -webkit-box-pack: center;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  width: auto;
+  overflow: hidden;
+  height: 100%;
+}
+
+/* line 70, /Users/ryan/documents/projects/fullstack/disclone/app/app/assets/stylesheets/components/_form.scss */
+.logo {
+  z-index: 1;
+  height: 36px;
+  left: 50%;
+  margin-left: -65px;
+  position: absolute;
+  top: 40px;
+  width: 130px;
+  display: flex;
+  vertical-align: baseline;
+  text-decoration: none;
+}
+
+/* line 86, /Users/ryan/documents/projects/fullstack/disclone/app/app/assets/stylesheets/components/_form.scss */
+.login_logoIcon {
+  height: 36px;
+  width: 36px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #3d3d3d;
+  margin-bottom: 1px;
+  text-decoration: none;
+}
+
+/* line 97, /Users/ryan/documents/projects/fullstack/disclone/app/app/assets/stylesheets/components/_form.scss */
+.loginLogoText {
+  margin-top: 3px;
+  font-size: 22.5px;
+  width: 100%;
+  text-decoration: none;
+  margin-left: 3px;
+  color: #3d3d3d;
+  font-weight: 700;
+}
+
+/* line 107, /Users/ryan/documents/projects/fullstack/disclone/app/app/assets/stylesheets/components/_form.scss */
+.lsFormBoxWrapper {
+  -webkit-box-align: center;
+  -webkit-box-pack: center;
+  align-items: center;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  width: auto;
+  height: auto;
+}
+
+/* line 119, /Users/ryan/documents/projects/fullstack/disclone/app/app/assets/stylesheets/components/_form.scss */
+.liFormBox {
+  background: #36393f;
+  border-radius: 5px;
+  box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.2);
+  box-sizing: border-box;
+  color: #72767d;
+  font-size: 18px;
+  padding: 40px;
+  width: 480px;
+  height: 424px;
+}
+
+/* line 131, /Users/ryan/documents/projects/fullstack/disclone/app/app/assets/stylesheets/components/_form.scss */
+.suFormBox {
+  background: #36393f;
+  border-radius: 5px;
+  box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.2);
+  box-sizing: border-box;
+  color: #72767d;
+  font-size: 18px;
+  padding: 40px;
+  width: 480px;
+  height: 492px;
+}
+
+/* line 144, /Users/ryan/documents/projects/fullstack/disclone/app/app/assets/stylesheets/components/_form.scss */
+.lsFormWelcomeWrapper {
+  text-align: center;
+  width: 100%;
+}
+
+/* line 149, /Users/ryan/documents/projects/fullstack/disclone/app/app/assets/stylesheets/components/_form.scss */
+.lsFormTitle {
+  font-size: 26px;
+  line-height: 32px;
+  margin-bottom: 8px;
+  font-weight: 300;
+  color: #fff;
+  vertical-align: baseline;
+}
+
+/* line 158, /Users/ryan/documents/projects/fullstack/disclone/app/app/assets/stylesheets/components/_form.scss */
+.liFormSubtitle {
+  color: #72767d;
+  font-size: 18px;
+  line-height: 22px;
+  font-weight: 400;
+}
+
+/* line 165, /Users/ryan/documents/projects/fullstack/disclone/app/app/assets/stylesheets/components/_form.scss */
+.lsFormContentWrapper {
+  text-align: left;
+  width: 100%;
+  margin-top: 20px;
+}
+
+/* line 171, /Users/ryan/documents/projects/fullstack/disclone/app/app/assets/stylesheets/components/_form.scss */
+.lsFormEmailWrapper {
+  margin-bottom: 20px;
+}
+
+/* line 175, /Users/ryan/documents/projects/fullstack/disclone/app/app/assets/stylesheets/components/_form.scss */
+.lsFormUserWrapper {
+  margin-bottom: 20px;
+}
+
+/* line 179, /Users/ryan/documents/projects/fullstack/disclone/app/app/assets/stylesheets/components/_form.scss */
+.inputLabel {
+  color: #b9bbbe;
+  letter-spacing: .5px;
+  text-transform: uppercase;
+  -webkit-box-flex: 1;
+  cursor: default;
+  flex: 1;
+  margin-bottom: 8px;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 16px;
+  display: inline-block;
+}
+
+/* line 193, /Users/ryan/documents/projects/fullstack/disclone/app/app/assets/stylesheets/components/_form.scss */
+#errors {
+  font-style: italic;
+  font-weight: 400;
+  font-size: 12px;
+  font-family: Whitney-norm;
+  line-height: 16px;
+  color: #f04747;
+  display: inline-block;
+  text-transform: none;
+}
+
+/* line 204, /Users/ryan/documents/projects/fullstack/disclone/app/app/assets/stylesheets/components/_form.scss */
+#labelBorderErrorStyle {
+  color: #f04747;
+  border-color: #f04747;
+}
+
+/* line 209, /Users/ryan/documents/projects/fullstack/disclone/app/app/assets/stylesheets/components/_form.scss */
+.inputWrapper {
+  -webkit-box-direction: normal;
+  -webkit-box-orient: vertical;
+  flex-direction: column;
+  display: flex;
+}
+
+/* line 216, /Users/ryan/documents/projects/fullstack/disclone/app/app/assets/stylesheets/components/_form.scss */
+.actualInput {
+  background-color: rgba(0, 0, 0, 0.1);
+  border-color: rgba(0, 0, 0, 0.3);
+  color: #f6f6f7;
+  height: 40px;
+  padding: 10px;
+  border-radius: 3px;
+  border-style: solid;
+  border-width: 1px;
+  box-sizing: border-box;
+  transition: background-color .15s ease,border .15s ease;
+  width: 100%;
+  font-size: 16px;
+  font-family: Whitney-norm;
+  outline: none;
+}
+
+/* line 233, /Users/ryan/documents/projects/fullstack/disclone/app/app/assets/stylesheets/components/_form.scss */
+.actualInput:focus {
+  border-color: #7289da;
+  transition: background-color .15s ease,border .15s ease;
+}
+
+/* line 238, /Users/ryan/documents/projects/fullstack/disclone/app/app/assets/stylesheets/components/_form.scss */
+.forgotPassword {
+  display: block;
+  padding-left: 0;
+  padding-right: 0;
+  margin-top: 4px;
+  margin-bottom: 16px;
+  height: auto;
+  width: auto;
+}
+
+/* line 251, /Users/ryan/documents/projects/fullstack/disclone/app/app/assets/stylesheets/components/_form.scss */
+.submitButton:hover {
+  background-color: #677bc4;
+  transition: background-color .17s ease,color .17s ease;
+}
+
+/* line 257, /Users/ryan/documents/projects/fullstack/disclone/app/app/assets/stylesheets/components/_form.scss */
+.submitButton {
+  background-color: #7289da;
+  color: #fff;
+  font-size: 16px;
+  line-height: 24px;
+  margin-bottom: 8px;
+  width: 100%;
+  height: 44px;
+  min-height: 44px;
+  min-width: 130px;
+  transition: background-color .17s ease,color .17s ease;
+  -webkit-box-align: center;
+  -webkit-box-pack: center;
+  align-items: center;
+  border: none;
+  border-radius: 3px;
+  box-sizing: border-box;
+  justify-content: center;
+  padding: 2px 16px;
+  position: relative;
+  user-select: none;
+  outline: none;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+/* line 283, /Users/ryan/documents/projects/fullstack/disclone/app/app/assets/stylesheets/components/_form.scss */
+#submitFocus {
+  background-color: #5d6dac;
+  transition: background-color .17s ease-in,color .17s ease-in;
+}
+
+/* line 289, /Users/ryan/documents/projects/fullstack/disclone/app/app/assets/stylesheets/components/_form.scss */
+.submitButtonText {
+  margin: 0 auto;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* line 296, /Users/ryan/documents/projects/fullstack/disclone/app/app/assets/stylesheets/components/_form.scss */
+.registerWrapper {
+  margin-top: 2px;
+}
+
+/* line 300, /Users/ryan/documents/projects/fullstack/disclone/app/app/assets/stylesheets/components/_form.scss */
+.needAcctText {
+  font-size: 14px;
+  line-height: 16px;
+}
+
+/* line 305, /Users/ryan/documents/projects/fullstack/disclone/app/app/assets/stylesheets/components/_form.scss */
+.registerButton {
+  color: #7289da;
+  display: inline-block;
+  margin-bottom: 0;
+  margin-left: 4px;
+  padding: 0;
+  vertical-align: bottom;
+  width: auto;
+  align-items: center;
+  background: none;
+  border: none;
+  border-radius: 3px;
+  box-sizing: border-box;
+  font-size: 14px;
+  justify-content: center;
+  line-height: 16px;
+  position: relative;
+  user-select: none;
+  outline: none;
+}
+
+/* line 326, /Users/ryan/documents/projects/fullstack/disclone/app/app/assets/stylesheets/components/_form.scss */
+.haveAccountButton {
+  color: #7289da;
+  display: block;
+  padding-left: 0;
+  padding-right: 0;
+  padding: 2px 0px;
+  width: auto;
+  height: auto;
+  -webkit-box-align: center;
+  -webkit-box-pack: center;
+  align-items: center;
+  background: none;
+  border: none;
+  border-radius: 3px;
+  box-sizing: border-box;
+  font-size: 14px;
+  justify-content: center;
+  line-height: 16px;
+  position: relative;
+  user-select: none;
+  outline: none;
+}
+
+/* line 355, /Users/ryan/documents/projects/fullstack/disclone/app/app/assets/stylesheets/components/_form.scss */
+.haveAcctText {
+  margin: 0 auto;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: #7289da;
+}
+
+/* line 363, /Users/ryan/documents/projects/fullstack/disclone/app/app/assets/stylesheets/components/_form.scss */
+.termsWrapper {
+  color: #72767d;
+  margin-top: 20px;
+  font-size: 12px;
+  line-height: 16px;
+}
+
+/* line 370, /Users/ryan/documents/projects/fullstack/disclone/app/app/assets/stylesheets/components/_form.scss */
+.serviceLinks {
+  color: #7289da;
+  text-decoration: none;
+}
+
+/* line 375, /Users/ryan/documents/projects/fullstack/disclone/app/app/assets/stylesheets/components/_form.scss */
+.errorBorders {
+  border-color: #f04747;
+}
+
+/* line 379, /Users/ryan/documents/projects/fullstack/disclone/app/app/assets/stylesheets/components/_form.scss */
+.errorText {
+  color: #f04747;
+}
+
+/* line 383, /Users/ryan/documents/projects/fullstack/disclone/app/app/assets/stylesheets/components/_form.scss */
+.button:hover {
+  text-decoration: underline;
+}
+
+@font-face {
+  font-family: Whitney-light;
+  font-style: light;
+  font-weight: 300;
+  src: url(https://discordapp.com/assets/16801bfdf51ed88e69bc90626a3ea436.woff) format("woff");
+}
+@font-face {
+  font-family: Whitney-norm;
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://discordapp.com/assets/d153359b5d87601d2b9c708b7ae2db02.woff) format("woff");
+}
+@font-face {
+  font-family: Whitney-med;
+  font-style: medium;
+  font-weight: 600;
+  src: url(https://discordapp.com/assets/a934ab008c7f6a2274ec441f6be0696a.woff) format("woff");
+}
+@font-face {
+  font-family: Whitney-semi;
+  font-style: semibold;
+  font-weight: 650;
+  src: url(https://discordapp.com/assets/877ef48bf9fcfee590f0ba64de101b59.woff) format("woff");
+}
+@font-face {
+  font-family: Whitney-bold;
+  font-style: bold;
+  font-weight: 700;
+  src: url(https://discordapp.com/assets/2e004dd717cdc58b9ccb361d286ebbce.woff) format("woff");
+}
+/* line 428, /Users/ryan/documents/projects/fullstack/disclone/app/app/assets/stylesheets/components/_form.scss */
+.lightFont {
+  font-family: Whitney-light;
+}
+
+/* line 432, /Users/ryan/documents/projects/fullstack/disclone/app/app/assets/stylesheets/components/_form.scss */
+.normFont {
+  font-family: Whitney-norm;
+}
+
+/* line 436, /Users/ryan/documents/projects/fullstack/disclone/app/app/assets/stylesheets/components/_form.scss */
+.medFont {
+  font-family: Whitney-med;
+}
+
+/* line 440, /Users/ryan/documents/projects/fullstack/disclone/app/app/assets/stylesheets/components/_form.scss */
+.semiFont {
+  font-family: Whitney-semi;
+}
+
+/* line 444, /Users/ryan/documents/projects/fullstack/disclone/app/app/assets/stylesheets/components/_form.scss */
+.boldFont {
+  font-family: Whitney-bold;
+}
+
+/* line 1, /Users/ryan/documents/projects/fullstack/disclone/app/app/assets/stylesheets/components/_pnf.scss */
+.pnf_wrapper {
+  flex-shrink: 1;
+  flex-grow: 1;
+  flex-basis: auto;
+  background-color: #f6f6f7;
+  flex-wrap: nowrap;
+  height: 100vh;
+  overflow: auto;
+  width: 100%;
+  -webkit-box-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-direction: normal;
+  -webkit-box-orient: horizontal;
+  display: flex;
+  flex-direction: row;
+  box-sizing: border-box;
+  height: 100vh;
+}
+
+/* line 22, /Users/ryan/documents/projects/fullstack/disclone/app/app/assets/stylesheets/components/_pnf.scss */
+.pnf_textWrapper {
+  margin-right: 10%;
+  max-width: 500px;
+  padding-left: 20px;
+  z-index: 1;
+}
+
+/* line 29, /Users/ryan/documents/projects/fullstack/disclone/app/app/assets/stylesheets/components/_pnf.scss */
+.pnf_errCodeWrapper {
+  -webkit-box-ordinal-group: 3;
+  height: 150px;
+  order: 2;
+  padding: 20px 0;
+  display: block;
+  z-index: -1;
+}
+
+/* line 38, /Users/ryan/documents/projects/fullstack/disclone/app/app/assets/stylesheets/components/_pnf.scss */
+.pnf_errCode {
+  color: #dadff0;
+  display: inline-block;
+  font-size: 150px;
+  font-weight: 700;
+  position: relative;
+  text-shadow: -2px 0px #cbd3f5;
+  z-index: -1;
+}
+
+/* line 49, /Users/ryan/documents/projects/fullstack/disclone/app/app/assets/stylesheets/components/_pnf.scss */
+.pnf_errCode::before {
+  animation-name: glitch-anim-2-3Jj1Wz;
+  animation-duration: 4s;
+  animation-timing-function: linear;
+  animation-delay: 0s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate-reverse;
+  animation-fill-mode: none;
+  animation-play-state: running;
+  clip: rect(24px, 550px, 80px, 0);
+  left: 2px;
+  text-shadow: -2px 0 #e3e7f8;
+  background: #f6f6f7;
+  content: attr(data-text);
+  height: 100%;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  opacity: .7;
+}
+
+/* line 72, /Users/ryan/documents/projects/fullstack/disclone/app/app/assets/stylesheets/components/_pnf.scss */
+.pnf_errCode::after {
+  animation-name: glitch-anim-n2MEks;
+  animation-duration: 2s;
+  animation-timing-function: linear;
+  animation-delay: 0s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate-reverse;
+  animation-fill-mode: none;
+  animation-play-state: running;
+  clip: rect(85px, 550px, 140px, 0);
+  left: -2px;
+  text-shadow: -2px 0 rgba(114, 137, 218, 0.3);
+  background: #f6f6f7;
+  content: attr(data-text);
+  height: 100%;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+/* line 94, /Users/ryan/documents/projects/fullstack/disclone/app/app/assets/stylesheets/components/_pnf.scss */
+.pnf_errTitle {
+  margin-bottom: 8px;
+  margin-top: 8px;
+  color: #72767d;
+  font-size: 25px;
+  line-height: 40px;
+  text-transform: uppercase;
+  font-weight: 700;
+  z-index: 3;
+  background: #f6f6f7;
+}
+
+/* line 106, /Users/ryan/documents/projects/fullstack/disclone/app/app/assets/stylesheets/components/_pnf.scss */
+.pnf_errSuggestionText {
+  color: #b9bbbe;
+  font-size: 20px;
+  line-height: 35px;
+  text-align: left;
+  font-weight: 300;
+  z-index: 3;
+  background: #f6f6f7;
+}
+
+/* line 116, /Users/ryan/documents/projects/fullstack/disclone/app/app/assets/stylesheets/components/_pnf.scss */
+.pnf_errorUl {
+  margin-top: 20px;
+  list-style: none;
+  text-decoration: none;
+}
+
+/* line 122, /Users/ryan/documents/projects/fullstack/disclone/app/app/assets/stylesheets/components/_pnf.scss */
+.pnf_errorLi {
+  color: #c7d0f0;
+  font-size: 18px;
+  line-height: 35px;
+  position: relative;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: .1s ease-in-out;
+  list-style: none;
+}
+
+/* line 133, /Users/ryan/documents/projects/fullstack/disclone/app/app/assets/stylesheets/components/_pnf.scss */
+.pnf_errorLi:hover {
+  color: #7289da;
+}
+
+/* line 137, /Users/ryan/documents/projects/fullstack/disclone/app/app/assets/stylesheets/components/_pnf.scss */
+.pnf_errorLinks {
+  text-decoration: none;
+  color: #c7d0f0;
+}
+
+/* line 142, /Users/ryan/documents/projects/fullstack/disclone/app/app/assets/stylesheets/components/_pnf.scss */
+.pnf_errorLinks:hover {
+  text-decoration: none;
+  color: #7289da;
+}
+
+/* line 147, /Users/ryan/documents/projects/fullstack/disclone/app/app/assets/stylesheets/components/_pnf.scss */
+.pnf_animationWrapper {
+  -webkit-box-ordinal-group: 2;
+  max-width: 40%;
+  order: 1;
+  overflow: hidden;
+  position: relative;
+  width: 768px;
+  height: 60%;
+}
+
+/* line 157, /Users/ryan/documents/projects/fullstack/disclone/app/app/assets/stylesheets/components/_pnf.scss */
+.pnf_staticdoge {
+  height: 100%;
+  position: absolute;
+  width: 100%;
+  z-index: 2;
+}
+
+/* line 164, /Users/ryan/documents/projects/fullstack/disclone/app/app/assets/stylesheets/components/_pnf.scss */
+.pnf_logoWrapper {
+  bottom: 15px;
+  left: 0;
+  position: fixed;
+  text-align: center;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+/* line 174, /Users/ryan/documents/projects/fullstack/disclone/app/app/assets/stylesheets/components/_pnf.scss */
+.pnf_logoLink {
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  vertical-align: baseline;
+}
+
+/* line 181, /Users/ryan/documents/projects/fullstack/disclone/app/app/assets/stylesheets/components/_pnf.scss */
+.pnf_logoSvgWrapper {
+  display: flex;
+  justify-content: center;
+}
+
+/* line 186, /Users/ryan/documents/projects/fullstack/disclone/app/app/assets/stylesheets/components/_pnf.scss */
+.pnf_logoIcon {
+  color: #e6e6e8;
+  flex-grow: 0;
+  flex-shrink: 0;
+  -webkit-box-flex: 1;
+  box-sizing: border-box;
+  overflow: hidden;
+  height: 55px;
+  width: 55px;
+  -webkit-box-direction: normal;
+  cursor: pointer;
+}
+
+/* line 199, /Users/ryan/documents/projects/fullstack/disclone/app/app/assets/stylesheets/components/_pnf.scss */
+.pnf_LogoText {
+  color: #e6e6e8;
+  margin-top: 3px;
+  font-size: 22.5px;
+  text-decoration: none;
+  font-weight: 700;
+  margin-left: 4px;
+  display: flex;
+  vertical-align: baseline;
+}
+
+/* line 210, /Users/ryan/documents/projects/fullstack/disclone/app/app/assets/stylesheets/components/_pnf.scss */
+.pnf_LogoText_p {
+  color: #e6e6e8;
+  font-size: 33.8px;
+  text-decoration: none;
+  font-weight: 700;
+  margin-top: 7px;
+}
+
+@keyframes glitch-anim-2-3Jj1Wz {
+  0% {
+    transform: translate3d(0, -70px, 0);
+  }
+  3% {
+    transform: translate3d(0, -10px, 0);
+  }
+  5% {
+    transform: translate3d(0, -25px, 0);
+  }
+  10% {
+    transform: translate3d(0, -75px, 0);
+  }
+  15% {
+    transform: translate3d(0, -12px, 0);
+  }
+  18% {
+    transform: translate3d(0, -80px, 0);
+  }
+  20% {
+    transform: translate3d(0, -12px, 0);
+  }
+  30% {
+    transform: translate3d(0, -50px, 0);
+  }
+  35% {
+    transform: translate3d(0, -10px, 0);
+  }
+  35% {
+    transform: translate3d(0, -80px, 0);
+  }
+  40% {
+    transform: translate3d(0, -10px, 0);
+  }
+  45% {
+    transform: translate3d(0, -80px, 0);
+  }
+  50% {
+    transform: translate3d(0, -10px, 0);
+  }
+  55% {
+    transform: translate3d(0, -80px, 0);
+  }
+  60% {
+    transform: translate3d(0, -15px, 0);
+  }
+  70% {
+    transform: translate3d(0, -65px, 0);
+  }
+  75% {
+    transform: translate3d(0, -12px, 0);
+  }
+  80% {
+    transform: translate3d(0, -70px, 0);
+  }
+  90% {
+    transform: translate3d(0, -10px, 0);
+  }
+  95% {
+    transform: translate3d(0, -85px, 0);
+  }
+  100% {
+    transform: translate3d(0, -10px, 0);
+  }
+}
+@keyframes glitch-anim-n2MEks {
+  0% {
+    transform: translate3d(0, 140px, 0);
+  }
+  10% {
+    transform: translate3d(0, 10px, 0);
+  }
+  20% {
+    transform: translate3d(0, 160px, 0);
+  }
+  30% {
+    transform: translate3d(0, 10px, 0);
+  }
+  40% {
+    transform: translate3d(0, 1750px, 0);
+  }
+  60% {
+    transform: translate3d(0, 15px, 0);
+  }
+  70% {
+    transform: translate3d(0, 155px, 0);
+  }
+  80% {
+    transform: translate3d(0, 17px, 0);
+  }
+  90% {
+    transform: translate3d(0, 165px, 0);
+  }
+  95% {
+    transform: translate3d(0, 20px, 0);
+  }
+  100% {
+    transform: translate3d(0, 160px, 0);
+  }
+}
+@font-face {
+  font-family: Whitney-light;
+  font-style: light;
+  font-weight: 300;
+  src: url(https://discordapp.com/assets/16801bfdf51ed88e69bc90626a3ea436.woff) format("woff");
+}
+@font-face {
+  font-family: Whitney-norm;
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://discordapp.com/assets/d153359b5d87601d2b9c708b7ae2db02.woff) format("woff");
+}
+@font-face {
+  font-family: Whitney-med;
+  font-style: medium;
+  font-weight: 600;
+  src: url(https://discordapp.com/assets/a934ab008c7f6a2274ec441f6be0696a.woff) format("woff");
+}
+@font-face {
+  font-family: Whitney-semi;
+  font-style: semibold;
+  font-weight: 650;
+  src: url(https://discordapp.com/assets/877ef48bf9fcfee590f0ba64de101b59.woff) format("woff");
+}
+@font-face {
+  font-family: Whitney-bold;
+  font-style: bold;
+  font-weight: 700;
+  src: url(https://discordapp.com/assets/2e004dd717cdc58b9ccb361d286ebbce.woff) format("woff");
+}
+/* line 312, /Users/ryan/documents/projects/fullstack/disclone/app/app/assets/stylesheets/components/_pnf.scss */
+.lightFont {
+  font-family: Whitney-light;
+}
+
+/* line 316, /Users/ryan/documents/projects/fullstack/disclone/app/app/assets/stylesheets/components/_pnf.scss */
+.normFont {
+  font-family: Whitney-norm;
+}
+
+/* line 320, /Users/ryan/documents/projects/fullstack/disclone/app/app/assets/stylesheets/components/_pnf.scss */
+.medFont {
+  font-family: Whitney-med;
+}
+
+/* line 324, /Users/ryan/documents/projects/fullstack/disclone/app/app/assets/stylesheets/components/_pnf.scss */
+.semiFont {
+  font-family: Whitney-semi;
+}
+
+/* line 328, /Users/ryan/documents/projects/fullstack/disclone/app/app/assets/stylesheets/components/_pnf.scss */
+.boldFont {
+  font-family: Whitney-bold;
+}
+
+/* line 1, /Users/ryan/documents/projects/fullstack/disclone/app/app/assets/stylesheets/components/_splash.scss */
+.vsc-initialized {
+  overflow: visible;
+  background-color: #26262b;
+  line-height: 1;
+  height: 100vh;
+  z-index: -1;
+}
+
+/* line 9, /Users/ryan/documents/projects/fullstack/disclone/app/app/assets/stylesheets/components/_splash.scss */
+.vsc-initialized::-webkit-scrollbar {
+  background: transparent;
+}
+
+/* line 19, /Users/ryan/documents/projects/fullstack/disclone/app/app/assets/stylesheets/components/_splash.scss */
+.splash_OriginWrapper {
+  overflow: hidden;
+  background-color: #26262b;
+  vertical-align: baseline;
+  height: 100%;
+}
+
+/* line 26, /Users/ryan/documents/projects/fullstack/disclone/app/app/assets/stylesheets/components/_splash.scss */
+.splash_NavWrapperAbs {
+  background: transparent;
+  position: absolute;
+  z-index: 11;
+  width: 100%;
+}
+
+/* line 33, /Users/ryan/documents/projects/fullstack/disclone/app/app/assets/stylesheets/components/_splash.scss */
+.splash_desktopNavWrapper {
+  display: block;
+  box-sizing: border-box;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 400;
+  height: 72px;
+  padding: 8px 0;
+  position: relative;
+  user-select: none;
+  width: 100%;
+  z-index: 56;
+}
+
+/* line 47, /Users/ryan/documents/projects/fullstack/disclone/app/app/assets/stylesheets/components/_splash.scss */
+.splash_innerDesktopNav {
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-box-pack: center;
+  align-items: center;
+  flex-wrap: wrap;
+  height: 100%;
+  justify-content: center;
+  margin: 0 auto;
+  max-width: 1600px;
+  padding: 0 30px;
+  position: relative;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 400;
+  user-select: none;
+}
+
+/* line 65, /Users/ryan/documents/projects/fullstack/disclone/app/app/assets/stylesheets/components/_splash.scss */
+.splash_navLogo {
+  -webkit-box-flex: 0;
+  flex: 0 0 auto;
+  margin-right: 12px;
+  margin-top: 4px;
+  display: flex;
+}
+
+/* line 74, /Users/ryan/documents/projects/fullstack/disclone/app/app/assets/stylesheets/components/_splash.scss */
+.splash_logoRedirect {
+  text-decoration: none;
+}
+
+/* line 78, /Users/ryan/documents/projects/fullstack/disclone/app/app/assets/stylesheets/components/_splash.scss */
+.splash_logoSvgWrapper {
+  flex-shrink: 1;
+  flex-grow: 1;
+  flex-basis: auto;
+  flex-wrap: nowrap;
+  -webkit-box-pack: start;
+  justify-content: start;
+  -webkit-box-align: stretch;
+  align-items: stretch;
+  -webkit-box-direction: normal;
+  -webkit-box-orient: horizontal;
+  display: flex;
+  flex-direction: row;
+  box-sizing: border-box;
+  color: -webkit-link;
+  cursor: pointer;
+}
+
+/* line 97, /Users/ryan/documents/projects/fullstack/disclone/app/app/assets/stylesheets/components/_splash.scss */
+.splash_logoIcon {
+  flex-grow: 0;
+  flex-shrink: 0;
+  -webkit-box-flex: 1;
+  box-sizing: border-box;
+  height: 36px;
+  width: 33px;
+  fill: #fff;
+  overflow: hidden;
+  -webkit-box-direction: normal;
+  color: -webkit-link;
+  cursor: pointer;
+}
+
+/* line 112, /Users/ryan/documents/projects/fullstack/disclone/app/app/assets/stylesheets/components/_splash.scss */
+.splash_logoIcon {
+  height: 36px;
+  width: 36px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  margin-bottom: 1px;
+}
+
+/* line 122, /Users/ryan/documents/projects/fullstack/disclone/app/app/assets/stylesheets/components/_splash.scss */
+.splash_LogoText {
+  margin-top: 3px;
+  font-size: 22.5px;
+  width: 100%;
+  text-decoration: none;
+  margin-left: 3px;
+  color: white;
+  font-weight: 700;
+}
+
+/* line 132, /Users/ryan/documents/projects/fullstack/disclone/app/app/assets/stylesheets/components/_splash.scss */
+.splash_logoHomePage {
+  background: url("https://discordapp.com/assets/4f004ac9be168ac6ee18fc442a52ab53.svg") no-repeat;
+  width: 130px;
+  flex-grow: 0;
+  flex-shrink: 0;
+  -webkit-box-flex: 1;
+  box-sizing: border-box;
+  height: 36px;
+  fill: #fff;
+  overflow: hidden;
+  -webkit-box-direction: normal;
+  color: -webkit-link;
+  cursor: pointer;
+}
+
+/* line 156, /Users/ryan/documents/projects/fullstack/disclone/app/app/assets/stylesheets/components/_splash.scss */
+.splash_navCenterLinks {
+  -webkit-box-align: center;
+  -webkit-box-flex: 1;
+  align-items: center;
+  display: flex;
+  flex: 1 0 auto;
+  list-style: none;
+  margin: 0;
+  min-height: 56px;
+  padding: 0;
+  color: #fff;
+  user-select: none;
+}
+
+/* line 175, /Users/ryan/documents/projects/fullstack/disclone/app/app/assets/stylesheets/components/_splash.scss */
+.splash_navCenter_li {
+  cursor: pointer;
+  opacity: .8;
+  -webkit-font-smoothing: subpixel-antialiased;
+  display: inline-block;
+  position: relative;
+  transition: opacity .125s;
+  will-change: opacity;
+  text-align: -webkit-match-parent;
+}
+
+/* line 186, /Users/ryan/documents/projects/fullstack/disclone/app/app/assets/stylesheets/components/_splash.scss */
+.splash_navCenter_li:hover {
+  opacity: 1;
+}
+
+/* line 190, /Users/ryan/documents/projects/fullstack/disclone/app/app/assets/stylesheets/components/_splash.scss */
+.splash_navCenter_a {
+  text-decoration: none;
+}
+
+/* line 194, /Users/ryan/documents/projects/fullstack/disclone/app/app/assets/stylesheets/components/_splash.scss */
+.splash_navCenter_Signup {
+  margin-right: 8px;
+  padding: 15px 10px;
+  color: #fff;
+  font-weight: 400;
+  position: relative;
+  text-decoration: none;
+  outline: none;
+  cursor: pointer;
+  -webkit-font-smoothing: subpixel-antialiased;
+  letter-spacing: 0.5;
+}
+
+/* line 207, /Users/ryan/documents/projects/fullstack/disclone/app/app/assets/stylesheets/components/_splash.scss */
+.splash_navRightLinks {
+  -webkit-box-align: center;
+  -webkit-box-flex: 0;
+  align-items: center;
+  display: flex;
+  flex: 0 1 auto;
+  margin-left: auto;
+  list-style: none;
+  color: #fff;
+}
+
+/* line 218, /Users/ryan/documents/projects/fullstack/disclone/app/app/assets/stylesheets/components/_splash.scss */
+.splash_navRight_li {
+  cursor: pointer;
+  opacity: .8;
+  -webkit-font-smoothing: subpixel-antialiased;
+  display: inline-block;
+  position: relative;
+  transition: opacity .125s;
+  will-change: opacity;
+  list-style: none;
+  text-align: -webkit-match-parent;
+}
+
+/* line 230, /Users/ryan/documents/projects/fullstack/disclone/app/app/assets/stylesheets/components/_splash.scss */
+.splash_navRight_li:hover {
+  opacity: 1;
+}
+
+/* line 234, /Users/ryan/documents/projects/fullstack/disclone/app/app/assets/stylesheets/components/_splash.scss */
+.splash_navRight_a {
+  padding: 15px 10px 15px 0;
+  top: 3px;
+  margin-right: 8px;
+  color: #fff;
+  font-weight: 400;
+  position: relative;
+  text-decoration: none;
+  outline: 0;
+}
+
+/* line 245, /Users/ryan/documents/projects/fullstack/disclone/app/app/assets/stylesheets/components/_splash.scss */
+.splash_liSVG {
+  -webkit-filter: invert(92%);
+  filter: invert(92%);
+  width: 19px;
+  height: 19px;
+}
+
+/* line 252, /Users/ryan/documents/projects/fullstack/disclone/app/app/assets/stylesheets/components/_splash.scss */
+.splash_ghSVG {
+  -webkit-filter: invert(92%);
+  filter: invert(92%);
+  width: 19px;
+  height: 19px;
+}
+
+/* line 259, /Users/ryan/documents/projects/fullstack/disclone/app/app/assets/stylesheets/components/_splash.scss */
+.splash_navRight_Login {
+  border: 2px solid rgba(255, 255, 255, 0.8);
+  border-radius: 20px;
+  color: #fff;
+  line-height: 24px;
+  margin-right: 18px;
+  padding: 5px 17px 7px;
+  top: 0;
+  text-decoration: none;
+}
+
+/* line 270, /Users/ryan/documents/projects/fullstack/disclone/app/app/assets/stylesheets/components/_splash.scss */
+.splash_heroWrapper {
+  -webkit-box-direction: normal;
+  -webkit-box-orient: vertical;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: center;
+  padding: 72px 0;
+  text-align: center;
+  -webkit-box-pack: center;
+  align-items: center;
+  border-bottom: none;
+  -webkit-box-align: center;
+  font-weight: 400;
+  line-height: 1.15;
+  text-rendering: optimizeLegibility;
+}
+
+/* line 288, /Users/ryan/documents/projects/fullstack/disclone/app/app/assets/stylesheets/components/_splash.scss */
+.splash_heroBody {
+  box-sizing: border-box;
+  max-width: 1200px;
+  padding: 72px 50px 0;
+  position: relative;
+  z-index: 1;
+}
+
+/* line 296, /Users/ryan/documents/projects/fullstack/disclone/app/app/assets/stylesheets/components/_splash.scss */
+.splash_heroText {
+  color: #fff;
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 44px;
+  margin: 0;
+}
+
+/* line 304, /Users/ryan/documents/projects/fullstack/disclone/app/app/assets/stylesheets/components/_splash.scss */
+.splash_heroBlurb {
+  color: rgba(255, 255, 255, 0.6);
+  margin-bottom: 30px;
+  max-width: 710px;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  margin-top: 12px;
+}
+
+/* line 314, /Users/ryan/documents/projects/fullstack/disclone/app/app/assets/stylesheets/components/_splash.scss */
+.splash_heroButtonsWrapper {
+  opacity: 1;
+  transition: opacity .5s ease;
+}
+
+/* line 319, /Users/ryan/documents/projects/fullstack/disclone/app/app/assets/stylesheets/components/_splash.scss */
+.splash_heroInnerButtons {
+  -webkit-box-pack: center;
+  display: flex;
+  justify-content: center;
+  -webkit-box-flex: 1;
+  flex: 1;
+}
+
+/* line 327, /Users/ryan/documents/projects/fullstack/disclone/app/app/assets/stylesheets/components/_splash.scss */
+.splash_heroLeftButton {
+  background-color: #fff;
+  color: #18191c;
+  -webkit-box-align: center;
+  -webkit-box-pack: center;
+  align-items: center;
+  display: flex;
+  font-size: 15px;
+  font-weight: 500;
+  justify-content: center;
+  padding: 0;
+  position: relative;
+  z-index: 1;
+  border-radius: 3px;
+  box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.2);
+  height: 45px;
+  margin-right: 40px;
+  transform: translateY(-1px);
+  text-decoration: none;
+  outline: none;
+  transition: box-shadow 0.3s cubic-bezier(0.25, 0.25, 0.315, 1.35), transform 0.1s linear, -webkit-box-shadow 0.3s cubic-bezier(0.25, 0.25, 0.315, 1.35), -webkit-transform 0.1s linear;
+  width: 250px;
+}
+
+/* line 351, /Users/ryan/documents/projects/fullstack/disclone/app/app/assets/stylesheets/components/_splash.scss */
+.splash_heroRightButton {
+  background-color: #7289da;
+  color: #fff;
+  -webkit-box-align: center;
+  -webkit-box-pack: center;
+  align-items: center;
+  display: flex;
+  font-size: 15px;
+  font-weight: 500;
+  justify-content: center;
+  padding: 0;
+  position: relative;
+  z-index: 1;
+  border-radius: 3px;
+  box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.2);
+  height: 45px;
+  transform: translateY(-1px);
+  text-decoration: none;
+  outline: none;
+  transition: box-shadow 0.3s cubic-bezier(0.25, 0.25, 0.315, 1.35), transform 0.1s linear, -webkit-box-shadow 0.3s cubic-bezier(0.25, 0.25, 0.315, 1.35), -webkit-transform 0.1s linear;
+  width: 250px;
+}
+
+/* line 374, /Users/ryan/documents/projects/fullstack/disclone/app/app/assets/stylesheets/components/_splash.scss */
+.splash_heroLeftButton:hover {
+  box-shadow: none;
+  transform: translateY(0);
+}
+
+/* line 379, /Users/ryan/documents/projects/fullstack/disclone/app/app/assets/stylesheets/components/_splash.scss */
+.splash_heroRightButton:hover {
+  box-shadow: none;
+  transform: translateY(0);
+}
+
+/* line 384, /Users/ryan/documents/projects/fullstack/disclone/app/app/assets/stylesheets/components/_splash.scss */
+.splash_animationsWrapper {
+  max-width: 100%;
+  padding: 0;
+  width: 100%;
+  -webkit-box-direction: normal;
+}
+
+/* line 391, /Users/ryan/documents/projects/fullstack/disclone/app/app/assets/stylesheets/components/_splash.scss */
+.splash_animationsInner {
+  height: 638px;
+  overflow: hidden;
+  position: relative;
+  user-select: none;
+}
+
+/* line 398, /Users/ryan/documents/projects/fullstack/disclone/app/app/assets/stylesheets/components/_splash.scss */
+.splash_backdropShadow {
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 50px;
+  bottom: 0;
+  height: 50px;
+  left: 50%;
+  margin-left: -650px;
+  position: absolute;
+  transition: all .5s ease;
+  width: 1300px;
+}
+
+/* line 410, /Users/ryan/documents/projects/fullstack/disclone/app/app/assets/stylesheets/components/_splash.scss */
+.splash_triangle1 {
+  left: 50%;
+  bottom: 300px;
+  margin-left: -579px;
+  opacity: .3;
+  transition: all .5s ease;
+  position: absolute;
+}
+
+/* line 419, /Users/ryan/documents/projects/fullstack/disclone/app/app/assets/stylesheets/components/_splash.scss */
+.splash_triangle2 {
+  bottom: 550px;
+  margin-left: 31px;
+  left: 50%;
+  opacity: .3;
+  transition: all .5s ease;
+  position: absolute;
+}
+
+/* line 428, /Users/ryan/documents/projects/fullstack/disclone/app/app/assets/stylesheets/components/_splash.scss */
+.splash_triangle3 {
+  left: 50%;
+  bottom: 448px;
+  margin-left: -289px;
+  opacity: .3;
+  transition: all .5s ease;
+  position: absolute;
+}
+
+/* line 437, /Users/ryan/documents/projects/fullstack/disclone/app/app/assets/stylesheets/components/_splash.scss */
+.splash_dot1 {
+  bottom: 200px;
+  margin-left: -599px;
+  left: 50%;
+  opacity: .3;
+  transition: all .5s ease;
+  position: absolute;
+}
+
+/* line 446, /Users/ryan/documents/projects/fullstack/disclone/app/app/assets/stylesheets/components/_splash.scss */
+.splash_dot2 {
+  left: 50%;
+  bottom: 600px;
+  margin-left: -319px;
+  opacity: .3;
+  transition: all .5 ease;
+  position: absolute;
+}
+
+/* line 455, /Users/ryan/documents/projects/fullstack/disclone/app/app/assets/stylesheets/components/_splash.scss */
+.splash_dot3 {
+  bottom: 500px;
+  margin-left: 181px;
+  left: 50%;
+  opacity: .3;
+  transition: all .5s ease;
+  position: absolute;
+}
+
+/* line 464, /Users/ryan/documents/projects/fullstack/disclone/app/app/assets/stylesheets/components/_splash.scss */
+.splash_dot4 {
+  left: 50%;
+  bottom: 600px;
+  margin-left: 531px;
+  opacity: .3;
+  transition: all .5s ease;
+  position: absolute;
+}
+
+/* line 473, /Users/ryan/documents/projects/fullstack/disclone/app/app/assets/stylesheets/components/_splash.scss */
+.splash_dot5 {
+  left: 50%;
+  bottom: 140px;
+  margin-left: 621px;
+  opacity: .3;
+  transition: all .5s ease;
+  position: absolute;
+}
+
+/* line 482, /Users/ryan/documents/projects/fullstack/disclone/app/app/assets/stylesheets/components/_splash.scss */
+.splash_circle1 {
+  left: 50%;
+  bottom: 530px;
+  margin-left: -359px;
+  opacity: .3;
+  transition: all .5s ease;
+  position: absolute;
+}
+
+/* line 491, /Users/ryan/documents/projects/fullstack/disclone/app/app/assets/stylesheets/components/_splash.scss */
+.splash_circle2 {
+  left: 50%;
+  bottom: 280px;
+  margin-left: 576px;
+  opacity: .3;
+  transition: all .5s ease;
+  position: absolute;
+}
+
+/* line 500, /Users/ryan/documents/projects/fullstack/disclone/app/app/assets/stylesheets/components/_splash.scss */
+.splash_circle3 {
+  left: 50%;
+  bottom: 88px;
+  margin-left: -199px;
+  opacity: .3;
+  transition: all .5s ease;
+  position: absolute;
+}
+
+/* line 509, /Users/ryan/documents/projects/fullstack/disclone/app/app/assets/stylesheets/components/_splash.scss */
+.splash_square1 {
+  left: 50%;
+  opacity: .3;
+  transition: all .5s ease;
+  position: absolute;
+  bottom: 92px;
+  margin-left: 17px;
+}
+
+/* line 518, /Users/ryan/documents/projects/fullstack/disclone/app/app/assets/stylesheets/components/_splash.scss */
+.splash_square2 {
+  left: 50%;
+  opacity: .3;
+  transition: all .5s ease;
+  position: absolute;
+  bottom: 400px;
+  margin-left: 431px;
+}
+
+/* line 527, /Users/ryan/documents/projects/fullstack/disclone/app/app/assets/stylesheets/components/_splash.scss */
+.splash_square3 {
+  left: 50%;
+  opacity: .3;
+  transition: all .5s ease;
+  position: absolute;
+  bottom: 600px;
+  margin-left: 331px;
+}
+
+/* line 536, /Users/ryan/documents/projects/fullstack/disclone/app/app/assets/stylesheets/components/_splash.scss */
+.splash_x1 {
+  left: 50%;
+  opacity: .3;
+  transition: all .5s ease;
+  position: absolute;
+  bottom: 440px;
+  margin-left: 101px;
+}
+
+/* line 545, /Users/ryan/documents/projects/fullstack/disclone/app/app/assets/stylesheets/components/_splash.scss */
+.splash_x2 {
+  left: 50%;
+  opacity: .3;
+  transition: all .5s ease;
+  position: absolute;
+  bottom: 220px;
+  margin-left: 541px;
+}
+
+/* line 554, /Users/ryan/documents/projects/fullstack/disclone/app/app/assets/stylesheets/components/_splash.scss */
+.splash_x3 {
+  left: 50%;
+  opacity: .3;
+  transition: all .5s ease;
+  position: absolute;
+  bottom: 510px;
+  margin-left: -579px;
+}
+
+/* line 563, /Users/ryan/documents/projects/fullstack/disclone/app/app/assets/stylesheets/components/_splash.scss */
+.splash_flask {
+  left: 50%;
+  transition: all .5s ease;
+  position: absolute;
+  margin-left: -609px;
+  z-index: 1;
+  bottom: 10px;
+}
+
+/* line 575, /Users/ryan/documents/projects/fullstack/disclone/app/app/assets/stylesheets/components/_splash.scss */
+.splash_bomb {
+  left: 50%;
+  transition: all .5s ease;
+  position: absolute;
+  bottom: 335px;
+  margin-left: -481px;
+  animation-name: bomb;
+  animation-delay: .4s;
+  animation-direction: alternate;
+  animation-duration: 1.5s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+}
+
+/* line 589, /Users/ryan/documents/projects/fullstack/disclone/app/app/assets/stylesheets/components/_splash.scss */
+.splash_coin1 {
+  left: 50%;
+  transition: all .5s ease;
+  position: absolute;
+  bottom: 300px;
+  margin-left: -428px;
+  animation-direction: alternate;
+  animation-duration: 1.5s;
+  animation-iteration-count: infinite;
+  animation-name: coin;
+  animation-timing-function: ease-in-out;
+}
+
+/* line 602, /Users/ryan/documents/projects/fullstack/disclone/app/app/assets/stylesheets/components/_splash.scss */
+.splash_coin2 {
+  left: 50%;
+  transition: all .5s ease;
+  position: absolute;
+}
+
+/* line 608, /Users/ryan/documents/projects/fullstack/disclone/app/app/assets/stylesheets/components/_splash.scss */
+.splash_coin2 {
+  left: 50%;
+  transition: all .5s ease;
+  position: absolute;
+  bottom: 530px;
+  margin-left: 80px;
+  animation-direction: alternate;
+  animation-duration: 1.5s;
+  animation-iteration-count: infinite;
+  animation-name: coin;
+  animation-timing-function: ease-in-out;
+}
+
+/* line 621, /Users/ryan/documents/projects/fullstack/disclone/app/app/assets/stylesheets/components/_splash.scss */
+.splash_floppy {
+  left: 50%;
+  transition: all .5s ease;
+  position: absolute;
+  bottom: 392px;
+  margin-left: 250px;
+  animation-direction: alternate;
+  animation-duration: 1.5s;
+  animation-iteration-count: infinite;
+  animation-name: floppy;
+  animation-timing-function: ease-in-out;
+}
+
+/* line 634, /Users/ryan/documents/projects/fullstack/disclone/app/app/assets/stylesheets/components/_splash.scss */
+.splash_shield {
+  left: 50%;
+  transition: all .5s ease;
+  position: absolute;
+}
+
+/* line 640, /Users/ryan/documents/projects/fullstack/disclone/app/app/assets/stylesheets/components/_splash.scss */
+.splash_speaker {
+  left: 50%;
+  transition: all .5s ease;
+  position: absolute;
+  margin-left: 423px;
+  bottom: 10px;
+}
+
+/* line 648, /Users/ryan/documents/projects/fullstack/disclone/app/app/assets/stylesheets/components/_splash.scss */
+.splash_question {
+  left: 50%;
+  transition: none;
+  position: absolute;
+  margin-left: -293px;
+  bottom: 462px;
+}
+
+/* line 656, /Users/ryan/documents/projects/fullstack/disclone/app/app/assets/stylesheets/components/_splash.scss */
+.splash_computer {
+  left: 50%;
+  transition: all .5s ease;
+  position: absolute;
+  margin-left: -289.5px;
+  bottom: 10px;
+}
+
+/* line 664, /Users/ryan/documents/projects/fullstack/disclone/app/app/assets/stylesheets/components/_splash.scss */
+.splash_android {
+  left: 50%;
+  transition: all .5s ease;
+  position: absolute;
+  margin-left: -548px;
+  bottom: 10px;
+}
+
+/* line 672, /Users/ryan/documents/projects/fullstack/disclone/app/app/assets/stylesheets/components/_splash.scss */
+.splash_iphone {
+  left: 50%;
+  transition: all .5s ease;
+  position: absolute;
+  margin-left: -401.5px;
+  bottom: 10px;
+}
+
+/* line 680, /Users/ryan/documents/projects/fullstack/disclone/app/app/assets/stylesheets/components/_splash.scss */
+.splash_controller {
+  left: 50%;
+  transition: all .5s ease;
+  position: absolute;
+  margin-left: -255px;
+  bottom: 10px;
+}
+
+/* line 688, /Users/ryan/documents/projects/fullstack/disclone/app/app/assets/stylesheets/components/_splash.scss */
+.splash_laptop {
+  left: 50%;
+  transition: all .5s ease;
+  position: absolute;
+  margin-left: -4px;
+  bottom: 10px;
+}
+
+/* line 696, /Users/ryan/documents/projects/fullstack/disclone/app/app/assets/stylesheets/components/_splash.scss */
+.splash_headphones {
+  left: 50%;
+  transition: all .5s ease;
+  position: absolute;
+  margin-left: 270px;
+  transform: scale(0.75);
+  bottom: 142px;
+}
+
+/* line 705, /Users/ryan/documents/projects/fullstack/disclone/app/app/assets/stylesheets/components/_splash.scss */
+.splash_footerWrapper {
+  background: transparent;
+  position: relative;
+  z-index: 1;
+  bottom: -100%;
+  font-weight: 400;
+  overflow: hidden;
+  padding: 80px 160px 48px;
+}
+
+/* line 715, /Users/ryan/documents/projects/fullstack/disclone/app/app/assets/stylesheets/components/_splash.scss */
+.splash_footerBackground {
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  font-weight: 400px;
+}
+
+/* line 725, /Users/ryan/documents/projects/fullstack/disclone/app/app/assets/stylesheets/components/_splash.scss */
+.splash_footerContent {
+  margin: 0 auto;
+  max-width: 1600px;
+  position: relative;
+}
+
+/* line 731, /Users/ryan/documents/projects/fullstack/disclone/app/app/assets/stylesheets/components/_splash.scss */
+.splash_footerLinks {
+  -webkit-box-pack: justify;
+  display: flex;
+  justify-content: space-between;
+}
+
+/* line 737, /Users/ryan/documents/projects/fullstack/disclone/app/app/assets/stylesheets/components/_splash.scss */
+.splash_footerSeparator {
+  background-image: url(/assets/underline-2d0d26f610f1e812d00b1d5190a5995c8288b5e271cea84af53e0321527beb02.svg);
+  height: 1px;
+  margin: 34px 0;
+  opacity: .1;
+  width: 100%;
+}
+
+/* line 749, /Users/ryan/documents/projects/fullstack/disclone/app/app/assets/stylesheets/components/_splash.scss */
+.splash_footerSignUp {
+  display: flex;
+  flex-direction: row;
+}
+
+/* line 754, /Users/ryan/documents/projects/fullstack/disclone/app/app/assets/stylesheets/components/_splash.scss */
+.splash_footerSpiel {
+  -webkit-box-flex: 1;
+  flex: 1;
+}
+
+/* line 759, /Users/ryan/documents/projects/fullstack/disclone/app/app/assets/stylesheets/components/_splash.scss */
+.splash_footerMainText {
+  color: #fff;
+  font-size: 26px;
+  line-height: 34px;
+}
+
+/* line 765, /Users/ryan/documents/projects/fullstack/disclone/app/app/assets/stylesheets/components/_splash.scss */
+.splash_footerSubText {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 14px;
+  font-weight: 500;
+  margin-top: 4px;
+}
+
+/* line 772, /Users/ryan/documents/projects/fullstack/disclone/app/app/assets/stylesheets/components/_splash.scss */
+.splash_footerSignUpButton {
+  background-color: #7289da;
+  color: #fff;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 15px;
+  height: 15px;
+  line-height: 15px;
+  padding: 16px;
+  position: relative;
+  text-decoration: none;
+}
+
+/* line 785, /Users/ryan/documents/projects/fullstack/disclone/app/app/assets/stylesheets/components/_splash.scss */
+.splash_footerSignUpButton:hover {
+  color: #fff;
+  box-shadow: 0 4px 14px 0 rgba(28, 30, 34, 0.4);
+  top: -1px;
+}
+
+@keyframes bomb {
+  0% {
+    transform: translate3d(0, -4px, 0);
+  }
+  100% {
+    transform: translate3d(0, 4px, 0);
+  }
+}
+@keyframes coin {
+  0% {
+    transform: translate3d(0, -4px, 0);
+  }
+  100% {
+    transform: translate3d(0, 4px, 0);
+  }
+}
+@keyframes floppy {
+  0% {
+    transform: translate3d(0, -4px, 0);
+  }
+  100% {
+    transform: translate3d(0, 4px, 0);
+  }
+}
+@font-face {
+  font-family: Whitney-light;
+  font-style: light;
+  font-weight: 300;
+  src: url(https://discordapp.com/assets/16801bfdf51ed88e69bc90626a3ea436.woff) format("woff");
+}
+@font-face {
+  font-family: Whitney-norm;
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://discordapp.com/assets/d153359b5d87601d2b9c708b7ae2db02.woff) format("woff");
+}
+@font-face {
+  font-family: Whitney-med;
+  font-style: medium;
+  font-weight: 600;
+  src: url(https://discordapp.com/assets/a934ab008c7f6a2274ec441f6be0696a.woff) format("woff");
+}
+@font-face {
+  font-family: Whitney-semi;
+  font-style: semibold;
+  font-weight: 650;
+  src: url(https://discordapp.com/assets/877ef48bf9fcfee590f0ba64de101b59.woff) format("woff");
+}
+@font-face {
+  font-family: Whitney-bold;
+  font-style: bold;
+  font-weight: 700;
+  src: url(https://discordapp.com/assets/2e004dd717cdc58b9ccb361d286ebbce.woff) format("woff");
+}
+/* line 848, /Users/ryan/documents/projects/fullstack/disclone/app/app/assets/stylesheets/components/_splash.scss */
+.lightFont {
+  font-family: Whitney-light;
+}
+
+/* line 852, /Users/ryan/documents/projects/fullstack/disclone/app/app/assets/stylesheets/components/_splash.scss */
+.normFont {
+  font-family: Whitney-norm;
+}
+
+/* line 856, /Users/ryan/documents/projects/fullstack/disclone/app/app/assets/stylesheets/components/_splash.scss */
+.medFont {
+  font-family: Whitney-med;
+}
+
+/* line 860, /Users/ryan/documents/projects/fullstack/disclone/app/app/assets/stylesheets/components/_splash.scss */
+.semiFont {
+  font-family: Whitney-semi;
+}
+
+/* line 864, /Users/ryan/documents/projects/fullstack/disclone/app/app/assets/stylesheets/components/_splash.scss */
+.boldFont {
+  font-family: Whitney-bold;
+}

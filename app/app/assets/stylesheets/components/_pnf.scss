@@ -1,0 +1,333 @@
+.pnf_wrapper {
+    flex-shrink: 1;
+    flex-grow: 1;
+    flex-basis: auto;
+    background-color: #f6f6f7;
+    flex-wrap: nowrap;
+    height: 100vh;
+    overflow: auto;
+    width: 100%;
+    -webkit-box-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-direction: normal;
+    -webkit-box-orient: horizontal;
+    display: flex;
+    flex-direction: row;
+    box-sizing: border-box;
+    height: 100vh;
+}
+
+.pnf_textWrapper {
+    margin-right: 10%;
+    max-width: 500px;
+    padding-left: 20px;
+    z-index: 1;
+}
+
+.pnf_errCodeWrapper {
+    -webkit-box-ordinal-group: 3;
+    height: 150px;
+    order: 2;
+    padding: 20px 0;
+    display: block;
+    z-index: -1;
+}
+
+.pnf_errCode {
+    // color: black;
+    color: rgb(218, 223, 240);
+    display: inline-block;
+    font-size: 150px;
+    font-weight: 700;
+    position: relative;
+    text-shadow: -2px 0px rgb(203, 211, 245);
+    z-index: -1;
+}
+
+.pnf_errCode::before {
+    // animation: glitch-anim-2-3Jj1Wz 4s infinite linear alternate-reverse;
+    animation-name: glitch-anim-2-3Jj1Wz;
+    animation-duration: 4s;
+    animation-timing-function: linear;
+    animation-delay: 0s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate-reverse;
+    animation-fill-mode: none;
+    animation-play-state: running;
+    // clip: rect(24px,550px,90px,0);
+    clip: rect(24px,550px,80px,0);
+    left: 2px;
+    text-shadow: -2px 0 #e3e7f8;
+    background: #f6f6f7;
+    content: attr(data-text);
+    height: 100%;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    opacity: .7;
+}
+
+.pnf_errCode::after {
+    // animation: glitch-anim-n2MEks 2s infinite linear alternate-reverse;
+    animation-name: glitch-anim-n2MEks;
+    animation-duration: 2s;
+    animation-timing-function: linear;
+    animation-delay: 0s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate-reverse;
+    animation-fill-mode: none;
+    animation-play-state: running;
+    // clip: rect(85px,550px,140px,0);
+    clip: rect(85px,550px,140px,0);
+    left: -2px;
+    text-shadow: -2px 0 rgba(114,137,218,.3);
+    background: #f6f6f7;
+    content: attr(data-text);
+    height: 100%;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
+.pnf_errTitle {
+    margin-bottom: 8px;
+    margin-top: 8px;
+    color: #72767d;
+    font-size: 25px;
+    line-height: 40px;
+    text-transform: uppercase;
+    font-weight: 700;
+    z-index: 3;
+    background: #f6f6f7;
+}
+
+.pnf_errSuggestionText {
+    color: #b9bbbe;
+    font-size: 20px;
+    line-height: 35px;
+    text-align: left;
+    font-weight: 300;
+    z-index: 3;
+    background: #f6f6f7;
+}
+
+.pnf_errorUl {
+    margin-top: 20px;
+    list-style: none;
+    text-decoration: none;
+}
+
+.pnf_errorLi {
+    color: #c7d0f0;
+    font-size: 18px;
+    line-height: 35px;
+    position: relative;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: .1s ease-in-out;
+    list-style: none;
+}
+
+.pnf_errorLi:hover {
+    color: #7289da;
+}
+
+.pnf_errorLinks {
+    text-decoration: none;
+    color: #c7d0f0;
+}
+
+.pnf_errorLinks:hover {
+    text-decoration: none;
+    color: #7289da;
+}
+
+.pnf_animationWrapper {
+    -webkit-box-ordinal-group: 2;
+    max-width: 40%;
+    order: 1;
+    overflow: hidden;
+    position: relative;
+    width: 768px;
+    height: 60%;
+}
+
+.pnf_staticdoge {
+    height: 100%;
+    position: absolute;
+    width: 100%;
+    z-index: 2;
+}
+
+.pnf_logoWrapper {
+    bottom: 15px;
+    left: 0;
+    position: fixed;
+    text-align: center;
+    width: 100%;
+    display: flex;
+    justify-content: center
+}
+
+.pnf_logoLink {
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    vertical-align: baseline;
+}
+
+.pnf_logoSvgWrapper {
+    display: flex;
+    justify-content: center;
+}
+
+.pnf_logoIcon {
+    color: rgb(230,230,232);
+    flex-grow: 0;
+    flex-shrink: 0;
+    -webkit-box-flex: 1;
+    box-sizing: border-box;
+    overflow: hidden;
+    height: 55px;
+    width: 55px;
+    -webkit-box-direction: normal;
+    cursor: pointer;
+}
+
+.pnf_LogoText {
+    color: rgb(230,230,232);
+    margin-top: 3px;
+    font-size: 22.5px;
+    text-decoration: none;
+    font-weight: 700;
+    margin-left: 4px;
+    display: flex;
+    vertical-align: baseline;
+}
+
+.pnf_LogoText_p {
+    color: rgb(230,230,232);
+    font-size: 33.8px;
+    text-decoration: none;
+    font-weight: 700;
+    margin-top: 7px;
+}
+
+
+
+
+
+// animations
+
+@keyframes glitch-anim-2-3Jj1Wz {
+    0% {transform: translate3d(0,-70px,0);}
+    3% {transform: translate3d(0,-10px,0);}
+    5% {transform: translate3d(0,-25px,0);}
+    10% {transform: translate3d(0,-75px,0);}
+    15% {transform: translate3d(0,-12px,0);}
+    18% {transform: translate3d(0,-80px,0);}
+    20% {transform: translate3d(0,-12px,0);}
+    30% {transform: translate3d(0,-50px,0);}
+    35% {transform: translate3d(0,-10px,0);}
+    35% {transform: translate3d(0,-80px,0);}
+    40% {transform: translate3d(0,-10px,0);}
+    45% {transform: translate3d(0,-80px,0);}
+    50% {transform: translate3d(0,-10px,0);}
+    55% {transform: translate3d(0,-80px,0);}
+    60% {transform: translate3d(0,-15px,0);}
+    70% {transform: translate3d(0,-65px,0);}
+    75% {transform: translate3d(0,-12px,0);}
+    80% {transform: translate3d(0,-70px,0);}
+    90% {transform: translate3d(0,-10px,0);}
+    95% {transform: translate3d(0,-85px,0);}
+    100% {transform: translate3d(0,-10px,0);}
+}
+@keyframes glitch-anim-n2MEks {
+    0% {transform: translate3d(0,140px,0);}
+    10% {transform: translate3d(0,10px,0);}
+    20% {transform: translate3d(0,160px,0);}
+    30% {transform: translate3d(0,10px,0);}
+    40% {transform: translate3d(0,1750px,0);}
+    60% {transform: translate3d(0,15px,0);}
+    70% {transform: translate3d(0,155px,0);}
+    80% {transform: translate3d(0,17px,0);}
+    90% {transform: translate3d(0,165px,0);}
+    95% {transform: translate3d(0,20px,0);}
+    100% {transform: translate3d(0,160px,0);}
+    // 100% {transform: translate3d(0,-20px,0);}
+}
+// @keyframes glitch-anim-n2MEks {
+//     0% {transform: translate3d(0,90px,0);}
+//     10% {transform: translate3d(0,95px,0);}
+//     20% {transform: translate3d(0,-40px,0);}
+//     30% {transform: translate3d(0,-20px,0);}
+//     40% {transform: translate3d(0,0px,0);}
+//     60% {transform: translate3d(0,850px,0);}
+//     80% {transform: translate3d(0,90px,0);}
+//     90% {transform: translate3d(0,100px,0);}
+//     // 100% {transform: translate3d(0,-20px,0);}
+// }
+
+
+
+// fonts
+
+@font-face {
+  font-family: Whitney-light;
+  font-style: light;
+  font-weight: 300;
+  src: url(https://discordapp.com/assets/16801bfdf51ed88e69bc90626a3ea436.woff) format('woff')
+}
+
+@font-face {
+  font-family: Whitney-norm;
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://discordapp.com/assets/d153359b5d87601d2b9c708b7ae2db02.woff) format('woff')
+}
+
+@font-face {
+  font-family: Whitney-med;
+  font-style: medium;
+  font-weight: 600;
+  src: url(https://discordapp.com/assets/a934ab008c7f6a2274ec441f6be0696a.woff) format('woff')
+}
+
+@font-face {
+  font-family: Whitney-semi;
+  font-style: semibold;
+  font-weight: 650;
+  src: url(https://discordapp.com/assets/877ef48bf9fcfee590f0ba64de101b59.woff) format('woff')
+}
+
+@font-face {
+  font-family: Whitney-bold;
+  font-style: bold;
+  font-weight: 700;
+  src: url(https://discordapp.com/assets/2e004dd717cdc58b9ccb361d286ebbce.woff) format('woff')
+}
+
+.lightFont {
+  font-family: Whitney-light;
+}
+
+.normFont {
+  font-family: Whitney-norm;
+}
+
+.medFont {
+  font-family: Whitney-med;
+}
+
+.semiFont {
+  font-family: Whitney-semi;
+}
+
+.boldFont {
+  font-family: Whitney-bold;
+}
+
+
+
