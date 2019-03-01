@@ -3,7 +3,7 @@ class User < ApplicationRecord
     validates :email, presence: true
     validates :username, presence: {message: "This field is required"}
     validates :password_digest, :session_token, presence: true
-    validates :email, uniqueness: {message: "is already registered"}
+    validates :email, uniqueness: { message: " - Email has been taken"}
     # validates :username, uniqueness: { scope: :email }
     validates :password, length: { minimum: 6, allow_nil: true }
 
