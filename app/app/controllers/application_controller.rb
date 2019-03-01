@@ -23,7 +23,8 @@ class ApplicationController < ActionController::Base
         @current_user = nil
     end
 
-    def require_login
-        render json: { errors: { login: ['you must log-in'] } }, status: 418
-    end
+    # def require_login
+    #     # render json: { errors: { login: ['you must log-in'] } }, status: 418
+    #     # using frontend to redirect now
+    # end
 end

@@ -49,3 +49,8 @@ en:
               blank: " - This field is required"
               too_short: " - This field is too short"
 
+        servers:
+          attributes:
+            server_name:
+              blank: " - This field is required"
+
