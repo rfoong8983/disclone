@@ -10,10 +10,6 @@ export const signup = (user) => dispatch => (
         .then(
             (user) => (dispatch(receiveCurrentUser(user))),
             (err) => (dispatch(receiveSessionErrors(err.responseJSON)))
-            // (err) => {
-            //     debugger
-            //     dispatch(receiveSessionErrors(err.responseJSON))
-            //     }
             )
 );
 
@@ -22,16 +18,6 @@ export const login = (user) => dispatch => {
         .then(
             (user) => dispatch(receiveCurrentUser(user)),
             (err) => dispatch(receiveSessionErrors(err.responseJSON))
-            // (err) => dispatch(receiveSessionErrors(err.responseJSON))
-            );
-};
-
-export const demoLogin = (user) => dispatch => {
-    return SeshApi.login(user)
-        .then(
-            (user) => dispatch(receiveCurrentUser(user)),
-            (err) => dispatch(receiveSessionErrors(err.responseJSON))
-            // (err) => dispatch(receiveSessionErrors(err.responseJSON))
             );
 };
 

@@ -203,6 +203,7 @@ class SessionForm extends React.Component {
 
     handleSubmit(e) {
         console.log(this.state)
+        console.log(this.processForm)
         e.preventDefault();
         const user = Object.assign({}, this.state);
         this.props.processForm(user)
@@ -262,7 +263,7 @@ class SessionForm extends React.Component {
                         <div className="leftBackground">
                             <div className="logoWrapper">
                                 <a className="logo" href="/" style={wrapperStyles}>
-                                    <i class="login_logoIcon fas fa-compact-disc fa-2x"></i>
+                                    <i className="login_logoIcon fas fa-compact-disc fa-2x"></i>
                                     <div className="loginLogoText">
                                         <p className="loginLogoText boldFont">DISCLONE</p>
                                     </div>
@@ -275,7 +276,8 @@ class SessionForm extends React.Component {
                                 
                                 
                                 {/* <form className="lsFormBox" onSubmit={this.handleSubmit.bind(this)}> */}
-                                <form className={this.formBoxType()} onSubmit={this.handleSubmit.bind(this)}>
+                                <form className={this.formBoxType()}>
+                                {/* <form className={this.formBoxType()} onSubmit={this.handleSubmit.bind(this)}> */}
                                     <div className="lsFormWelcomeWrapper">
                                         {this.displayWelcome()}
                                         {/* <div className="lsFormTitle lightFont">Welcome back!</div>
@@ -319,6 +321,7 @@ class SessionForm extends React.Component {
                                                 type="submit"  
                                                 onMouseUp={this.buttonToggleFocusState.bind(this)}
                                                 onMouseDown={this.buttonToggleFocusState.bind(this)}
+                                                onClick={this.handleSubmit.bind(this)}
                                             >
                                                 <div className="submitButtonText medFont">{this.submitText()}</div>
                                             </button>
