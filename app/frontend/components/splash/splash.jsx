@@ -35,7 +35,11 @@ class Splash extends React.Component {
                                 <a className="splash_logoRedirect" onClick={this.props.logout}>
                                     {/* <a className="splash_logoRedirect" href="/"> */}
                                     <div className="splash_logoSvgWrapper">
-                                        <div className="splash_logoHomePage" style={wrapperStyles}></div>
+                                        {/* <div className="splash_logoHomePage" style={wrapperStyles}></div> */}
+                                        <i class="splash_logoIcon fas fa-compact-disc fa-2x"></i>
+                                        <div className="splash_LogoText">
+                                            <p className="splash_LogoText boldFont">DISCLONE</p>
+                                        </div>
                                     </div>
                                 </a>
                             </div>

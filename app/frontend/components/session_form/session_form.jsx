@@ -260,7 +260,12 @@ class SessionForm extends React.Component {
                         {/* <canvas>canvas would go here for animations</canvas> */}
                         <div className="leftBackground">
                             <div className="logoWrapper">
-                                <a className="logo" href="/" style={wrapperStyles}></a>
+                                <a className="logo" href="/" style={wrapperStyles}>
+                                    <i class="login_logoIcon fas fa-compact-disc fa-2x"></i>
+                                    <div className="loginLogoText">
+                                        <p className="loginLogoText boldFont">DISCLONE</p>
+                                    </div>
+                                </a>
                             </div>
 
                             <div 

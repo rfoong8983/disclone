@@ -93,6 +93,7 @@
     cursor: pointer;
 }
 
+
 .splash_logoIcon {
     flex-grow: 0;
     flex-shrink: 0;
@@ -105,6 +106,27 @@
     -webkit-box-direction: normal;
     color: -webkit-link;
     cursor: pointer;
+}
+
+
+.splash_logoIcon {
+    height: 36px;
+    width: 36px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: rgb(255,255,255);
+    margin-bottom: 1px;
+}
+
+.splash_LogoText {
+    margin-top: 3px;
+    font-size: 22.5px;
+    width: 100%;
+    text-decoration: none;
+    margin-left: 3px;
+    color: rgb(255,255,255);
+    font-weight: 700;
 }
 
 .splash_logoHomePage {

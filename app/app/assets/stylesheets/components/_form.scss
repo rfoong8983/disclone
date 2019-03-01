@@ -69,15 +69,39 @@
 
 .logo {
     z-index: 1;
-    background: url("https://discordapp.com/assets/4f004ac9be168ac6ee18fc442a52ab53.svg") no-repeat;
-    -webkit-filter: invert(76%);
-    filter: invert(76%);
+    // background: url("https://discordapp.com/assets/4f004ac9be168ac6ee18fc442a52ab53.svg") no-repeat;
+    // -webkit-filter: invert(76%);
+    // filter: invert(76%);
     height: 36px;
     left: 50%;
     margin-left: -65px;
     position: absolute;
     top: 40px;
     width: 130px;
+    display: flex;
+    vertical-align: baseline;
+    text-decoration: none;
+}
+
+.login_logoIcon {
+    height: 36px;
+    width: 36px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: rgb(61,61,61);
+    margin-bottom: 1px;
+    text-decoration: none;
+}
+
+.loginLogoText {
+    margin-top: 3px;
+    font-size: 22.5px;
+    width: 100%;
+    text-decoration: none;
+    margin-left: 3px;
+    color: rgb(61,61,61);
+    font-weight: 700;
 }
 
 .lsFormBoxWrapper {
