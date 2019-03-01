@@ -1,0 +1,294 @@
+.splash_OriginWrapper {
+    overflow: hidden;
+    background-color: #26262b;
+    height: 100vh;
+    vertical-align: baseline;
+}
+
+.splash_NavWrapperAbs {
+    background: transparent;
+    position: absolute;
+    z-index: 11;
+    width: 100%;
+}
+
+.splash_desktopNavWrapper {
+    display: block;
+    box-sizing: border-box;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 400;
+    height: 72px;
+    padding: 8px 0;
+    position: relative;
+    user-select: none;
+    width: 100%;
+    z-index: 56;
+}
+
+.splash_innerDesktopNav {
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-box-pack: center;
+    align-items: center;
+    flex-wrap: wrap;
+    height: 100%;
+    justify-content: center;
+    margin: 0 auto;
+    max-width: 1600px;
+    padding: 0 30px;
+    position: relative;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 400;
+    user-select: none;
+}
+
+.splash_navLogo {
+    -webkit-box-flex: 0;
+    flex: 0 0 auto;
+    margin-right: 12px;
+    margin-top: 4px;
+    // margin-top: 0;
+    display: flex;
+}
+
+.splash_logoRedirect {
+    text-decoration: none;
+}
+
+.splash_logoSvgWrapper {
+    flex-shrink: 1;
+    flex-grow: 1;
+    flex-basis: auto;
+    flex-wrap: nowrap;
+    -webkit-box-pack: start;
+    justify-content: start;
+    -webkit-box-align: stretch;
+    align-items: stretch;
+    -webkit-box-direction: normal;
+    -webkit-box-orient: horizontal;
+    display: flex;
+    flex-direction: row;
+    box-sizing: border-box;
+    color: -webkit-link;
+    cursor: pointer;
+}
+
+.splash_logoIcon {
+    flex-grow: 0;
+    flex-shrink: 0;
+    -webkit-box-flex: 1;
+    box-sizing: border-box;
+    height: 36px;
+    width: 33px;
+    fill: #fff;
+    overflow: hidden;
+    -webkit-box-direction: normal;
+    color: -webkit-link;
+    cursor: pointer;
+}
+
+.splash_logoHomePage {
+    // z-index: 1;
+    background: url("https://discordapp.com/assets/4f004ac9be168ac6ee18fc442a52ab53.svg") no-repeat;
+    // -webkit-filter: invert(76%);
+    // filter: invert(76%);
+    // height: 36px;
+    // left: 50%;
+    // margin-left: -65px;
+    // position: absolute;
+    // top: 40px;
+    width: 130px;
+    
+    flex-grow: 0;
+    flex-shrink: 0;
+    -webkit-box-flex: 1;
+    box-sizing: border-box;
+    height: 36px;
+    fill: #fff;
+    overflow: hidden;
+    -webkit-box-direction: normal;
+    color: -webkit-link;
+    cursor: pointer;
+}
+
+.splash_navCenterLinks {
+    -webkit-box-align: center;
+    -webkit-box-flex: 1;
+    align-items: center;
+    display: flex;
+    flex: 1 0 auto;
+    list-style: none;
+    margin: 0;
+    min-height: 56px;
+    padding: 0;
+    // margin-block-start: 1em;
+    // margin-block-end: 1em;
+    // margin-inline-start: 0px;
+    // margin-inline-end: 0px;
+    // padding-inline-start: 40px;
+    color: #fff;
+    user-select: none;
+}
+
+.splash_navCenter_li {
+    cursor: pointer;
+    opacity: .8;
+    -webkit-font-smoothing: subpixel-antialiased;
+    display: inline-block;
+    position: relative;
+    transition: opacity .125s;
+    will-change: opacity;
+    text-align: -webkit-match-parent;
+}
+
+.splash_navCenter_a {
+    text-decoration: none;
+}
+
+.splash_navCenter_Signup {
+    margin-right: 8px;
+    padding: 15px 10px;
+    color: #fff;
+    font-weight: 400;
+    position: relative;
+    text-decoration: none;
+    outline: none;
+    cursor: pointer;
+    -webkit-font-smoothing: subpixel-antialiased;
+    letter-spacing: 0.5;
+}
+
+.splash_navRightLinks {
+    -webkit-box-align: center;
+    -webkit-box-flex: 0;
+    align-items: center;
+    display: flex;
+    flex: 0 1 auto;
+    margin-left: auto;
+    list-style: none;
+    color: #fff;
+}
+
+.splash_navRight_li {
+    cursor: pointer;
+    opacity: .8;
+    -webkit-font-smoothing: subpixel-antialiased;
+    display: inline-block;
+    position: relative;
+    transition: opacity .125s;
+    will-change: opacity;
+    list-style: none;
+    text-align: -webkit-match-parent;
+}
+
+.splash_navRight_a {
+    padding: 15px 10px 15px 0;
+    top: 3px;
+    margin-right: 8px;
+    color: #fff;
+    font-weight: 400;
+    position: relative;
+    text-decoration: none;
+    outline: 0;
+}
+
+.splash_liSVG {
+    -webkit-filter: invert(92%);
+    filter: invert(92%);
+    width: 19px;
+    height: 19px;
+}
+
+.splash_ghSVG {
+    -webkit-filter: invert(92%);
+    filter: invert(92%);
+    width: 19px;
+    height: 19px;
+}
+
+.splash_navRight_Login {
+    border: 2px solid hsla(0,0%,100%,.8);
+    border-radius: 20px;
+    color: #fff;
+    line-height: 24px;
+    margin-right: 18px;
+    padding: 5px 17px 7px;
+    top: 0;
+    text-decoration: none;
+}
+
+.splash_heroWrapper {
+    -webkit-box-direction: normal;
+    -webkit-box-orient: vertical;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: center;
+    padding: 72px 0;
+    text-align: center;
+        -webkit-box-pack: center;
+    align-items: center;
+    border-bottom: none;
+    -webkit-box-align: center;
+    font-weight: 400;
+}
+
+
+// fonts
+
+@font-face {
+  font-family: Whitney-light;
+  font-style: light;
+  font-weight: 300;
+  src: url(https://discordapp.com/assets/16801bfdf51ed88e69bc90626a3ea436.woff) format('woff')
+}
+
+@font-face {
+  font-family: Whitney-norm;
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://discordapp.com/assets/d153359b5d87601d2b9c708b7ae2db02.woff) format('woff')
+}
+
+@font-face {
+  font-family: Whitney-med;
+  font-style: medium;
+  font-weight: 600;
+  src: url(https://discordapp.com/assets/a934ab008c7f6a2274ec441f6be0696a.woff) format('woff')
+}
+
+@font-face {
+  font-family: Whitney-semi;
+  font-style: semibold;
+  font-weight: 650;
+  src: url(https://discordapp.com/assets/877ef48bf9fcfee590f0ba64de101b59.woff) format('woff')
+}
+
+@font-face {
+  font-family: Whitney-bold;
+  font-style: bold;
+  font-weight: 700;
+  src: url(https://discordapp.com/assets/2e004dd717cdc58b9ccb361d286ebbce.woff) format('woff')
+}
+
+.lightFont {
+  font-family: Whitney-light;
+}
+
+.normFont {
+  font-family: Whitney-norm;
+}
+
+.medFont {
+  font-family: Whitney-med;
+}
+
+.semiFont {
+  font-family: Whitney-semi;
+}
+
+.boldFont {
+  font-family: Whitney-bold;
+}
