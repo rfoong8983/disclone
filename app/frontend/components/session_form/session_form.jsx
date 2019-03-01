@@ -260,7 +260,7 @@ class SessionForm extends React.Component {
                         {/* <canvas>canvas would go here for animations</canvas> */}
                         <div className="leftBackground">
                             <div className="logoWrapper">
-                                <a className="logo" rel="noopener" style={wrapperStyles}></a>
+                                <a className="logo" href="/" style={wrapperStyles}></a>
                             </div>
 
                             <div 

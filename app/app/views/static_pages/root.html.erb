@@ -2,9 +2,6 @@
     <script id="giveCurrentUser" type="text/javascript">
         window.currentUser = <%= render("api/users/user.json.jbuilder", user: current_user).html_safe %>
     </script>
-    // what's going on with current_user being passed into jbuilder?
-    // does jbuilder handle the transformation of the ActiveRecord Object?
-    // into json?
 <% end %>
 
 <main id="root"></main>
