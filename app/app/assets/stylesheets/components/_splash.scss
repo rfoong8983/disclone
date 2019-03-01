@@ -1,8 +1,26 @@
+.vsc-initialized {
+    overflow: visible;
+    background-color: #26262b;
+    line-height: 1;
+    height: 100vh;
+    z-index: -1;
+}
+
+.vsc-initialized::-webkit-scrollbar {
+    background: transparent;
+}
+
+// #root {
+//     height: 100%;
+//     width: 100%;
+//     outline: none;
+// }
+
 .splash_OriginWrapper {
     overflow: hidden;
     background-color: #26262b;
-    height: 100vh;
     vertical-align: baseline;
+    height: 100%;
 }
 
 .splash_NavWrapperAbs {
@@ -143,6 +161,10 @@
     text-align: -webkit-match-parent;
 }
 
+.splash_navCenter_li:hover {
+    opacity: 1;
+}
+
 .splash_navCenter_a {
     text-decoration: none;
 }
@@ -181,6 +203,10 @@
     will-change: opacity;
     list-style: none;
     text-align: -webkit-match-parent;
+}
+
+.splash_navRight_li:hover {
+    opacity: 1;
 }
 
 .splash_navRight_a {
@@ -321,6 +347,16 @@
     outline: none;
     transition: box-shadow .3s cubic-bezier(.25,.25,.315,1.35),transform .1s linear,-webkit-box-shadow .3s cubic-bezier(.25,.25,.315,1.35),-webkit-transform .1s linear;
     width: 250px;
+}
+
+.splash_heroLeftButton:hover {
+    box-shadow: none;
+    transform: translateY(0);
+}
+
+.splash_heroRightButton:hover {
+    box-shadow: none;
+    transform: translateY(0);
 }
 
 .splash_animationsWrapper {
@@ -480,8 +516,270 @@
     opacity: .3;
     transition: all .5s ease;
     position: absolute;
+    bottom: 440px;
+    margin-left: 101px;
 }
 
+.splash_x2 {
+    left: 50%;
+    opacity: .3;
+    transition: all .5s ease;
+    position: absolute;
+    bottom: 220px;
+    margin-left: 541px;
+}
+
+.splash_x3 {
+    left: 50%;
+    opacity: .3;
+    transition: all .5s ease;
+    position: absolute;
+    bottom: 510px;
+    margin-left: -579px;
+}
+
+.splash_flask {
+    left: 50%;
+    transition: all .5s ease;
+    position: absolute;
+    // cursor: pointer;
+    margin-left: -609px;
+    z-index: 1;
+    bottom: 10px;
+}
+
+
+
+.splash_bomb {
+    left: 50%;
+    transition: all .5s ease;
+    position: absolute;
+    bottom: 335px;
+    margin-left: -481px;
+    animation-name: bomb;
+    animation-delay: .4s;
+    animation-direction: alternate;
+    animation-duration: 1.5s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+}
+
+.splash_coin1 {
+    left: 50%;
+    transition: all .5s ease;
+    position: absolute;
+    bottom: 300px;
+    margin-left: -428px;
+    animation-direction: alternate;
+    animation-duration: 1.5s;
+    animation-iteration-count: infinite;
+    animation-name: coin;
+    animation-timing-function: ease-in-out;
+}
+
+.splash_coin2 {
+    left: 50%;
+    transition: all .5s ease;
+    position: absolute;
+}
+
+.splash_coin2 {
+    left: 50%;
+    transition: all .5s ease;
+    position: absolute;
+    bottom: 530px;
+    margin-left: 80px;
+    animation-direction: alternate;
+    animation-duration: 1.5s;
+    animation-iteration-count: infinite;
+    animation-name: coin;
+    animation-timing-function: ease-in-out;
+}
+
+.splash_floppy {
+    left: 50%;
+    transition: all .5s ease;
+    position: absolute;
+    bottom: 392px;
+    margin-left: 250px;
+    animation-direction: alternate;
+    animation-duration: 1.5s;
+    animation-iteration-count: infinite;
+    animation-name: floppy;
+    animation-timing-function: ease-in-out;
+}
+
+.splash_shield {
+    left: 50%;
+    transition: all .5s ease;
+    position: absolute;
+}
+
+.splash_speaker {
+    left: 50%;
+    transition: all .5s ease;
+    position: absolute;
+    margin-left: 423px;
+    bottom: 10px;
+}
+
+.splash_question {
+    left: 50%;
+    transition: none;
+    position: absolute;
+    margin-left: -293px;
+    bottom: 462px;
+}
+
+.splash_computer {
+    left: 50%;
+    transition: all .5s ease;
+    position: absolute;
+    margin-left: -289.5px;
+    bottom: 10px;
+}
+
+.splash_android {
+    left: 50%;
+    transition: all .5s ease;
+    position: absolute;
+    margin-left: -548px;
+    bottom: 10px;
+}
+
+.splash_iphone {
+    left: 50%;
+    transition: all .5s ease;
+    position: absolute;
+    margin-left: -401.5px;
+    bottom: 10px;
+}
+
+.splash_controller {
+    left: 50%;
+    transition: all .5s ease;
+    position: absolute;
+    margin-left: -255px;
+    bottom: 10px;
+}
+
+.splash_laptop {
+    left: 50%;
+    transition: all .5s ease;
+    position: absolute;
+    margin-left: -4px;
+    bottom: 10px;
+}
+
+.splash_headphones {
+    left: 50%;
+    transition: all .5s ease;
+    position: absolute;
+    margin-left: 270px;
+    transform: scale(.75);
+    bottom: 142px;
+}
+
+.splash_footerWrapper {
+    background: transparent;
+    position: relative;
+    z-index: 1;
+    bottom: -100%;
+    font-weight: 400;
+    overflow: hidden;
+    padding: 80px 160px 48px;
+}
+
+.splash_footerBackground {
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    font-weight: 400px;
+}
+
+.splash_footerContent {
+    margin: 0 auto;
+    max-width: 1600px;
+    position: relative;
+}
+
+.splash_footerLinks {
+    -webkit-box-pack: justify;
+    display: flex;
+    justify-content: space-between;
+}
+
+.splash_footerSeparator {
+    background: url('/assets/underline.svg');
+    height: 1px;
+    margin: 34px 0;
+    opacity: .1;
+    width: 100%;
+}
+
+.splash_footerSignUp {
+    display: flex;
+    flex-direction: row;
+}
+
+.splash_footerSpiel {
+    -webkit-box-flex: 1;
+    flex: 1;
+}
+
+.splash_footerMainText {
+    color: #fff;
+    font-size: 26px;
+    line-height:34px;
+}
+
+.splash_footerSubText {
+    color: hsla(0,0%,100%,.6);
+    font-size: 14px;
+    font-weight: 500;
+    margin-top: 4px;
+}
+
+.splash_footerSignUpButton {
+    background-color: #7289da;
+    color: #fff;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 15px;
+    height: 15px;
+    line-height: 15px;
+    padding: 16px;
+    position: relative;
+    text-decoration: none;
+}
+
+.splash_footerSignUpButton:hover {
+    color: #fff;
+    box-shadow: 0 4px 14px 0 rgba(28,30,34,.4);
+    top: -1px;
+}
+
+
+
+// animations
+
+@keyframes bomb {
+    0% {transform: translate3d(0,-4px,0);}
+    100% {transform: translate3d(0,4px,0);}
+}
+
+@keyframes coin {
+    0% {transform: translate3d(0,-4px,0);}
+    100% {transform: translate3d(0,4px,0);}
+}
+
+@keyframes floppy {
+    0% {transform: translate3d(0,-4px,0);}
+    100% {transform: translate3d(0,4px,0);}
+}
 
 
 // fonts
