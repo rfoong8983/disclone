@@ -1,4 +1,5 @@
 import React from 'react';
+import ServersContainer from './servers/servers_container';
 
 class Platform extends React.Component {
     constructor(props) {
@@ -8,9 +9,8 @@ class Platform extends React.Component {
     render() {
         return (
             <div className="pf_platformWrapper">
-                <p>MAIN PLATFORM PIECES WILL BE RENDERED INSIDE HERE</p>
                 <div className="pf_serversWrapper">
-
+                    <ServersContainer />
                 </div>
                 <div className="pf_channelsAndLogoutWrapper">
                     <div className="pf_channelsWrapper">

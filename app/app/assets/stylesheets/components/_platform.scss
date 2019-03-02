@@ -1,0 +1,31 @@
+.pf_platformWrapper {
+    display: flex;
+    flex: 1 1 auto;
+    background-color: #202225;
+    -webkit-box-direction: normal;
+    -webkit-box-orient: horizontal;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    -webkit-box-pack: start;
+    justify-content: flex-start;
+    -webkit-box-align: stretch;
+    align-items: stretch;
+    outline: 0;
+    overflow: hidden;
+    width: 100vw;
+    height: 100vh;
+}
+
+.pf_serversWrapper {
+    background-color: #202225;
+    -webkit-box-direction: normal;
+    -webkit-box-orient: vertical;
+    border-radius: 5px 0 0 5px;
+    contain: layout;
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+    overflow: hidden;
+    position: relative;
+    width: 70px;
+}
