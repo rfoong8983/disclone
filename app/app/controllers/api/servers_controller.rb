@@ -1,6 +1,6 @@
-class ServersController < ApplicationController
+class Api::ServersController < ApplicationController
     def create
-        @server = Server.new(server_params[:owner_id], server_params[:server_name])
+        @server = Server.new(server_params)
         if @server.save
             render '/api/servers/new_server'
         else
@@ -9,7 +9,7 @@ class ServersController < ApplicationController
     end
 
     def index
-        @servers = Server.all
+        @servers = current_user.servers
         render '/api/servers/servers_index'
     end
 

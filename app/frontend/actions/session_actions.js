@@ -5,12 +5,20 @@ export const RECEIVE_SESSION_ERRORS = "RECEIVE_SESSION_ERRORS";
 export const LOGOUT_CURRENT_USER = "LOGOUT_CURRENT_USER";
 
 // thunk action creators
+// err.responseJSON returns an object
+// formatted {email:['error'], user:['error']...}
+// action['errors']: above object
 export const signup = (user) => dispatch => (
     SeshApi.signup(user)
         .then(
             (user) => (dispatch(receiveCurrentUser(user))),
             (err) => (dispatch(receiveSessionErrors(err.responseJSON)))
-            )
+            // (err) => {console.log(err);
+            //     console.log(err.responseJSON);
+            //     console.log(err.responseJSON.constructor.name);
+            //     dispatch(receiveSessionErrors(err.responseJSON))
+            //     }
+        )
 );
 
 export const login = (user) => dispatch => {
@@ -18,7 +26,7 @@ export const login = (user) => dispatch => {
         .then(
             (user) => dispatch(receiveCurrentUser(user)),
             (err) => dispatch(receiveSessionErrors(err.responseJSON))
-            );
+        );
 };
 
 export const logout = () => dispatch => (

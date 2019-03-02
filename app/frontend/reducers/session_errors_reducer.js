@@ -8,8 +8,13 @@ export const sessionErrorsReducer = (oldState = {}, action) => {
     // const newState = Object.assign([], oldState);
 
     switch (action.type) {
-        case RECEIVE_CURRENT_USER:
-            return {};
+        // was originally supposed to clear my errors
+        // instead, a blank array was passed as the payload
+        // if clearSessionErrors action was called
+
+        // case RECEIVE_CURRENT_USER:
+        //     return {};
+        
         case RECEIVE_SESSION_ERRORS:
             return action.errors;
         default:
