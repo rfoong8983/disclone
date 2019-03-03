@@ -8,8 +8,8 @@ const serversReducer = (oldState={}, action) => {
     Object.freeze(oldState);
     let newState = Object.assign({}, oldState);
     // console.log("oldState: ", oldState);
-    console.log("newState: ", newState);
-    console.log("action: ", action);
+    // console.log("newState: ", newState);
+    // console.log("action: ", action);
     switch(action.type) {
         case RECEIVE_ALL_SERVERS:
             return Object.assign({}, newState, action.servers);

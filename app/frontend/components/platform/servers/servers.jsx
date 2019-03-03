@@ -1,5 +1,4 @@
 import React from 'react';
-import { fetchServers } from '../../../actions/servers_actions';
 import ServerItem from './server_item_container';
 import { receiveCurrentServerId } from '../../../actions/ui_actions';
 
@@ -25,6 +24,15 @@ class Servers extends React.Component {
         ));
     }
 
+    updateStoreServerId() {
+        const homeServerPath = "@me";
+        return (e) => {
+            e.preventDefault();
+            this.props.receiveCurrentServerId(homeServerPath);
+            this.props.history.push(`/channels/@me`);
+        };
+    }
+
     render() {
         // handle rendering by servId/chanId in component vs in app.jsx routes
         return (
@@ -33,25 +41,28 @@ class Servers extends React.Component {
                     <div className="serveCo_homeServerIconOuter">
                         {/* ::before in className above, on focus */}
                         <div className="servCo_homeServerIconInner">
-                            <a draggable="false" className="servCo_homeServerLogoLink" href="/#/channels/@me">
+                            <a 
+                                draggable="false" 
+                                className="servCo_homeServerLogoLink" 
+                                href="/#/channels/@me"
+                                onClick={this.updateStoreServerId()}
+                            >
                                 <i className="servCo_homeServerLogoIcon fas fa-compact-disc fa-2x"></i>
                             </a>
                         </div>
                     </div>
 
-                    <div className="servCo_friendsOnline"></div>
+                    <div className="servCo_friendsOnline normFont">0 online</div>
                     <span className="servCo_topBarWrapper"></span>
                     <div className="servCo_topBarSep">{/* ::after in className */}</div>
                     
 
                     {/* START SERVERS HERE */}
-                    <div>
-                        <ul>
-                            {/* render server_item_container here for each server? */}
-                            {/* <li>{Object.values(this.props.servers).map((server) => server.server_name)}</li> */}
-                            {this.serverItems(Object.values(this.props.servers))}
-                        </ul>
-                    </div>
+
+                    {/* render server_item_container here for each server? */}
+                    {/* <li>{Object.values(this.props.servers).map((server) => server.server_name)}</li> */}
+                    {this.serverItems(Object.values(this.props.servers))}
+
 
                     {/* Use below block in server index item and place in UL above */}
                     {/* <div className="servCo_STARTSERVERSHERE"> */}

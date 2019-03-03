@@ -1,5 +1,5 @@
-import React from 'react';
 import { connect } from 'react-redux';
+import { withRouter } from "react-router";
 import { receiveCurrentServerId } from '../../../actions/ui_actions';
 import ServerItem from './server_item';
 
@@ -33,6 +33,6 @@ const mdp = (dispatch) => (
     {
         updateServerId: (serverId) => dispatch(receiveCurrentServerId(serverId))
     }
-)
+);
 
-export default connect(msp, mdp)(ServerItem);
+export default withRouter(connect(msp, mdp)(ServerItem));

@@ -1,3 +1,135 @@
 .servCo_outerWrapper {
-    
+    width: 88px;
+    -webkit-box-flex: 1;
+    display: flex;
+    flex: 1 1 auto;
+    height: 100%;
+    position: relative;
+    outline: 0;
+    -webkit-box-direction: normal;
+}
+
+.servCo_innerWrapper {
+    flex: 1;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    padding: 10px 0 10px 10px;
+    user-select: none;
+}
+
+.serveCo_homeServerIconOuter {
+    height: 50px;
+    width: 50px;
+    position: relative;
+    z-index: 1;
+    outline: 0;
+    background: #2f3136;
+    border-radius: 25px;
+}
+
+.serveCo_homeServerIconOuter::before {
+    background: #fff;
+    border-radius: 20px;
+    height: 40px;
+    margin-top: -20px;
+    transition: height .25s ease-in-out,margin-top .25s ease-in-out;
+    content: " ";
+    left: -15px;
+    position: absolute;
+    top: 50%;
+    width: 10px;
+}
+
+.servCo_homeServerIconInner:hover {
+    border-radius: 15px;
+    background-color: rgb(114, 137, 218);
+    cursor: pointer;
+    font-size: 18px;
+    line-height: 50px;
+    overflow: hidden;
+    // text-align: center;
+    // transform: translateZ(0);
+    // transition: background 1s;
+    transition: border-radius 0.3s, background 0.3s;
+    transition-timing-function: cubic-bezier(1, 3, 1, 0);
+}
+
+// .servCo_homeServerIconInner:focus {
+//     border-radius: 15px;
+//     background-color: rgb(114, 137, 218);
+//     transform: translateZ(0);
+// }
+
+.servCo_homeServerIconInner a {
+    color: #fff;
+    display: flex;
+    height: 50px;
+    width: 50px;
+    cursor: pointer;
+    text-decoration: none;
+    // transition: opacity .5s,color .5s;
+    -webkit-user-drag: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.servCo_homeServerIconInner a:focus {
+    background-color: rgb(114, 137, 218);
+    border-radius: 15px;
+    color: #fff;
+    height: 50px;
+    width: 50px;
+    cursor: pointer;
+    text-decoration: none;
+    // transition: opacity .5s,color .5s;
+    -webkit-user-drag: none;
+}
+
+.servCo_homeServerLogoIcon.fas.fa-compact-disc.fa-2x {
+    color: #fff;
+    height: 36px;
+    width: 36px;
+    // padding: 5px;
+}
+
+.servCo_friendsOnline {
+    color: hsla(0,0%,100%,.3);
+    font-size: 10px;
+    font-weight: 500;
+    line-height: 1.3;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    text-align: center;
+    text-transform: uppercase;
+    white-space: nowrap;
+    width: 50px;
+    word-wrap: normal;
+}
+
+.servCo_topBarWrapper {
+    margin-bottom: 10px;
+    margin-top: 10px;
+    display: block;
+    outline: 0;
+    width: 70px;
+}
+
+.servCo_topBarSep {
+    background: none;
+    height: 2px;
+    position: relative;
+    width: 50px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+.servCo_topBarSep::after {
+    background: #2f3136;
+    content: " ";
+    height: 2px;
+    left: 20%;
+    position: absolute;
+    right: 20%;
+    top: 0;
 }
