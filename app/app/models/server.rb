@@ -1,5 +1,7 @@
 class Server < ApplicationRecord
-    validates :owner_id, :server_name, presence: true;
+    validates :owner_id, presence: true;
+    validates :server_name, uniqueness: { message: " - Name has already been taken" }
+    validates :server_name, presence: { message: " - This field is required" }
 
     belongs_to :user, 
         primary_key: :id,

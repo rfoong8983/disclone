@@ -16,6 +16,7 @@ const msp = ({ session, entities: { users, servers } }) => (
 const mdp = (dispatch) => (
     {
         fetchServers: () => dispatch(fetchServers()),
+        closeModal: () => dispatch(closeModal()),
         receiveCurrentServerId: (serverId) => dispatch(receiveCurrentServerId(serverId)),
         createServer: (server) => dispatch(createServer(server)),
         otherForm: (

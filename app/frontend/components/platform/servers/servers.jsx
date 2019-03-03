@@ -13,6 +13,11 @@ class Servers extends React.Component {
         // debugger
     }
 
+    componentDidUpdate() {
+        // debugger
+        this.props.closeModal();
+    }
+
     serverItems(servers) {
         // use object.values outside ?
         // debugger

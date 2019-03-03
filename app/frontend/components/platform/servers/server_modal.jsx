@@ -1,16 +1,25 @@
 import React from 'react';
+import { clearServerErrors } from '../../../actions/servers_actions';
 
 class ServerModal extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {loc: "main", firstLetter: ""};
+        this.state = {loc: "main", firstLetter: "", createServer: "", joinServer: ""};
+        
+        // binding of functions
         this.mainForm = this.mainForm.bind(this);
         this.createForm = this.createForm.bind(this);
         this.joinForm = this.joinForm.bind(this);
+        this.handleInputUpdate = this.handleInputUpdate.bind(this);
         this.formSubmit = this.formSubmit.bind(this);
         this.manageDisplay = this.manageDisplay.bind(this);
         this.headerText = this.headerText.bind(this);
         this.manageBackAction = this.manageBackAction.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
+    }
+
+    componentWillUnmount() {
+        this.props.clearServerErrors();
     }
 
     manageFormType(field) {
@@ -23,6 +32,13 @@ class ServerModal extends React.Component {
         // return (e) => {
         //     this.setState({})
         // }
+    }
+
+    handleInputUpdate(field) {
+        return (e) => {
+            e.preventDefault();
+            this.setState({ [field]: e.target.value });
+        };
     }
 
     manageDisplay() {
@@ -44,15 +60,23 @@ class ServerModal extends React.Component {
         };
     }
 
+    handleSubmit(e) {
+        e.preventDefault();
+        const newServer = Object.assign({}, {server_name: this.state.createServer, owner_id: this.props.currentUser.id});
+        // debugger
+        this.props.createServer(newServer);
+    }
+
     formSubmit() {
         const currDisplay = this.state.loc;
-
+        // debugger
         return (
             <div className="mod_formLowerWrapper">
                 {currDisplay === 'create' ?
                     <button
                         className="mod_formCreateSubmitButton medFont"
                         type="submit"
+                        onClick={this.handleSubmit}
                     >
                         <div className="mod_formSubmitLabel">
                             {currDisplay[0].toUpperCase() + currDisplay.slice(1)}
@@ -62,6 +86,7 @@ class ServerModal extends React.Component {
                     <button
                         className="mod_formJoinSubmitButton normFont"
                         type="submit"
+                        // on click
                     >
                         <div className="mod_formSubmitLabel">
                             {currDisplay[0].toUpperCase() + currDisplay.slice(1)}
@@ -83,6 +108,10 @@ class ServerModal extends React.Component {
         )
     }
 
+    displayErrors() {
+
+    }
+
     createForm() {
         return (
             <form className="mod_createFormWrapper">
@@ -98,7 +127,8 @@ class ServerModal extends React.Component {
                             <div className="mod_createFormCreateInputWrapper">
                                 <div className="mod_createFormCreateInnerInput">
                                     <label className="mod_createFormLabel boldFont" htmlFor="serverName">
-                                        Server Name
+                                        {/* perhaps add a div here instead of plain text */}
+                                        <div>Server Name</div>
                                     </label>
                                     <div className="mod_createServerNameWrapper">
                                         <input 
@@ -106,6 +136,7 @@ class ServerModal extends React.Component {
                                             id="serverName"
                                             placeholder="Enter a server name"
                                             maxLength="40"
+                                            onChange={this.handleInputUpdate('createServer')}
                                         >
                                         </input>
                                     </div>
@@ -119,7 +150,8 @@ class ServerModal extends React.Component {
                                 <div className="mod_createServerCircleWrapper">
                                     <div className="mod_createServerCircle">
                                         <div className="mod_createServerFirstLetter normFont">
-                                            {this.state.firstLetter}
+                                            
+                                            {this.state.createServer[0]}
                                         </div>
                                     </div>
                                     <div className="mod_resolutionPlaceholder">
@@ -157,6 +189,7 @@ class ServerModal extends React.Component {
                                     className="mod_joinInput normFont"
                                     id="serverName"
                                     maxLength="40"
+                                    onChange={this.handleInputUpdate('joinServer')}
                                 >
                                 </input>
                             </div>
