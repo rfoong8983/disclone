@@ -58,7 +58,7 @@
     top: 0;
     width: 100%;
     text-align: center;
-    background-image: url('/assets/or.svg');
+    background-image: image_url('/assets/or.svg');
     font-family: main3;
     color: #99aab5;
 }
@@ -74,7 +74,7 @@
 }
 
 .mod_serverWrapper2 {
-    background-image: url('/assets/serverModalLeft.png'), url('/assets/serverModalRight.png');
+    background-image: image_url('/assets/serverModalLeft.png'), image_url('/assets/serverModalRight.png');
     background-position: 0 100%,100% 100%;
     background-repeat: no-repeat;
     background-size: 155px auto,75px auto;
@@ -144,7 +144,7 @@
 }
 
 .mod_createServerCreateIcon {
-    background-image: url('/assets/createServer.png');
+    background-image: image_url('/assets/createServer.png');
     background-size: 112px 78px;
     height: 78px;
     background-position: 50%;
@@ -214,7 +214,7 @@
 }
 
 .mod_joinServerCreateIcon {
-    background-image: url('/assets/joinServer.png');
+    background-image: image_url('/assets/joinServer.png');
     background-size: 178.5px 78px;
     height: 78px;
     background-position: 50%;
@@ -245,7 +245,7 @@
 
 // CREATE
 .mod_createFormWrapper {
-    
+
 }
 
 .mod_createFormUpperWrapper {
