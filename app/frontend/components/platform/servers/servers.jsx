@@ -1,6 +1,7 @@
 import React from 'react';
 import ServerItem from './server_item_container';
 import { receiveCurrentServerId } from '../../../actions/ui_actions';
+import CreateServer from './create_server';
 
 class Servers extends React.Component {
     constructor(props) {
@@ -89,10 +90,14 @@ class Servers extends React.Component {
                     
 
                     {/* START OF ADD BUTTON (MODAL) */ }
-                    <button className="servCo_AddServerButton lightFont">
+                    {/* <button className="servCo_AddServerButton lightFont">
                         <span className="servCo_AddServerText">+</span>
-                        <div className="servCo_BottomSeparator"></div>
-                    </button>
+                    </button> */}
+                    {this.props.otherForm}
+
+                    {/* <CreateServer /> */}
+
+                    {/* {<Modal state={{state:{modalActive: true}}}/>} */}
                     
                     <div className="servCo_DownloadButton">
                         

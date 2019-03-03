@@ -6,11 +6,11 @@ import SplashContainer from './splash/splash_container';
 import LogInContainer from './session_form/login_container';
 import SignUpContainer from './session_form/signup_container';
 import PlatformContainer from './platform/platform_container';
-import ServersContainer from './platform/servers/servers_container';
+import Modal from './platform/modal/modal';
 
 const App = () => (
     <div>
-        {/* <GreetingContainer /> */}
+        <Modal />
         <Switch>
             <AuthRoute exact path="/login" component={LogInContainer} />
             <AuthRoute exact path="/signup" component={SignUpContainer} />

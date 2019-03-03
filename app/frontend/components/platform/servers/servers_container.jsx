@@ -1,7 +1,9 @@
+import React from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
 import { fetchServers } from '../../../actions/servers_actions';
 import { receiveCurrentServerId } from '../../../actions/ui_actions';
+import { openModal, closeModal } from '../../../actions/modal_actions';
 import Servers from './servers';
 
 const msp = ({ session, entities: { users, servers } }) => (
@@ -14,7 +16,16 @@ const msp = ({ session, entities: { users, servers } }) => (
 const mdp = (dispatch) => (
     {
         fetchServers: () => dispatch(fetchServers()),
-        receiveCurrentServerId: (serverId) => dispatch(receiveCurrentServerId(serverId))
+        receiveCurrentServerId: (serverId) => dispatch(receiveCurrentServerId(serverId)),
+        createServer: (server) => dispatch(createServer(server)),
+        otherForm: (
+            <button
+                onClick={() => dispatch(openModal('createServer'))}
+                className="servCo_AddServerButton lightFont"
+            >
+                <span className="servCo_AddServerText">+</span>
+            </button>
+        )
     }
 );
 // server component itself handles the 
