@@ -27,18 +27,18 @@
     border-radius: 25px;
 }
 
-.serveCo_homeServerIconOuter::before {
-    background: #fff;
-    border-radius: 20px;
-    height: 40px;
-    margin-top: -20px;
-    transition: height .25s ease-in-out,margin-top .25s ease-in-out;
-    content: " ";
-    left: -15px;
-    position: absolute;
-    top: 50%;
-    width: 10px;
-}
+// .serveCo_homeServerIconOuter::before {
+//     background: #fff;
+//     border-radius: 20px;
+//     height: 40px;
+//     margin-top: -20px;
+//     transition: height .25s ease-in-out,margin-top .25s ease-in-out;
+//     content: " ";
+//     left: -15px;
+//     position: absolute;
+//     top: 50%;
+//     width: 10px;
+// }
 
 .servCo_homeServerIconInner:hover {
     border-radius: 15px;
@@ -132,4 +132,36 @@
     position: absolute;
     right: 20%;
     top: 0;
+}
+
+.servCo_AddServerButton {
+    background: #202225;
+    border-color: #535559;
+    color: #535559;
+    margin-top: 8px;
+    cursor: pointer;
+    border-radius: 50%;
+    border-style: dashed;
+    border-width: 1px;
+    font-size: 40px;
+    font-weight: 300;
+    height: 50px;
+    line-height: 100%;
+    padding: 0;
+    text-align: center;
+    transition: border-color .25s ease,color .25s ease;
+    width: 50px;
+    outline: none;
+}
+
+.servCo_AddServerButton::after {
+    content: "";
+    background-color: rgb(66,68,70);
+    display: block;
+    height: 2px;
+    left: 50%;
+    margin-left: -16px;
+    position: relative;
+    top: 15px;
+    width: 30px;
 }

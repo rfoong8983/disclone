@@ -26,10 +26,14 @@ class Servers extends React.Component {
 
     updateStoreServerId() {
         const homeServerPath = "@me";
+        const currentPath = this.props.location.pathname;
         return (e) => {
             e.preventDefault();
-            this.props.receiveCurrentServerId(homeServerPath);
-            this.props.history.push(`/channels/@me`);
+            // USE REGEX TO ONLY CAPTURE /channels/serverId
+            if (currentPath !== `/channels/${homeServerPath}`) {
+                this.props.receiveCurrentServerId(homeServerPath);
+                this.props.history.push(`/channels/@me`);
+            }
         };
     }
 
@@ -85,10 +89,15 @@ class Servers extends React.Component {
                     
 
                     {/* START OF ADD BUTTON (MODAL) */ }
-                    <button className="servCo_AddServerButton">
+                    <button className="servCo_AddServerButton lightFont">
                         <span className="servCo_AddServerText">+</span>
+                        <div className="servCo_BottomSeparator"></div>
                     </button>
-
+                    
+                    <div className="servCo_DownloadButton">
+                        
+                    </div>
+                    
 
 
                     {/* LIKE THE APP? DOWNLOAD THE REAL DISCORD HERE */ }
