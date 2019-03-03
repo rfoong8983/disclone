@@ -10,6 +10,7 @@ class ServerModal extends React.Component {
         this.formSubmit = this.formSubmit.bind(this);
         this.manageDisplay = this.manageDisplay.bind(this);
         this.headerText = this.headerText.bind(this);
+        this.manageBackAction = this.manageBackAction.bind(this);
     }
 
     manageFormType(field) {
@@ -37,29 +38,43 @@ class ServerModal extends React.Component {
         }
     }
 
+    manageBackAction() {
+        return (e) => {
+            this.setState({ loc: "main" });
+        };
+    }
+
     formSubmit() {
         const currDisplay = this.state.loc;
-        let col;
-        if (currDisplay === 'join') {
-            col = { background: '#3ca374', color: '#fff' };
-        } else {
-            col = { background: '#7289da', color: '#fff' };
-        }
 
         return (
             <div className="mod_formLowerWrapper">
-                <button
-                    className="mod_formSubmitButton"
-                    type="submit"
-                    style={col}
-                >
-                    <div className="mod_formSubmitLabel">
-                        {currDisplay[0].toUpperCase() + currDisplay.slice(1)}
-                    </div>
-                </button>
+                {currDisplay === 'create' ?
+                    <button
+                        className="mod_formCreateSubmitButton medFont"
+                        type="submit"
+                    >
+                        <div className="mod_formSubmitLabel">
+                            {currDisplay[0].toUpperCase() + currDisplay.slice(1)}
+                        </div>
+                    </button>
+                    : 
+                    <button
+                        className="mod_formJoinSubmitButton normFont"
+                        type="submit"
+                    >
+                        <div className="mod_formSubmitLabel">
+                            {currDisplay[0].toUpperCase() + currDisplay.slice(1)}
+                        </div>
+                    </button>
+                }
+                
 
                 <div className="mod_formBack">
-                    <button className="mod_formBackButton">
+                    <button 
+                        className="mod_formBackButton normFont"
+                        onClick={this.manageBackAction()}
+                    >
                         {/* discord uses a ::before to display arrow */}
                         Back
                     </button>
@@ -73,7 +88,8 @@ class ServerModal extends React.Component {
             <form className="mod_createFormWrapper">
                 <div className="mod_createFormUpperWrapper">
                     <div className="mod_createFormUpperInner">
-                        <p className="mod_createFormDescription">
+                        <h5 className="mod_createFormTitle boldFont">Create your server</h5>
+                        <p className="mod_createFormDescription medFont">
                             By creating a server, you will have access to
                             <strong> free </strong> voice and text chat to use amongst your friends.
                         </p>
@@ -81,13 +97,14 @@ class ServerModal extends React.Component {
                         <div className="mod_createFormCreate">
                             <div className="mod_createFormCreateInputWrapper">
                                 <div className="mod_createFormCreateInnerInput">
-                                    <label className="mod_createFormLabel" htmlFor="serverName">
+                                    <label className="mod_createFormLabel boldFont" htmlFor="serverName">
                                         Server Name
                                     </label>
                                     <div className="mod_createServerNameWrapper">
                                         <input 
-                                            className="mod_createFormInput" 
+                                            className="mod_createFormInput normFont" 
                                             id="serverName"
+                                            placeholder="Enter a server name"
                                             maxLength="40"
                                         >
                                         </input>
@@ -97,22 +114,25 @@ class ServerModal extends React.Component {
                                 <div className="mod_serverRegionPlaceholder">
                                 </div>
                             </div>
-                        </div>
 
-                        <div className="mod_createShowServer">
-                            <div className="mod_createServerCircleWrapper">
-                                <div className="mod_createServerCircle">
-                                    {this.state.firstLetter}
-                                </div>
-                                <div className="mod_resolutionPlaceholder">
+                            <div className="mod_createShowServer">
+                                <div className="mod_createServerCircleWrapper">
+                                    <div className="mod_createServerCircle">
+                                        <div className="mod_createServerFirstLetter normFont">
+                                            {this.state.firstLetter}
+                                        </div>
+                                    </div>
+                                    <div className="mod_resolutionPlaceholder">
+                                    </div>
                                 </div>
                             </div>
                         </div>
+
+                        
                     </div>
                 </div>
 
-                {/* lower portion */}
-                {this.formSubmit()}
+                {/* back and submit buttons handled in main form */}
             </form>
         );
     }
@@ -122,8 +142,9 @@ class ServerModal extends React.Component {
             <form className="mod_joinFormWrapper">
                 <div className="mod_joinFormUpperWrapper">
                     <div className="mod_joinFormUpperInner">
+                        <h5 className="mod_joinFormTitle boldFont">Join a server</h5>
                         <div className="mod_joinFormInstrWrapper">
-                            <p className="mod_joinFormDescription">
+                            <p className="mod_joinFormDescription medFont">
                                 Enter an Instant Invite below to join an existing server. The invite will look something like these:
                             </p>
                         </div>
@@ -144,8 +165,7 @@ class ServerModal extends React.Component {
                     </div>
                 </div>
 
-                {/* lower portion */}
-                {this.formSubmit()}
+                {/* back and submit buttons handled in main form */}
             </form>
         )
     }
@@ -221,15 +241,17 @@ class ServerModal extends React.Component {
                 <div className="mod_serverWrapper1">
                     <div className="mod_serverWrapper2">
 
-                        <header 
+                        {this.state.loc === 'main' ? <header 
                             className="mod_serverHeader boldFont" style={joinColor}
                         >
-                            { this.headerText() }
-                        </header>
+                            {this.headerText()}
+                        </header> : ""}
 
                         {this.manageDisplay()}
-
                     </div>
+                    {this.state.loc !== 'main' ? this.formSubmit() : ""}
+
+                    
                 </div>
 
                 {this.state.loc === 'main' ? <div className="mod_createOrJoin medFont">or</div> : ""}

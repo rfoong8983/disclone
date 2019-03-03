@@ -18,7 +18,7 @@
   -webkit-font-smoothing: subpixel-antialiased;
 //   -webkit-transform: translateZ(0) scale(1.0, 1.0);
   height: 420px;
-//   width: 540px;
+  width: 540px;
 }
 
 // START MAIN FORM SERVER STYLING
@@ -67,6 +67,8 @@
     border-radius: 5px 5px 0 0;
     z-index: 0;
     position: relative;
+    display: flex;
+    flex-direction: column;
     -webkit-box-flex: 1;
     display: flex;
     flex: 1 1 auto;
@@ -74,6 +76,8 @@
 }
 
 .mod_serverWrapper2 {
+    // can add conditional inside server_modal.jsx
+    // for background only on this.state.loc === 'main'
     background-image: image_url('/assets/serverModalLeft.png'), image_url('/assets/serverModalRight.png');
     background-position: 0 100%,100% 100%;
     background-repeat: no-repeat;
@@ -84,6 +88,8 @@
     -webkit-box-flex: 1;
     flex: 1 1 auto;
     overflow-y: scroll;
+    height: 346px;
+    width: 540px;
 }
 
 .mod_serverHeader {
@@ -245,7 +251,6 @@
 
 // CREATE
 .mod_createFormWrapper {
-
 }
 
 .mod_createFormUpperWrapper {
@@ -256,48 +261,172 @@
 
 }
 
-.mod_createFormDescription {
-
+.mod_createFormTitle {
+    color: #7289da;
+    font-size: 18px;
+    text-align: center;
+    font-weight: 700;
+    line-height: 1.3;
+    text-transform: uppercase;
 }
 
+.mod_createFormDescription {
+    color: #99aab5;
+    margin-bottom: 4px;
+    margin-top: 0;
+    font-weight: 500;
+    line-height: 1.2;
+    margin: 0;
+    padding: 10px 0;
+    font-size: 18px;
+    text-align: center;
+}
+
+strong { font-weight: 700; font-family: Whitney-semi; }
+
 .mod_createFormCreate {
+    display: flex;
+    flex: 1 1 auto;
+    margin-top: 14px;
+    -webkit-box-direction: normal;
+    -webkit-box-orient: horizontal;
+    flex-direction: row;
 
 }
 
 .mod_createFormCreateInputWrapper {
-
+    flex: 1.2 1 0px;
+    margin-left: 0;
+    margin-right: 10px;
+    outline: 0;
+    width: 0px;
+    height: 218px;
+    width: 235.63px;
 }
 
 .mod_createFormCreateInnerInput {
-
+    outline: 0;
+    width: 235.63px;
+    margin-right: 0px;
 }
 
 .mod_createFormLabel {
-
+    color: #87909c;
+    display: block;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
 }
 
 .mod_createServerNameWrapper {
-
+    display: flex;
+    -webkit-box-direction: normal;
+    -webkit-box-orient: vertical;
+    flex-direction: column;
+    outline: 0;
 }
 
 .mod_createFormInput {
+    outline: 0;
+    background: transparent;
+    border-bottom-color: #f0f0f0;
+    color: #2f3136;
+    border-bottom-style: solid;
+    border-radius: 0;
+    border-width: 0 0 2px;
+    font-size: 16px;
+    font-weight: 400;
+    margin-top: 12px;
+    padding-left: 4px;
+    padding-right: 4px;
+    width: 235.63px;
+    height: 40px;
+    padding: 10px;
+    box-sizing: border-box;
+    transition: background-color .15s ease,border .15s ease;
+    border-style: solid;
+    letter-spacing: normal;
+    word-spacing: normal;
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+    display: inline-block;
+    text-align: start;
+    margin: 0em;
+    -webkit-rtl-ordering: logical;
+    cursor: text;
+    -webkit-appearance: textfield;
+    -webkit-writing-mode: horizontal-tb !important;
+}
 
+.mod_createFormInput::placeholder {
+    color: rgb(176,178,182);
+}
+
+.mod_createFormInput:focus {
+    border-color: #7289da;
+    outline-offset: -2px;
 }
 
 .mod_serverRegionPlaceholder {
-
+    margin-top: 32px;
+    outline: 0;
+    height: 108px;
+    margin-bottom: 15px;
+    width: 235.63px;
 }
 
 .mod_createShowServer {
-
+    flex: 1 1 0px;
+    margin-right: 0;
+    margin-left: 10px;
+    outline: 0;
+    width: 196.36px;
+    height: 218px;
 }
 
 .mod_createServerCircleWrapper {
-
+    font-size: 12px;
+    text-align: center;
+    outline: 0;
+    width: 196px;
+    height: 160px;
 }
 
 .mod_createServerCircle {
+    border: 5px solid #ebebeb;
+    background-color: #7289da;
+    background-position: 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 50%;
+    box-sizing: border-box;
+    display: inline-block;
+    flex-shrink: 0;
+    height: 138px;
+    margin-bottom: 10px;
+    position: relative;
+    transition: box-shadow .1s,-webkit-box-shadow .1s;
+    width: 138px;
+}
 
+.mod_createServerFirstLetter {
+    border-radius: 50%;
+    font-size: 40px;
+    overflow: hidden;
+    -webkit-box-align: center;
+    -webkit-box-pack: center;
+    align-items: center;
+    bottom: 0;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    left: 0;
+    pointer-events: none;
+    position: absolute;
+    right: 0;
+    top: 0;
+    outline: 0;
 }
 
 .mod_resolutionPlaceholder {
@@ -315,6 +444,10 @@
 }
 
 .mod_joinFormUpperInner {
+
+}
+
+.mod_joinFormTitle {
 
 }
 
@@ -337,3 +470,113 @@
 .mod_joinLabel {
 
 }
+
+// END OF CREATE & JOIN FORM
+
+
+// START OF FORM SUBMIT
+
+.mod_formLowerWrapper {
+    display: flex;
+    outline: 0;
+    flex: 0 0 auto;
+    background-color: #f6f6f7;
+    box-shadow: inset 0 1px 0 rgba(246,246,247,.6);
+    padding: 18px 40px;
+    border-radius: 0 0 5px 5px;
+    -webkit-box-flex: 0;
+    overflow-x: hidden;
+    position: relative;
+    z-index: 1;
+    -webkit-box-direction: reverse;
+    -webkit-box-orient: horizontal;
+    flex-direction: row-reverse;
+    flex-wrap: nowrap;
+    -webkit-box-pack: start;
+    justify-content: flex-start;
+    -webkit-box-align: stretch;
+    align-items: stretch;
+
+}
+
+.mod_formCreateSubmitButton {
+    height: 38px;
+    min-height: 38px;
+    min-width: 96px;
+    transition: background-color .17s ease,color .17s ease;
+    -webkit-box-align: center;
+    -webkit-box-pack: center;
+    align-items: center;
+    background: none;
+    border: none;
+    border-radius: 3px;
+    box-sizing: border-box;
+    display: flex;
+    font-size: 14px;
+    font-weight: 500;
+    justify-content: center;
+    line-height: 16px;
+    padding: 2px 16px;
+    position: relative;
+    user-select: none;
+    outline: 0;
+    background-color: #7289da;
+    color: #fff;
+}
+
+.mod_formCreateSubmitButton:hover {
+    background-color: #677bc4;
+}
+
+.mod_formSubmitLabel {
+    margin: 0 auto;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    outline: 0;
+}
+
+.mod_formBack {
+    flex: 1 1 auto;
+    margin-left: 0;
+    margin-right: 10px;
+    -webkit-box-direction: normal;
+    -webkit-box-orient: horizontal;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    -webkit-box-pack: start;
+    justify-content: flex-start;
+    -webkit-box-align: stretch;
+    align-items: stretch;
+    display: flex;
+    outline: 0;
+}
+
+.mod_formBackButton::before {
+    background-image: url('/assets/back.svg');
+    background-position: 0;
+    background-repeat: no-repeat;
+    background-size: 18px,12px;
+    content: " ";
+    margin-right: 10px;
+    padding-right: 18px;
+}
+
+.mod_formBackButton {
+    background: transparent;
+    border-bottom-color: transparent;
+    border: none;
+    color: #99aab5;
+    // border-bottom-style: solid;
+    // border-bottom-width: 2px;
+    font-size: 12px;
+    padding: 0;
+    text-transform: uppercase;
+    outline: 0;
+    cursor: pointer;
+}
+
+.mod_formBackButton:hover {
+    border-bottom-color: #949494;
+}
+
