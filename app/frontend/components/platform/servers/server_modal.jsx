@@ -147,19 +147,21 @@ class ServerModal extends React.Component {
                             <p className="mod_joinFormDescription medFont">
                                 Enter an Instant Invite below to join an existing server. The invite will look something like these:
                             </p>
+                            <p className="mod_joinExamplesPlaceholder">
+                            </p>
                         </div>
 
                         <div className="mod_joinWrapper">
                             <div className="mod_joinInputWrapper">
                                 <input
-                                    className="mod_joinInput"
+                                    className="mod_joinInput normFont"
                                     id="serverName"
                                     maxLength="40"
                                 >
                                 </input>
                             </div>
-                            <label className="mod_joinLabel" htmlFor="serverName">
-                                Enter a server name
+                            <label className="mod_joinLabel normFont" htmlFor="serverName">
+                                <span>Enter a server name</span>
                             </label>
                         </div>
                     </div>
