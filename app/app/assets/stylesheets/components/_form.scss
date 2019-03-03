@@ -68,10 +68,9 @@
 }
 
 .logo {
-    z-index: 1;
-    // background: url("https://discordapp.com/assets/4f004ac9be168ac6ee18fc442a52ab53.svg") no-repeat;
-    // -webkit-filter: invert(76%);
-    // filter: invert(76%);
+    // z-index: 1;
+    // REMOVED Z INDEX TO ALLOW FORM TO
+    // TAKE PRECEDENCE OVER LOGO
     height: 36px;
     left: 50%;
     margin-left: -65px;
