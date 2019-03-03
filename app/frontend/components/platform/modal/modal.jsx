@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from "react-redux";
 import { closeModal } from '../../../actions/modal_actions';
-import CreateServerContainer from '../servers/create_server_container';
+import ServerModalContainer from '../servers/server_modal_container';
 
 
 function Modal({modal, closeModal}) {
@@ -12,7 +12,7 @@ function Modal({modal, closeModal}) {
     let component;
     switch (modal) {
         case 'createServer':
-            component = <CreateServerContainer />;
+            component = <ServerModalContainer />;
             break;
         default:
             return null;

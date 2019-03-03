@@ -1,7 +1,7 @@
 import React from 'react';
 import ServerItem from './server_item_container';
 import { receiveCurrentServerId } from '../../../actions/ui_actions';
-import CreateServer from './create_server';
+import ServerModal from './server_modal';
 
 class Servers extends React.Component {
     constructor(props) {

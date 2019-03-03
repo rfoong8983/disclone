@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
-import CreateServer from './create_server';
+import ServerModal from './server_modal';
 import Servers from './servers';
 import { openModal, closeModal } from '../../../actions/modal_actions';
 
@@ -28,4 +28,4 @@ const mdp = (dispatch) => (
 // server component itself handles the 
 // updating of currentServerId in ui slice of state
 
-export default withRouter(connect(null, mdp)(CreateServer));
+export default withRouter(connect(null, mdp)(ServerModal));
