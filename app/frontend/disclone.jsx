@@ -9,6 +9,13 @@ import {
     createServer, 
     destroyServer 
 } from './actions/servers_actions';
+import {
+    fetchChannels,
+    createChannel,
+    destroyChannel,
+    receiveChannelErrors,
+    removeChannelErrors
+} from './actions/channel_actions';
 
 document.addEventListener("DOMContentLoaded", () => {
     let store;
@@ -29,9 +36,11 @@ document.addEventListener("DOMContentLoaded", () => {
         store = configureStore();
     }
     window.store = store; // access to state & dispatch
-    window.createChannel = ChannelApi.createChannel;
-    window.destroyChannel = ChannelApi.destroyChannel;
-    window.fetchChannels = ChannelApi.fetchChannels;
+    window.createChannel = createChannel;
+    window.destroyChannel = destroyChannel;
+    window.fetchChannels = fetchChannels;
+    window.receiveChannelErrors = receiveChannelErrors;
+    window.removeChannelErrors = removeChannelErrors;
 
     const root = document.getElementById("root");
     ReactDOM.render(<Root store={store}/>, root);

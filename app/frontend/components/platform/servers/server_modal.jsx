@@ -5,7 +5,6 @@ class ServerModal extends React.Component {
     constructor(props) {
         super(props);
         this.state = {loc: "main", firstLetter: "", createServer: "", joinServer: ""};
-        
         // binding of functions
         this.mainForm = this.mainForm.bind(this);
         this.createForm = this.createForm.bind(this);

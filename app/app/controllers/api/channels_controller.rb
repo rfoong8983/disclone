@@ -9,13 +9,18 @@ class Api::ChannelsController < ApplicationController
     end
 
     def index
-        server = Server.find(params[:server_id])
-        @channels = server.channels
-        # @channels = Channel.all
+        if !params[:server_id]
+            @channels = Channel.all
+        elsif params[:server_id]
+            server = Server.find(params[:server_id])
+            @channels = server.channels
+        end
+
         render 'api/channels/channels_index'
     end
 
     def destroy
+        # byebug
         @channel = Channel.find(params[:id])
         @channel.destroy
     end

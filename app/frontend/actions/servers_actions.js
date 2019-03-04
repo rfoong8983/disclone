@@ -57,7 +57,7 @@ export const receiveServer = (server) => {
     };
 };
 
-const removeServer = () => {
+const removeServer = (serverId) => {
     return {
         type: REMOVE_SERVER,
         serverId: serverId
