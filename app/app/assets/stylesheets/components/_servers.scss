@@ -74,6 +74,18 @@
     justify-content: center;
 }
 
+#selectedServer {
+    background-color: rgb(114, 137, 218);
+    border-radius: 15px;
+    color: #fff;
+    height: 50px;
+    width: 50px;
+    cursor: pointer;
+    text-decoration: none;
+    // transition: opacity .5s,color .5s;
+    -webkit-user-drag: none;
+}
+
 .servCo_homeServerIconInner a:focus {
     background-color: rgb(114, 137, 218);
     border-radius: 15px;

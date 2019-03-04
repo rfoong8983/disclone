@@ -352,11 +352,12 @@ strong { font-weight: 700; font-family: Whitney-semi; }
     text-shadow: none;
     display: inline-block;
     text-align: start;
-    margin: 0em;
+    // margin: 0em;
     -webkit-rtl-ordering: logical;
     cursor: text;
     -webkit-appearance: textfield;
     -webkit-writing-mode: horizontal-tb !important;
+    writing-mode: horizontal-tb !important;
 }
 
 .mod_createFormInput::placeholder {
@@ -666,5 +667,16 @@ strong { font-weight: 700; font-family: Whitney-semi; }
 
 .mod_formBackButton:hover {
     border-bottom-color: #949494;
+}
+
+.mod_serverErrorsStyle {
+    color: #f04747;
+}
+
+.mod_serverErrorsText {
+    font-style: italic;
+    text-transform: none;
+    font-weight: 400;
+    font-size: 12px;
 }
 

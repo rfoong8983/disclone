@@ -10,6 +10,18 @@ export const fetchServers = () => dispatch => {
         .then((servers) => dispatch(receiveAllServers(servers)));
 };
 
+export const fetchServersByName = () => dispatch => {
+    return ServerApi.fetchServers()
+        .then((servers) => {
+            const serversByName = {};
+            const vals = Object.values(servers);
+            for (let i=0; i < vals.length; i++) {
+                serversByName[vals[i].server_name] = vals[i];
+            }
+            return serversByName;
+        });
+};
+
 export const createServer = (server) => dispatch => {
     return ServerApi.createServer(server)
         .then(
@@ -38,7 +50,7 @@ const receiveAllServers = (servers) => {
     };
 };
 
-const receiveServer = (server) => {
+export const receiveServer = (server) => {
     return {
         type: RECEIVE_SERVER,
         server: server
@@ -52,7 +64,7 @@ const removeServer = () => {
     };
 };
 
-const receiveServerErrors = (errors) => {
+export const receiveServerErrors = (errors) => {
     return {
         type: RECEIVE_SERVER_ERRORS,
         errors: errors

@@ -6,6 +6,7 @@ import ServerModal from './server_modal';
 class Servers extends React.Component {
     constructor(props) {
         super(props);
+        this.defaultFocus = this.defaultFocus.bind(this);
     }
 
     componentDidMount() {
@@ -28,6 +29,12 @@ class Servers extends React.Component {
                 receiveCurrentServerId={receiveCurrentServerId}
             />
         ));
+    }
+
+    defaultFocus(serverId) {
+        if (this.props.location.pathname.slice(10) === serverId) {
+            return "selectedServer";
+        }
     }
 
     updateStoreServerId() {
@@ -53,7 +60,8 @@ class Servers extends React.Component {
                         <div className="servCo_homeServerIconInner">
                             <a 
                                 draggable="false" 
-                                className="servCo_homeServerLogoLink" 
+                                className="servCo_homeServerLogoLink"
+                                id={this.defaultFocus('@me')}
                                 href="/#/channels/@me"
                                 onClick={this.updateStoreServerId()}
                             >

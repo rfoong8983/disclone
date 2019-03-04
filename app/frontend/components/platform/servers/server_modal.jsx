@@ -15,7 +15,9 @@ class ServerModal extends React.Component {
         this.manageDisplay = this.manageDisplay.bind(this);
         this.headerText = this.headerText.bind(this);
         this.manageBackAction = this.manageBackAction.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleCreateSubmit = this.handleCreateSubmit.bind(this);
+        this.handleJoinSubmit = this.handleJoinSubmit.bind(this);
+        this.displayFormLabel = this.displayFormLabel.bind(this);
     }
 
     componentWillUnmount() {
@@ -26,12 +28,6 @@ class ServerModal extends React.Component {
         return (e) => {
             this.setState({ loc: field });
         };
-    }
-
-    manageIcon() {
-        // return (e) => {
-        //     this.setState({})
-        // }
     }
 
     handleInputUpdate(field) {
@@ -56,15 +52,33 @@ class ServerModal extends React.Component {
 
     manageBackAction() {
         return (e) => {
+            this.props.clearServerErrors();
             this.setState({ loc: "main" });
         };
     }
 
-    handleSubmit(e) {
+    handleCreateSubmit(e) {
         e.preventDefault();
         const newServer = Object.assign({}, {server_name: this.state.createServer, owner_id: this.props.currentUser.id});
         // debugger
         this.props.createServer(newServer);
+    }
+
+    handleJoinSubmit(e) {
+        const servers = Object.values(this.props.servers);
+        const found = servers.filter((server) => server.server_name === this.state.joinServer);
+        e.preventDefault();
+        // set var to return val of below line and push to location?
+        if (found.length === 0) {
+            this.props.receiveServerErrors({server_name: [' - Server does not exist']});
+        } else {
+            this.props.history.push(`/channels/${found[0].id}`);
+        }
+        
+        // if server exists in my props, push route
+        // else search db for server?
+        // const server = Object.assign({}, {})
+        // this.props.findServer(server);
     }
 
     formSubmit() {
@@ -76,7 +90,7 @@ class ServerModal extends React.Component {
                     <button
                         className="mod_formCreateSubmitButton medFont"
                         type="submit"
-                        onClick={this.handleSubmit}
+                        onClick={this.handleCreateSubmit}
                     >
                         <div className="mod_formSubmitLabel">
                             {currDisplay[0].toUpperCase() + currDisplay.slice(1)}
@@ -86,7 +100,7 @@ class ServerModal extends React.Component {
                     <button
                         className="mod_formJoinSubmitButton normFont"
                         type="submit"
-                        // on click
+                        onClick={this.handleJoinSubmit}
                     >
                         <div className="mod_formSubmitLabel">
                             {currDisplay[0].toUpperCase() + currDisplay.slice(1)}
@@ -108,11 +122,27 @@ class ServerModal extends React.Component {
         )
     }
 
-    displayErrors() {
+    toggleErrorClass() {
+        // return "test"
+        if (this.props.errors.server_name) {
+            return "mod_serverErrorsStyle"
+        }
+    }
 
+    displayErrors() {
+        if (this.props.errors.server_name) {
+            return <span className="mod_serverErrorsText normFont">{this.props.errors.server_name[0]}</span>
+        } else {
+            return ""
+        }
+    }
+
+    displayFormLabel(formLabelText) {
+        return <div className={this.toggleErrorClass()}>{formLabelText}{this.displayErrors()}</div>;
     }
 
     createForm() {
+        const formLabelText = "Server Name";
         return (
             <form className="mod_createFormWrapper">
                 <div className="mod_createFormUpperWrapper">
@@ -128,7 +158,8 @@ class ServerModal extends React.Component {
                                 <div className="mod_createFormCreateInnerInput">
                                     <label className="mod_createFormLabel boldFont" htmlFor="serverName">
                                         {/* perhaps add a div here instead of plain text */}
-                                        <div>Server Name</div>
+                                        {/* <div>Server Name</div> */}
+                                        {this.displayFormLabel(formLabelText)}
                                     </label>
                                     <div className="mod_createServerNameWrapper">
                                         <input 
@@ -170,6 +201,7 @@ class ServerModal extends React.Component {
     }
 
     joinForm () {
+        const formLabelText = "Enter a server name";
         return (
             <form className="mod_joinFormWrapper">
                 <div className="mod_joinFormUpperWrapper">
@@ -194,7 +226,8 @@ class ServerModal extends React.Component {
                                 </input>
                             </div>
                             <label className="mod_joinLabel normFont" htmlFor="serverName">
-                                <span>Enter a server name</span>
+                                {/* <span>Enter a server name</span> */}
+                                {this.displayFormLabel(formLabelText)}
                             </label>
                         </div>
                     </div>
