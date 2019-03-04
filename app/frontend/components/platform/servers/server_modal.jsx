@@ -240,7 +240,10 @@ class ServerModal extends React.Component {
     mainForm() {
         return (
             <div className={`mod_serverActions`}>
-                <div className={`mod_createServerCreateWrapper`}>
+                <div 
+                    className={`mod_createServerCreateWrapper`}
+                    onClick={this.manageFormType(`create`)}
+                >
                     <div className={`mod_createServerCreateHeader normFont`}>
                         Create
                     </div>
@@ -253,12 +256,16 @@ class ServerModal extends React.Component {
 
                     <button
                         className={`mod_createServerCreateButton normFont`}
-                        onClick={this.manageFormType(`create`)}
+                        // onClick={this.manageFormType(`create`)}
                     >Create a server
                     </button>
                 </div>
 
-                <div className={`mod_joinServerCreateWrapper`}>
+                <div 
+                    className={`mod_joinServerCreateWrapper`}
+                    onClick={this.manageFormType(`join`)}
+                >
+                
                     <div className={`mod_joinServerCreateHeader normFont`}>
                         Join
                     </div>
@@ -271,7 +278,7 @@ class ServerModal extends React.Component {
 
                     <button
                         className={`mod_joinServerCreateButton normFont`}
-                        onClick={this.manageFormType(`join`)}
+                        // onClick={this.manageFormType(`join`)}
                     >Join a server
                     </button>
                 </div>
