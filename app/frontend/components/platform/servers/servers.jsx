@@ -11,18 +11,18 @@ class Servers extends React.Component {
 
     componentDidMount() {
         this.props.fetchServers();
-        // debugger
     }
 
     componentDidUpdate() {
-        // debugger
         this.props.closeModal();
     }
 
     serverItems(servers) {
+        const nonHome = servers.filter((server) => server.server_name !== `${this.props.currentUser.id}_@me_home`);
         // use object.values outside ?
-        // debugger
-        return servers.map((server) => (
+        return nonHome.map((server) => (
+            // returning nothing if server_name is _home
+            
             <ServerItem
                 key={server.id}
                 server={server}
@@ -30,6 +30,18 @@ class Servers extends React.Component {
             />
         ));
     }
+
+    homeServer(servers) {
+        // debugger
+        const home = servers.filter((server) => server.server_name === `${this.props.currentUser.id}_@me_home`);
+        return home.map((server) => (
+            <ServerItem
+                key={server.id}
+                server={server}
+                receiveCurrentServerId={receiveCurrentServerId}
+            />
+        ));
+    };
 
     defaultFocus(serverId) {
         if (this.props.location.pathname.slice(10) === serverId) {
@@ -55,9 +67,16 @@ class Servers extends React.Component {
         return (
             <div className="servCo_outerWrapper">
                 <div className="servCo_innerWrapper">
+
+                    {/* <ServerItem
+                        key={server.id}
+                        server={server}
+                        receiveCurrentServerId={receiveCurrentServerId}
+                    /> */}
                     <div className="serveCo_homeServerIconOuter">
                         {/* ::before in className above, on focus */}
-                        <div className="servCo_homeServerIconInner">
+                        {this.homeServer(Object.values(this.props.servers))}
+                        {/* <div className="servCo_homeServerIconInner">
                             <a 
                                 draggable="false" 
                                 className="servCo_homeServerLogoLink"
@@ -67,7 +86,7 @@ class Servers extends React.Component {
                             >
                                 <i className="servCo_homeServerLogoIcon fas fa-compact-disc fa-2x"></i>
                             </a>
-                        </div>
+                        </div> */}
                     </div>
 
                     <div className="servCo_friendsOnline normFont">0 online</div>
