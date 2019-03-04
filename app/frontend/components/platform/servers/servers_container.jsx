@@ -18,7 +18,7 @@ const mdp = (dispatch) => (
     {
         fetchServers: () => dispatch(fetchServers()),
         closeModal: () => dispatch(closeModal()),
-        receiveCurrentServerId: (serverId) => dispatch(receiveCurrentServerId(serverId)),
+        receiveCurrentServerId: (serverId, alias) => dispatch(receiveCurrentServerId(serverId, alias)),
         createServer: (server) => dispatch(createServer(server)),
         otherForm: (
             <button

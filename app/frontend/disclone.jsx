@@ -17,6 +17,8 @@ import {
     removeChannelErrors
 } from './actions/channel_actions';
 
+import { receiveCurrentServerId } from './actions/ui_actions';
+
 document.addEventListener("DOMContentLoaded", () => {
     let store;
     
@@ -41,6 +43,7 @@ document.addEventListener("DOMContentLoaded", () => {
     window.fetchChannels = fetchChannels;
     window.receiveChannelErrors = receiveChannelErrors;
     window.removeChannelErrors = removeChannelErrors;
+    window.receiveCurrentServerId = receiveCurrentServerId;
 
     const root = document.getElementById("root");
     ReactDOM.render(<Root store={store}/>, root);

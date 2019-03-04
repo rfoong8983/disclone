@@ -49,18 +49,18 @@ class Servers extends React.Component {
         }
     }
 
-    updateStoreServerId() {
-        const homeServerPath = "@me";
-        const currentPath = this.props.location.pathname;
-        return (e) => {
-            e.preventDefault();
-            // USE REGEX TO ONLY CAPTURE /channels/serverId
-            if (currentPath !== `/channels/${homeServerPath}`) {
-                this.props.receiveCurrentServerId(homeServerPath);
-                this.props.history.push(`/channels/@me`);
-            }
-        };
-    }
+    // updateStoreServerId() {
+    //     const homeServerPath = "@me";
+    //     const currentPath = this.props.location.pathname;
+    //     return (e) => {
+    //         e.preventDefault();
+    //         // USE REGEX TO ONLY CAPTURE /channels/serverId
+    //         if (currentPath !== `/channels/${homeServerPath}`) {
+    //             this.props.receiveCurrentServerId(homeServerPath);
+    //             this.props.history.push(`/channels/@me`);
+    //         }
+    //     };
+    // }
 
     render() {
         // handle rendering by servId/chanId in component vs in app.jsx routes

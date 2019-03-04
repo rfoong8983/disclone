@@ -7,31 +7,35 @@ class ServerItem extends React.Component {
         this.defaultFocus = this.defaultFocus.bind(this);
     }
 
-    defaultFocus(serverId) {
-        if (serverId.constructor.name === "Number") {
+    defaultFocus(serverId, alias) {
+        // debugger
+        // this.props.receiveCurrentServerId(serverId, alias);
+        if (alias.constructor.name === "Number") {
+            alias = JSON.stringify(alias);
             serverId = JSON.stringify(serverId);
         }
         // debugger
         
-        if (this.props.location.pathname.slice(10) === serverId) {
+        if (this.props.location.pathname.slice(10) === alias) {
             return "selectedServer";
         }
     }
     
     updateStoreServerId(serverId) {
+        // debugger
         const currentPath = this.props.location.pathname;
         return (e) => {
             e.preventDefault();
             this.state.isActive = true;
             // USE REGEX TO ONLY CAPTURE /channels/serverId
             if (currentPath !== `/channels/${serverId}`) {
-                this.props.receiveCurrentServerId(serverId);
+                this.props.receiveCurrentServerId(serverId, serverId);
                 this.props.history.push(`/channels/${serverId}`);
             }
         };
     }
 
-    updateStoreHomeId() {
+    updateStoreHomeId(serverId) {
         // debugger
         const homeServerPath = "@me";
         const currentPath = this.props.location.pathname;
@@ -39,7 +43,7 @@ class ServerItem extends React.Component {
             e.preventDefault();
             // USE REGEX TO ONLY CAPTURE /channels/serverId
             if (currentPath !== `/channels/${homeServerPath}`) {
-                this.props.receiveCurrentServerId(homeServerPath);
+                this.props.receiveCurrentServerId(serverId, homeServerPath);
                 this.props.history.push(`/channels/@me`);
             }
         };
@@ -73,8 +77,8 @@ class ServerItem extends React.Component {
                         {/* server & channel ids are hashed */}
                         {/* <a aria-label = {`${server.server_name}`} href={`/channels/${server.id}/${server[server.id].channels.first}`}/></a> */}
                     <a aria-label="testChan" href="" 
-                        id={server.server_name === `${this.props.currentUser.id}_@me_home` ? this.defaultFocus('@me') : this.defaultFocus(server.id)} 
-                        onClick={server.server_name === `${this.props.currentUser.id}_@me_home` ? this.updateStoreHomeId() : this.updateStoreServerId(server.id)}
+                        id={server.server_name === `${this.props.currentUser.id}_@me_home` ? this.defaultFocus(server.id, '@me') : this.defaultFocus(server.id, server.id)} 
+                        onClick={server.server_name === `${this.props.currentUser.id}_@me_home` ? this.updateStoreHomeId(server.id) : this.updateStoreServerId(server.id)}
                     >
                     {/* <a key={server.id} aria-label="testChan" href={`/#/channels/${server.id}`}></a> */}
                         {/* {this.state.isActive ? <div class="servCo_serverActive"></div> : ""} */}

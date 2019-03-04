@@ -31,7 +31,7 @@ const msp = ({ session, entities: { users } }) => (
 
 const mdp = (dispatch) => (
     {
-        updateServerId: (serverId) => dispatch(receiveCurrentServerId(serverId))
+        receiveCurrentServerId: (serverId, alias) => dispatch(receiveCurrentServerId(serverId, alias))
     }
 );
 

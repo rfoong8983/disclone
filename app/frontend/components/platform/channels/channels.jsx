@@ -5,7 +5,15 @@ class Channels extends React.Component {
         super(props);
     }
 
+    componentDidMount() {
+        
+    }
+
     // NEED ACCESS TO CURRENT SERVER, CURRENT USER, LOGOUT
+
+    displayCurrentServerName() {
+
+    }
 
     render () {
         return (
@@ -17,7 +25,7 @@ class Channels extends React.Component {
                         {/* Servername Header, don't show delete button on homeServer */}
                         <div className="pf_serverNameWrapper">
                             <div className="pf_serverNameInner">
-                                <span className="pf_serverName"></span>
+                                <span className="pf_serverName">{this.displayCurrentServerName()}</span>
                                 {/* on hover of pf_serverNameWrapper, display button */}
                                 <button className="pf_deleteServerButton"></button>
                             </div>

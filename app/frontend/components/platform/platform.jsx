@@ -16,6 +16,7 @@ class Platform extends React.Component {
 
                 <div className="pf_channelsWrapper">
                     {/* RENDER CHANNELS CONTAINER HERE */}
+                    <ChannelsContainer />
                 </div>
             </div>
         )
