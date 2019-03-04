@@ -9,6 +9,10 @@ class Api::ServersController < ApplicationController
     end
 
     def index
+        # for joining servers
+        # if owner_id in params or request body
+        # return user.servers
+        # else return all servers
         @servers = current_user.servers
         render '/api/servers/servers_index'
     end

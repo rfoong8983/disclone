@@ -10,17 +10,17 @@ export const fetchServers = () => dispatch => {
         .then((servers) => dispatch(receiveAllServers(servers)));
 };
 
-export const fetchServersByName = () => dispatch => {
-    return ServerApi.fetchServers()
-        .then((servers) => {
-            const serversByName = {};
-            const vals = Object.values(servers);
-            for (let i=0; i < vals.length; i++) {
-                serversByName[vals[i].server_name] = vals[i];
-            }
-            return serversByName;
-        });
-};
+// export const fetchServersByName = () => dispatch => {
+//     return ServerApi.fetchServers()
+//         .then((servers) => {
+//             const serversByName = {};
+//             const vals = Object.values(servers);
+//             for (let i=0; i < vals.length; i++) {
+//                 serversByName[vals[i].server_name] = vals[i];
+//             }
+//             return serversByName;
+//         });
+// };
 
 export const createServer = (server) => dispatch => {
     return ServerApi.createServer(server)

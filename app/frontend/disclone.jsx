@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import configureStore from './store/store';
 import Root from './components/root';
 import { signup, login, logout } from './actions/session_actions';
-// import * as ServerApi from './util/server_api_util';
+import * as ChannelApi from './util/channel_api_util';
 import {
     fetchServers, 
     createServer, 
@@ -29,7 +29,10 @@ document.addEventListener("DOMContentLoaded", () => {
         store = configureStore();
     }
     window.store = store; // access to state & dispatch
-    window.fetchServers = fetchServers;
+    window.createChannel = ChannelApi.createChannel;
+    window.destroyChannel = ChannelApi.destroyChannel;
+    window.fetchChannels = ChannelApi.fetchChannels;
+
     const root = document.getElementById("root");
     ReactDOM.render(<Root store={store}/>, root);
 });

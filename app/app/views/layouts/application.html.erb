@@ -7,6 +7,8 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', keyframes: 'all' %>
     <%= javascript_include_tag 'application' %>
+    <!-- Icon made by smalllikeart: [https://www.flaticon.com/authors/smalllikeart] from www.flaticon.com  -->
+    <%= favicon_link_tag asset_path('disc.png'), :rel => 'icon', :type =>  'image/png' %>
 
     <script defer src="https://use.fontawesome.com/releases/v5.7.2/js/all.js"
       integrity="sha384-0pzryjIRos8mFBWMzSSZApWtPl/5++eIfzYmTgBBmXYdhvxPc+XcFEk+zJwDgWbP" crossorigin="anonymous"></script>
@@ -39,6 +41,7 @@
         window.serverModalLeft = "<%= image_url('serverModalLeft.png')%>"
         window.serverModalRight = "<%= image_url('serverModalRight.png')%>"
         window.back = "<%= image_url('back.svg')%>"
+        window.disc = "<%= image_url('disc.png')%>"
     </script>
   </head>
 

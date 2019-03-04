@@ -369,6 +369,7 @@
     outline: none;
     transition: box-shadow .3s cubic-bezier(.25,.25,.315,1.35),transform .1s linear,-webkit-box-shadow .3s cubic-bezier(.25,.25,.315,1.35),-webkit-transform .1s linear;
     width: 250px;
+    cursor: pointer;
 }
 
 .splash_heroLeftButton:hover {
