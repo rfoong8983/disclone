@@ -6,7 +6,8 @@ import Greeting from './greeting';
 // will give me access to keys... session => {id: 1}
 const msp = ({ session, entities: { users } }) => (
     {
-        currentUser: users[session.id]
+        // currentUser: users[session.id]
+        currentUser: users[session.currentUserInfo.user.id]
     }
 );
 

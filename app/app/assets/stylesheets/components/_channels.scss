@@ -162,6 +162,20 @@
     outline: 0;
 }
 
+.ch_channelItemsTitle:hover {
+    flex: 1 1 auto;
+    color: rgb(184,187,190);
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 20px;
+    text-transform: uppercase;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    transition: color .1s ease-out;
+    outline: 0;
+}
+
 .ch_channelItemsCreateButton {
     flex: 0 1 auto;
     margin-right: 0;

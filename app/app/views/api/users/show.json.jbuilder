@@ -1,2 +1,3 @@
 # json.extract! @user, :email, :username
-json.partial! 'api/users/user', user: @user
+# debugger -- @HOME AND @USER EXIST HERE
+json.partial! 'api/users/user', home: @home, user: @user

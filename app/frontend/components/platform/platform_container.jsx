@@ -5,13 +5,23 @@ import { fetchChannels } from '../../actions/channel_actions';
 import { receiveCurrentServerId } from '../../actions/ui_actions';
 import Platform from './platform';
 
-const msp = ({ session, entities: { users, servers, channels } }) => (
-    {
-        currentUser: users[session.id],
+const msp = ({ session, entities: { users, servers, channels } }) => {
+    let userId;
+    // debugger
+    if (session.currentUserInfo) {
+        userId = session.currentUserInfo.user.id;
+    } else {
+        userId = null;
+    }
+    // debugger
+
+    return {
+        // currentUser: users[session.id],
+        currentUser: users[userId],
         servers: servers,
         channels: channels
     }
-);
+};
 
 const mdp = (dispatch, ownProps) => (
     {

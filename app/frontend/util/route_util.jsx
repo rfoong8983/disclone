@@ -1,25 +1,35 @@
-// utility files
-// do they only pertain to routing or 
-//   making calls to the server?
 import React from 'react';
 import { connect } from 'react-redux';
 import { Route, withRouter, Redirect } from 'react-router-dom';
 
-const Auth = ({component: Component, path, loggedIn, exact}) => (
-    <Route path={path} exact={exact} render={(props) => (
-        !loggedIn ? (<Component {...props}/>) : (<Redirect to="/channels/@me"/>)
-    )}/>
+const Auth = ({component: Component, path, loggedIn, homeServerId, exact}) => (
+    <Route path={path} exact={exact} render={(props) => {
+        // debugger
+        return !loggedIn ? (<Component {...props}/>) : (<Redirect to={`/channels/${homeServerId}`}/>)
+    }}/>
 );
 
-const Protected = ({ component: Component, path, loggedIn, exact }) => (
-    <Route path={path} exact={exact} render={(props) => (
-        loggedIn ? (<Component {...props} />) : (<Redirect to="/login" />)
-    )} />
-);
+// const Protected = ({ component: Component, path, loggedIn, exact }) => (
+//     <Route path={path} exact={exact} render={(props) => (
+//         loggedIn ? (<Component {...props} />) : (<Redirect to="/login" />)
+//     )} />
+// );
 
 const msp = state => {
     // debugger
-    return {loggedIn: Boolean(state.session.id)}
+    let userId;
+    let hId;
+    if (state.session.currentUserInfo.user.id !== undefined) {
+        userId = state.session.currentUserInfo.user.id;
+        hId = state.session.currentUserInfo.home.id
+    } else {
+        userId = null;
+        hId = null;
+    }
+    return {
+        loggedIn: Boolean(userId),
+        homeServerId: hId
+    }
 };
 
 export const AuthRoute = withRouter(connect(msp)(Auth));

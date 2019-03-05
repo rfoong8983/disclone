@@ -5,7 +5,7 @@
 }
 
 .channelInnerWrapper {
-    cursor: default;
+    cursor: pointer;
     height: 34px;
     overflow: hidden;
     position: relative;
@@ -27,10 +27,10 @@
     padding: 0 8px;
     outline: 0;
 }
-// HANDLE STYLING FOR ACTIVE CHANNEL
-.channelContentSelected {
-    background-color: rgba(79,84,92,.6);
-    color: #fff;
+
+.channelContent:hover {
+    background-color: rgb(53,57, 62);
+    color: rgb(182,185,188);
     -webkit-box-align: center;
     -webkit-box-direction: normal;
     -webkit-box-orient: horizontal;
@@ -43,6 +43,28 @@
     margin: 1px 0 1px 8px;
     overflow: hidden;
     padding: 0 8px;
+    outline: 0;
+}
+// HANDLE STYLING FOR ACTIVE CHANNEL
+.channelContentSelected {
+    background-color: rgba(79,84,92,.6);
+    // color: #fff;
+    -webkit-box-align: center;
+    -webkit-box-direction: normal;
+    -webkit-box-orient: horizontal;
+    align-items: center;
+    border-radius: 3px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    height: 32px;
+    margin: 1px 0 1px 8px;
+    overflow: hidden;
+    padding: 0 8px;
+}
+
+#labelSelected {
+    color: #fff;
 }
 // HANDLE STYLING FOR ACTIVE CHANNEL ABOVE
 
@@ -65,6 +87,22 @@
 .channelName {
     flex: 1 1 auto;
     color: #72767d;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 32px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    outline: 0;
+    text-transform: lowercase;
+    vertical-align: baseline;
+    margin-bottom: 2px;
+    margin-left: 1px;
+}
+
+.channelName:hover {
+    flex: 1 1 auto;
+    color: rgb(182,185,188);
     font-size: 16px;
     font-weight: 500;
     line-height: 32px;

@@ -7,41 +7,39 @@ class Servers extends React.Component {
     constructor(props) {
         super(props);
         this.defaultFocus = this.defaultFocus.bind(this);
+        // debugger
     }
 
     componentDidMount() {
         // this.props.fetchServers();
         // debugger
-        const currentUserId = this.props.currentUser.id;
-        const currentPath = this.props.location.pathname.slice(10, 12);
+        // const currentUserId = this.props.currentUser.id;
+        // const currentPath = this.props.location.pathname.slice(10, 13);
+        let currentPath = this.props.location.pathname;
+        const currentServerRegExp = new RegExp('/[0-9]+/?|/@me');
+        // debugger
+        // => find '/32/' or '/@me', removes "/", and => id
+        currentPath = currentPath.match(currentServerRegExp)[0].replace("/","").slice(0,3);
         // debugger
         this.props.fetchServers()
             .then((servers) => {
-    
+                // debugger
                 let serversArray = Object.values(servers.servers);
-                if (currentPath === "@me") {
-                    serversArray = serversArray.filter((server) => server.server_name === `${currentUserId}_@me_home`);
-                    receiveCurrentServerId('@me', serversArray[0].id)
-                } else {
-                    serversArray = serversArray.filter((server) => server.id === parseInt(currentPath));
-                    // debugger
+                serversArray = serversArray.filter((server) => server.id === parseInt(currentPath));
                     receiveCurrentServerId(serversArray[0].id, serversArray[0].name);
-                }
                 });
     }
 
     componentDidUpdate() {
         this.props.closeModal();
-        // debugger
-        // let currServer;
-        // if (this.props.location.pathname.slice(10) === "@me") {
-        //     currServer = Object.values(this.props.servers).filter((server) => server.server_name === (`${this.props.currentUser}_@me_home`))
-        // }
-        // this.props.receiveCurrentServerId(currServer.id, currServer.name);
-        // debugger
     }
 
     serverItems(servers) {
+        if (this.props.currentUser === undefined) {
+            this.props.history.push("/");
+            return "";
+        }
+        // debugger
         const nonHome = servers.filter((server) => server.server_name !== `${this.props.currentUser.id}_@me_home`);
         // use object.values outside ?
         return nonHome.map((server) => (
@@ -56,6 +54,11 @@ class Servers extends React.Component {
     }
 
     homeServer(servers) {
+        if (this.props.currentUser === undefined) {
+            this.props.history.push("/");
+            return "";
+        }
+
         // debugger
         const home = servers.filter((server) => server.server_name === `${this.props.currentUser.id}_@me_home`);
         return home.map((server) => (
@@ -73,19 +76,6 @@ class Servers extends React.Component {
         }
     }
 
-    // updateStoreServerId() {
-    //     const homeServerPath = "@me";
-    //     const currentPath = this.props.location.pathname;
-    //     return (e) => {
-    //         e.preventDefault();
-    //         // USE REGEX TO ONLY CAPTURE /channels/serverId
-    //         if (currentPath !== `/channels/${homeServerPath}`) {
-    //             this.props.receiveCurrentServerId(homeServerPath);
-    //             this.props.history.push(`/channels/@me`);
-    //         }
-    //     };
-    // }
-
     render() {
         // debugger
         // handle rendering by servId/chanId in component vs in app.jsx routes
@@ -101,17 +91,7 @@ class Servers extends React.Component {
                     <div className="serveCo_homeServerIconOuter">
                         {/* ::before in className above, on focus */}
                         {this.homeServer(Object.values(this.props.servers))}
-                        {/* <div className="servCo_homeServerIconInner">
-                            <a 
-                                draggable="false" 
-                                className="servCo_homeServerLogoLink"
-                                id={this.defaultFocus('@me')}
-                                href="/#/channels/@me"
-                                onClick={this.updateStoreServerId()}
-                            >
-                                <i className="servCo_homeServerLogoIcon fas fa-compact-disc fa-2x"></i>
-                            </a>
-                        </div> */}
+                        
                     </div>
 
                     <div className="servCo_friendsOnline normFont">0 online</div>
@@ -125,26 +105,6 @@ class Servers extends React.Component {
                     {/* <li>{Object.values(this.props.servers).map((server) => server.server_name)}</li> */}
                     {this.serverItems(Object.values(this.props.servers))}
 
-
-                    {/* Use below block in server index item and place in UL above */}
-                    {/* <div className="servCo_STARTSERVERSHERE"> */}
-                        {/* <div draggable="true"> */}
-                            {/* replace with next div with comment */}
-                            {/* <div className={`servCo_innerListIcon${server.id}`}> */}
-                            {/* <div className={`servCo_innerListIcon${server.id}`}> */}
-                                {/* server & channel ids are hashed */}
-                                {/* <a aria-label = {`${server.server_name}`} href={`/channels/${server.id}/${server[server.id].channels.first}`}/></a> */}
-                                {/* <a aria-label="testChan" href={`/channels/${server.id}`}>
-                                    <div className="servCo_serverIcon"></div>
-                                </a> */}
-
-                            {/* </div> */}
-                        {/* </div> */}
-                    {/* </div> */}
-                    {/* END SERVERS */}
-
-                    
-                    
 
                     {/* START OF ADD BUTTON (MODAL) */ }
                     {/* <button className="servCo_AddServerButton lightFont">

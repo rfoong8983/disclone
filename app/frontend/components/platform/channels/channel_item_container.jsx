@@ -4,11 +4,20 @@ import { receiveCurrentChannelId } from '../../../actions/ui_actions';
 import { fetchChannels } from '../../../actions/channel_actions';
 import ChannelItem from './channel_item';
 
-const msp = ({ session, entities: { users } }) => (
-    {
-        currentUser: users[session.id]
+const msp = ({ session, entities: { users } }) => {
+    let userId;
+    if (session.currentUserInfo) {
+        userId = session.currentUserInfo.user.id;
+
+    } else {
+        userId = null;
     }
-);
+
+    return {
+        // currentUser: users[session.id]
+        currentUser: users[userId]
+    }
+};
 
 const mdp = (dispatch) => (
     {

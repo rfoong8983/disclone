@@ -10,19 +10,18 @@ class Channels extends React.Component {
 
     // import delete channel for onClick of X
     // NEED ACCESS TO CURRENT SERVER, CURRENT USER, LOGOUT
-    componentDidMount() {
-    }
 
     componentDidUpdate() {
-        // debugger
         // debugger
         if ((this.props.currentServerId !== undefined) && (Object.values(this.props.channels).length === 0)) {
             this.props.fetchChannels(this.props.currentServerId);
         } else if ((this.props.currentServerId !== undefined) && (Object.values(this.props.channels > 0))) {
             const defaultChannel = Object.values(this.props.channels)[0];
             // debugger
+            if (!this.props.currentChannelId) {
+                this.props.receiveCurrentChannelId(defaultChannel.id, defaultChannel.channel_name);
+            }
             
-            this.props.receiveCurrentChannelId(defaultChannel.id, defaultChannel.channel_name);
         } 
 
         if ((this.props.currentServerId !== undefined) && 
@@ -30,17 +29,13 @@ class Channels extends React.Component {
                     (this.props.location.pathname !== `/channels/${this.props.currentServerId}/${this.props.currentChannelId}`))
         {
             // debugger
-            this.props.history.push(`/channels/${this.props.currentServerId}/${this.props.currentChannelId}`);
+            if (this.props.location.pathname !== `/channels/${this.props.currentServerId}/${this.props.currentChannelId}`) {
+                this.props.history.push(`/channels/${this.props.currentServerId}/${this.props.currentChannelId}`);
+            }
         }
     }
 
     displayCurrentServerName() {
-        // debugger
-        // if (this.props.currentServerName === "@me") {
-        //     return "Home";
-        // } else {
-        //     return this.props.currentServerName;
-        // }
         return this.props.currentServerName;
     }
 
@@ -68,7 +63,7 @@ class Channels extends React.Component {
                         <div className="ch_serverNameInner">
                             <span className="ch_serverName normFont">{this.displayCurrentServerName()}</span>
                             {/* on hover of ch_serverNameWrapper, display button */}
-                            <button className="ch_deleteServerButton"></button>
+                            <button className="ch_deleteServerButton" onClick={this.props.logout}></button>
                         </div>
                     </div>
 

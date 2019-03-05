@@ -1,8 +1,11 @@
 class Api::SessionsController < ApplicationController
     def create
         @user = User.find_by_credentials(user_params[:email].downcase, user_params[:password])
+        # debugger
         if @user
             login!(@user)
+            @home = Server.find_by(owner_id: @user.id)
+            # debugger
             render '/api/users/show'
         else
             render json: {'creds': [' - Invalid username and / or password']}, status: 418
@@ -10,6 +13,7 @@ class Api::SessionsController < ApplicationController
     end
 
     def destroy
+        # debugger
         logout!
         render json: {} if !current_user
     end

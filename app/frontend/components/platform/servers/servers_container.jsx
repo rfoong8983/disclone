@@ -8,8 +8,16 @@ import Servers from './servers';
 
 const msp = ({ session, entities: { users, servers }, ui: { currServerInfo: { serverId, serverAlias } } }) => {
     // debugger
+    let userId;
+    if (session.currentUserInfo) {
+        userId = session.currentUserInfo.user.id;
+        
+    } else {
+        userId = null;
+    }
     return {
-        currentUser: users[session.id],
+        // currentUser: users[session.id],
+        currentUser: users[userId],
         servers: servers,
         currentServerId: serverId,
         currentServerName: serverAlias

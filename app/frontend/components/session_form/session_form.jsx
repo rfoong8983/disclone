@@ -89,9 +89,9 @@ class SessionForm extends React.Component {
             return (
                 <div className="termsWrapper normFont">
                     By registering you agree to Disclone's&nbsp;&nbsp;
-                    <a className="serviceLinks button" href="">Terms of Service</a>
+                    <a className="serviceLinks button" href="/#/jasdkfl">Terms of Service</a>
                     &nbsp;&nbsp;and&nbsp;&nbsp;
-                    <a className="serviceLinks button" href="">Privacy Policy</a>
+                    <a className="serviceLinks button" href="/#/jasdkfl">Privacy Policy</a>
                     .
                 </div>
             )
@@ -207,6 +207,7 @@ class SessionForm extends React.Component {
         e.preventDefault();
         const user = Object.assign({}, this.state);
         this.props.processForm(user)
+        // debugger
     }
 
     handleDemoFromLogin(e) {

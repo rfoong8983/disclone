@@ -20,7 +20,7 @@ export const signup = (user) => dispatch => (
 export const login = (user) => dispatch => {
     return SeshApi.login(user)
         .then(
-            (user) => dispatch(receiveCurrentUser(user)),
+            (userInfo) => (dispatch(receiveCurrentUser(userInfo))),
             (err) => dispatch(receiveSessionErrors(err.responseJSON))
         );
 };
@@ -31,10 +31,16 @@ export const logout = () => dispatch => (
 );
 
 // action creators
-export const receiveCurrentUser = (currentUser) => (
+// export const receiveCurrentUser = (currentUser) => (
+//     {
+//         type: RECEIVE_CURRENT_USER,
+//         currentUser: currentUser // ADD IN SERVER & CHANNEL HERE
+//     }
+// );
+export const receiveCurrentUser = (currentUserInfo) => (
     {
         type: RECEIVE_CURRENT_USER,
-        currentUser: currentUser
+        currentUserInfo: currentUserInfo // ADD IN SERVER & CHANNEL HERE
     }
 );
 
@@ -54,6 +60,10 @@ export const clearSessionErrors = () => {
 
 const logoutCurrentUser = () => (
     {
-        type: LOGOUT_CURRENT_USER
+        type: LOGOUT_CURRENT_USER,
+        currentUserInfo: {
+            user: {},
+            home: {}
+        }
     }
 );

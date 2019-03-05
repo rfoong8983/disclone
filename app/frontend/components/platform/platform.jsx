@@ -9,35 +9,6 @@ class Platform extends React.Component {
         // debugger
     }
 
-    componentDidMount() {
-        // fetch all servers
-        // fetch all channels for first server
-        // fetch all messages for first channel
-
-        // MOVE TO SERVERS AND CHANNELS CONTAINERS
-        // const currentUserId = this.props.currentUser.id;
-        // const currentPath = this.props.location.pathname.slice(10);
-        // this.props.fetchServers()
-        //     .then((servers) => {
-        //         let serversArray = Object.values(servers.servers);
-        //         if (currentPath === "@me") {
-        //             serversArray = serversArray.filter((server) => server.server_name === `${currentUserId}_@me_home`);
-        //         } else {
-        //             serversArray = serversArray.filter((server) => server.id === parseInt(currentPath));
-        //         }
-        //         dispatchEvent(update_curr_server)
-                
-        //         const homeServer = serversArray[0];
-        //         this.state.homeId = homeServer.id;
-        //         this.props.fetchChannels(homeServer.id).then(channels => {
-        //             debugger
-        //         })
-        //     })
-        //
-                // const defaultChannel = Object.values(this.props.channels)[0];
-                // this.props.history.push(`/channels/@me/${defaultChannel.id}`);
-    }
-
     render() {
         // debugger
         return (

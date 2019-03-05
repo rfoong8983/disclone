@@ -4,11 +4,21 @@ import Splash from './splash';
 
 // argument destructuring, pulls keys (session, users)
 // will give me access to keys... session => {id: 1}
-const msp = ({ session, entities: { users } }) => (
-    {
-        currentUser: users[session.id]
+const msp = ({ session, entities: { users } }) => {
+    // debugger
+    let userId;
+    if (session.currentUserInfo) {
+        userId = session.currentUserInfo.user.id;
+
+    } else {
+        userId = null;
     }
-);
+    
+    return {
+        // currentUser: users[session.id]
+        currentUser: users[userId]
+    };
+};
 
 // const { something } = this.props
 // => const something = this.props.something
