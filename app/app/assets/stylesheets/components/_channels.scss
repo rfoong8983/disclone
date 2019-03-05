@@ -1,0 +1,230 @@
+.ch_channelsWrapper {
+    flex: 1 1 auto;
+    background-color: #2f3136;
+    contain: layout;
+    position: relative;
+    min-height: 0;
+    flex-wrap: nowrap;
+    -webkit-box-direction: normal;
+    -webkit-box-orient: vertical;
+    flex-direction: column;
+    -webkit-box-pack: start;
+    justify-content: flex-start;
+    -webkit-box-align: stretch;
+    align-items: stretch;
+    display: flex;
+    outline: 0;
+}
+
+.ch_serverNameChannelsWrapper {
+    flex: 0 0 auto;
+    outline: 0;
+}
+
+.ch_serverNameWrapper {
+    cursor: pointer;
+    position: relative;
+    outline: 0;
+}
+
+.ch_serverNameInner {
+    -webkit-box-align: center;
+    align-items: center;
+    box-shadow: 0 1px 0 rgba(0,0,0,.2), 0 2px 0 rgba(0,0,0,.06);
+    box-sizing: border-box;
+    display: flex;
+    font-weight: 500;
+    height: 48px;
+    padding: 0 12px 0 16px;
+    position: relative;
+    transition: background-color .15s ease;
+    z-index: 3;
+    color: #fff;
+}
+
+.ch_serverName {
+    color: #fff;
+    -webkit-box-flex: 1;
+    flex: 1;
+    font-size: 16px;
+    line-height: 48px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    outline: 0;
+    text-transform: lowercase;
+}
+
+.ch_deleteServerButton {
+    position: relative;
+    background-color: #2f3136;
+    background-image: image-url('x_button.svg');
+    // color: #2f3136;
+    cursor: pointer;
+    height: 18px;
+    opacity: .3;
+    width: 18px;
+    justify-self: end;
+    margin-left: auto;
+    flex-shrink: 0;
+    // background: none;
+    color: inherit;
+    border: none;
+    padding: 0;
+    font: inherit;
+}
+
+.ch_deleteServerButton:hover {
+    // background-color: #2f3136;
+    // color: rgb(170, 171, 172);
+}
+
+.ch_deleteServerButton:focus {
+    outline: 0;
+    transform: rotate(-90deg);
+    transition: transform .2s ease,-webkit-transform .2s ease;
+}
+
+.ch_channelDisplayWrapper {
+    -webkit-box-flex: 1;
+    display: flex;
+    flex: 1 1 auto;
+    height: 100%;
+    position: relative;
+    min-height: 0;
+    outline: 0;
+}
+
+.ch_channelDisplayScroller {
+    padding-bottom: 20px;
+    -webkit-box-flex: 1;
+    flex: 1 1 auto;
+    overflow-y: scroll;
+    min-height: 0;
+    outline: 0;
+}
+
+.ch_textChannelItemsContainer {
+    outline: 0;
+    width: 232px;
+    height: 48px;
+}
+
+.ch_textChannelItemsHeaderWrapper {
+    outline: 0;
+}
+
+.ch_textChannelItemsHeaderInner {
+    padding-top: 28px;
+    position: relative;
+    transition: opacity .2s ease-in-out;
+    outline: 0;
+}
+
+.ch_channelHeaderContentWrapper {
+    box-sizing: border-box;
+    height: 20px;
+    padding-left: 18px;
+    padding-right: 8px;
+    position: relative;
+    cursor: pointer;
+    -webkit-box-direction: normal;
+    -webkit-box-orient: horizontal;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    -webkit-box-pack: start;
+    justify-content: flex-start;
+    -webkit-box-align: start;
+    align-items: flex-start;
+    display: flex;
+    outline: 0;
+}
+
+.ch_channelDropdownPlaceholder {
+    // height: 12px;
+    // width: 12px;
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
+.ch_channelItemsTitle {
+    flex: 1 1 auto;
+    color: #72767d;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 20px;
+    text-transform: uppercase;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    transition: color .1s ease-out;
+    outline: 0;
+}
+
+.ch_channelItemsCreateButton {
+    flex: 0 1 auto;
+    margin-right: 0;
+    margin-left: 10px;
+    margin-bottom: 0;
+    margin-top: 0;
+    -webkit-box-direction: normal;
+    -webkit-box-orient: horizontal;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    -webkit-box-pack: start;
+    justify-content: flex-start;
+    -webkit-box-align: center;
+    align-items: center;
+    display: flex;
+    outline: 0;
+}
+
+.ch_createChannelButton {
+    cursor: pointer;
+    height: 18px;
+    width: 18px;
+    background: transparent;
+    border: 0;
+    color: currentColor;
+    margin: 0;
+    padding: 0;
+    -webkit-box-align: center;
+    -webkit-box-pack: center;
+    align-items: center;
+    border-radius: 3px;
+    box-sizing: border-box;
+    display: flex;
+    font-size: 14px;
+    font-weight: 500;
+    justify-content: center;
+    line-height: 16px;
+    position: relative;
+    user-select: none;
+    outline: 0;
+}
+
+.ch_createChannelIcon {
+    text-align: center;
+    height: 18px;
+    width: 18px;
+    font-size: 25px;
+    color: rgb(108,110,113);
+    font-weight: 600;
+    line-height: 20px;
+    text-transform: uppercase;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.ch_createChannelIcon span {
+    height: 18px;
+    width: 18px;
+    text-align: center;
+    margin-bottom: 4px;
+}
+
+
+
+

@@ -9,17 +9,18 @@ class ServerItem extends React.Component {
 
     defaultFocus(serverId, alias) {
         // debugger
-        let homeId;
-        if (alias === "@me") {
-            homeId = serverId;
-            serverId = "@me";
-        } else {
-            serverId = JSON.stringify(serverId);
-        }
-        // debugger
+        // let homeId;
+        // if (alias === "@me") {
+        //     homeId = serverId;
+        //     serverId = "@me";
+        // } else {
+        //     serverId = JSON.stringify(serverId);
+        // }
+        // if (this.props.location.pathname.slice(10, 12) === serverId) {
         
-        if (this.props.location.pathname.slice(10) === serverId) {
-            this.props.receiveCurrentServerId(alias === "@me" ? homeId : serverId, alias);
+        if (this.props.location.pathname.slice(10, 12) === JSON.stringify(serverId)) {
+            // this.props.receiveCurrentServerId(alias === "@me" ? homeId : serverId, alias);
+            this.props.receiveCurrentServerId(serverId, alias);
             return "selectedServer";
         }
     }

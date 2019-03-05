@@ -1,5 +1,6 @@
 import React from 'react';
 import ChannelItem from './channel_item';
+import ChannelItemContainer from './channel_item_container';
 
 class Channels extends React.Component {
     constructor(props) {
@@ -7,30 +8,46 @@ class Channels extends React.Component {
         this.displayCurrentServerName = this.displayCurrentServerName.bind(this);
     }
 
+    // import delete channel for onClick of X
+    // NEED ACCESS TO CURRENT SERVER, CURRENT USER, LOGOUT
     componentDidMount() {
-        // currentServerId should be in state always
-        // if a server is selected (defaults to home)
-        // const currentServerId = this.props.currentServerId;
-        // this.props.fetchChannels(currentServerId);
-        // debugger
     }
 
-    // USE Object.values(channels)[0] TO DEFAULT TO FIRST CHANNEL
-    // NEED ACCESS TO CURRENT SERVER, CURRENT USER, LOGOUT
+    componentDidUpdate() {
+        // debugger
+        // debugger
+        if ((this.props.currentServerId !== undefined) && (Object.values(this.props.channels).length === 0)) {
+            this.props.fetchChannels(this.props.currentServerId);
+        } else if ((this.props.currentServerId !== undefined) && (Object.values(this.props.channels > 0))) {
+            const defaultChannel = Object.values(this.props.channels)[0];
+            // debugger
+            
+            this.props.receiveCurrentChannelId(defaultChannel.id, defaultChannel.channel_name);
+        } 
+
+        if ((this.props.currentServerId !== undefined) && 
+                    (this.props.currentChannelId !== undefined) && 
+                    (this.props.location.pathname !== `/channels/${this.props.currentServerId}/${this.props.currentChannelId}`))
+        {
+            // debugger
+            this.props.history.push(`/channels/${this.props.currentServerId}/${this.props.currentChannelId}`);
+        }
+    }
 
     displayCurrentServerName() {
         // debugger
-        if (this.props.currentServerName === "@me") {
-            return "Home";
-        } else {
-            return this.props.currentServerName;
-        }
+        // if (this.props.currentServerName === "@me") {
+        //     return "Home";
+        // } else {
+        //     return this.props.currentServerName;
+        // }
+        return this.props.currentServerName;
     }
 
     channelItems(channels) {
         // debugger
         return channels.map((channel) => (
-            <ChannelItem
+            <ChannelItemContainer
                 key={channel.id}
                 channel={channel}
             />
@@ -39,53 +56,56 @@ class Channels extends React.Component {
 
     render () {
         const channels = this.props.channels;
+        // debugger
         return (
-            <div className="pf_channelsAndLogoutWrapper">
-                <div className="pf_channelsWrapper">
-                    {/* two main wrappers in channels wrapper */}
-                    <div className="pf_serverNameChannelsWrapper">
+            // <div className="pf_channelsAndLogoutWrapper">
+            <div className="ch_channelsWrapper">
+                {/* two main wrappers in channels wrapper */}
+                <div className="ch_serverNameChannelsWrapper">
 
-                        {/* Servername Header, don't show delete button on homeServer */}
-                        <div className="pf_serverNameWrapper">
-                            <div className="pf_serverNameInner">
-                                <span className="pf_serverName">{this.displayCurrentServerName()}</span>
-                                {/* on hover of pf_serverNameWrapper, display button */}
-                                <button className="pf_deleteServerButton"></button>
-                            </div>
+                    {/* Servername Header, don't show delete button on homeServer */}
+                    <div className="ch_serverNameWrapper">
+                        <div className="ch_serverNameInner">
+                            <span className="ch_serverName normFont">{this.displayCurrentServerName()}</span>
+                            {/* on hover of ch_serverNameWrapper, display button */}
+                            <button className="ch_deleteServerButton"></button>
                         </div>
+                    </div>
 
-                        {/* Direct messages / text channels here */}
-                        <div className="pf_channelDisplayWrapper">
-                            <div className="pf_channelDisplayScroller">
-                                <div className="pf_textChannelItemsContainer">
+                    {/* Direct messages / text channels here */}
+                    <div className="ch_channelDisplayWrapper">
+                        <div className="ch_channelDisplayScroller">
+                            <div className="ch_textChannelItemsContainer">
 
-                                    {/* Header wrapper */}
-                                    <div className="pf_textChannelItemsHeaderWrapper">
-                                        <div className="pf_textChannelItemsHeaderInner">
-                                            <div className="pf_channelDropdownPlaceholder"></div>
+                                {/* Header wrapper */}
+                                <div className="ch_textChannelItemsHeaderWrapper">
+                                    <div className="ch_textChannelItemsHeaderInner">
+                                        <div className="ch_channelHeaderContentWrapper">
+                                            
+                                        <div className="ch_channelDropdownPlaceholder"></div>
 
-                                            <div className="pf_channelItemsTitle">Text Channels</div>
-                                            <div className="pf_channelItemsCreateButton">
-                                                {/* RENDER CREATE CHANNEL MODAL HERE */}
-                                                <button className="pf_createChannelButton">
-                                                    <div className="pf_createChannelIcon">+</div>
-                                                </button>
-                                            </div>
+                                        <div className="ch_channelItemsTitle semiFont">Text Channels</div>
+                                        <div className="ch_channelItemsCreateButton">
+                                            {/* RENDER CREATE CHANNEL MODAL HERE */}
+                                            <button className="ch_createChannelButton">
+                                                <div className="ch_createChannelIcon normFont"><span>+</span></div>
+                                            </button>
+                                        </div>
+
                                         </div>
                                     </div>
-
-                                    {/* Channel Items - in discord: class=containerDefault-17nADq... <- this is inside item component*/}
-                                    {this.channelItems(Object.values(channels))}
                                 </div>
+
+                                {/* Channel Items - in discord: class=containerDefault-17nADq... <- this is inside item component*/}
+                                {this.channelItems(Object.values(channels))}
                             </div>
                         </div>
                     </div>
                 </div>
-
-                <div className="pf_logoutWrapper">
-
-                </div>
             </div>
+
+                
+            // </div>
         );
     }
 }

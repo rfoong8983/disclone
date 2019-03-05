@@ -4,22 +4,26 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { fetchChannels } from '../../../actions/channel_actions';
 import { openModal, closeModal } from '../../../actions/modal_actions';
+import { receiveCurrentChannelId } from '../../../actions/ui_actions';
 import Channels from './channels';
 
-const msp = ({ session, entities: { users, channels }, ui: { currServerInfo: { currentServerId, currentServerName } } }) => (
+const msp = ({ session, entities: { users, channels }, ui: { currServerInfo: { serverId, serverAlias }, currChannelInfo: { channelId, channelAlias } } }) => (
     {
         currentUser: users[session.id],
         // PASS CHANNELS FROM SERVER??
         channels: channels,
-        currentServerId: currentServerId,
-        currentServerName: currentServerName
+        currentServerId: serverId,
+        currentServerName: serverAlias,
+        currentChannelId: channelId,
+        currentChannelName: channelAlias
     }
 );
 
 const mdp = (dispatch) => (
     {
         fetchChannels: (serverId) => dispatch(fetchChannels(serverId)),
-        closeModal: () => dispatch(closeModal())
+        closeModal: () => dispatch(closeModal()),
+        receiveCurrentChannelId: (channelId, alias) => dispatch(receiveCurrentChannelId(channelId, alias))
     }
 );
 

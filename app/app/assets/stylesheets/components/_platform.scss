@@ -29,3 +29,14 @@
     position: relative;
     width: 70px;
 }
+
+.pf_channelsWrapper {
+    background-color: #2f3136;
+    flex-shrink: 0;
+    width: 240px;
+    -webkit-box-direction: normal;
+    -webkit-box-orient: vertical;
+    flex-direction: column;
+    display: flex;
+    outline: 0;
+}

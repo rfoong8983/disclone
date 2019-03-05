@@ -11,11 +11,28 @@ class Servers extends React.Component {
 
     componentDidMount() {
         // this.props.fetchServers();
-        
+        // debugger
+        const currentUserId = this.props.currentUser.id;
+        const currentPath = this.props.location.pathname.slice(10, 12);
+        // debugger
+        this.props.fetchServers()
+            .then((servers) => {
+    
+                let serversArray = Object.values(servers.servers);
+                if (currentPath === "@me") {
+                    serversArray = serversArray.filter((server) => server.server_name === `${currentUserId}_@me_home`);
+                    receiveCurrentServerId('@me', serversArray[0].id)
+                } else {
+                    serversArray = serversArray.filter((server) => server.id === parseInt(currentPath));
+                    // debugger
+                    receiveCurrentServerId(serversArray[0].id, serversArray[0].name);
+                }
+                });
     }
 
     componentDidUpdate() {
         this.props.closeModal();
+        // debugger
         // let currServer;
         // if (this.props.location.pathname.slice(10) === "@me") {
         //     currServer = Object.values(this.props.servers).filter((server) => server.server_name === (`${this.props.currentUser}_@me_home`))
@@ -51,7 +68,7 @@ class Servers extends React.Component {
     };
 
     defaultFocus(serverId) {
-        if (this.props.location.pathname.slice(10) === serverId) {
+        if (this.props.location.pathname.slice(10, 12) === serverId) {
             return "selectedServer";
         }
     }
