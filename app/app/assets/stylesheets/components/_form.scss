@@ -80,7 +80,7 @@
     display: flex;
     vertical-align: baseline;
     text-decoration: none;
-    z-index: 3;
+    z-index: 0;
 }
 
 .login_logoIcon {
@@ -114,9 +114,11 @@
     position: absolute;
     width: auto;
     height: auto;
+    
 }
 
 .liFormBox {
+    // z-index: 1;
     background: #36393f;
     border-radius: 5px;
     box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.2);
