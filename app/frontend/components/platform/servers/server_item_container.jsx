@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import { withRouter } from "react-router";
 import { receiveCurrentServerId } from '../../../actions/ui_actions';
+import { fetchChannels } from '../../../actions/channel_actions';
 import ServerItem from './server_item';
 
 // const functionalServerItem = ({ server, updateServerId }) => {
@@ -31,7 +32,8 @@ const msp = ({ session, entities: { users } }) => (
 
 const mdp = (dispatch) => (
     {
-        receiveCurrentServerId: (serverId, alias) => dispatch(receiveCurrentServerId(serverId, alias))
+        receiveCurrentServerId: (serverId, alias) => dispatch(receiveCurrentServerId(serverId, alias)),
+        fetchChannels: (serverId) => dispatch(fetchChannels(serverId))
     }
 );
 

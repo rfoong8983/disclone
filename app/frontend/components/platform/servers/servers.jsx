@@ -10,11 +10,18 @@ class Servers extends React.Component {
     }
 
     componentDidMount() {
-        this.props.fetchServers();
+        // this.props.fetchServers();
+        
     }
 
     componentDidUpdate() {
         this.props.closeModal();
+        // let currServer;
+        // if (this.props.location.pathname.slice(10) === "@me") {
+        //     currServer = Object.values(this.props.servers).filter((server) => server.server_name === (`${this.props.currentUser}_@me_home`))
+        // }
+        // this.props.receiveCurrentServerId(currServer.id, currServer.name);
+        // debugger
     }
 
     serverItems(servers) {
@@ -63,6 +70,7 @@ class Servers extends React.Component {
     // }
 
     render() {
+        // debugger
         // handle rendering by servId/chanId in component vs in app.jsx routes
         return (
             <div className="servCo_outerWrapper">

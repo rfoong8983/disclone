@@ -5,6 +5,7 @@ import {
 } from '../actions/servers_actions';
 
 const serversReducer = (oldState={}, action) => {
+    // debugger
     Object.freeze(oldState);
     let newState = Object.assign({}, oldState);
     // console.log("oldState: ", oldState);

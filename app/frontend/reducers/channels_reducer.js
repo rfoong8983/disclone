@@ -11,7 +11,8 @@ const channelsReducer = (oldState = {}, action) => {
 
     switch(action.type) {
         case RECEIVE_ALL_CHANNELS:
-            return Object.assign({}, newState, action.channels);
+        // might need to fix this when creating a channel??? probably not though
+            return action.channels;
         case RECEIVE_ONE_CHANNEL:
             newState[action.channel.id] = action.channel;
             return newState;
