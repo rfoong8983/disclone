@@ -9,9 +9,10 @@ class Platform extends React.Component {
         // debugger
     }
 
-    // componentDidMount() {
-    //     this.props.fetchPlatform(this.props.match.params.channelId)
-    // }
+    componentDidMount() {
+        // this.props.fetchPlatform(this.props.match.params.channelId)
+        debugger
+    }
 
     render() {
         // debugger

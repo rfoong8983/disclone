@@ -32,6 +32,13 @@ export const login = (user) => dispatch => {
         .then(
             (userInfo) => (dispatch(receiveCurrentUser(userInfo))),
             (err) => dispatch(receiveSessionErrors(err.responseJSON))
+        )
+        .then(
+            (defaultInfo) => {
+                const defServerId = defaultInfo.currentUserInfo.home.id;
+                const defChannelId = defaultInfo.currentUserInfo.channel.id;
+                this.props.history.push(`/channels/${defServerId}/${defChannelId}`);
+            }
         );
 };
 

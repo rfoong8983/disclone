@@ -9,3 +9,9 @@ json.home do
     json.server_name @home.server_name
     json.owner_id @home.owner_id
 end
+
+json.channel do
+    json.id @channel.id
+    json.channel_name @channel.channel_name
+    json.server_id @channel.server_id
+end

@@ -8,6 +8,7 @@ class ServerItem extends React.Component {
     }
 
     defaultFocus(serverId, alias) {
+        debugger
         if (this.props.location.pathname.slice(10, 12) === JSON.stringify(serverId)) {
             // this.props.receiveCurrentServerId(alias === "@me" ? homeId : serverId, alias);
             this.props.receiveCurrentServerId(serverId, alias);
@@ -16,7 +17,7 @@ class ServerItem extends React.Component {
     }
     
     updateStoreServerId(serverId, serverName) {
-        // debugger
+        debugger
         const currentPath = this.props.location.pathname;
         return (e) => {
             e.preventDefault();

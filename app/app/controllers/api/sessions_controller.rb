@@ -5,6 +5,7 @@ class Api::SessionsController < ApplicationController
         if @user
             login!(@user)
             @home = Server.find_by(owner_id: @user.id)
+            @channel = Channel.find_by(server_id: @home.id)
             # debugger
             render '/api/sessions/session'
         else

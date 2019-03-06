@@ -11,26 +11,29 @@ class Servers extends React.Component {
     }
 
     componentDidMount() {
-        let currentPath = this.props.location.pathname;
-        const currentServerRegExp = new RegExp('/[0-9]+/?|/@me');
-        // debugger
-        // => find '/32/' or '/@me', removes "/", and => id
-        currentPath = currentPath.match(currentServerRegExp)[0].replace("/","").slice(0,3);
+        
+        const wildcardPath = this.props.match.params.serverId;
+        // let currentPath = this.props.location.pathname;
+        // const currentServerRegExp = new RegExp('/[0-9]+/?|/@me');
+        // // debugger
+        // // => find '/32/' or '/@me', removes "/", and => id
+        // currentPath = currentPath.match(currentServerRegExp)[0].replace("/","").slice(0,3);
         // debugger
         this.props.fetchServers()
             .then((servers) => {
                 // debugger
                 let serversArray = Object.values(servers.servers);
-                serversArray = serversArray.filter((server) => server.id === parseInt(currentPath));
-                    receiveCurrentServerId(serversArray[0].id, serversArray[0].name);
+                serversArray = serversArray.filter((server) => server.id === parseInt(wildcardPath));
+                    // receiveCurrentServerId(serversArray[0].id, serversArray[0].name);
                 });
 
-        debugger
+        // debugger
+        // THIS MOUNTS FIRST
     }
 
     componentDidUpdate() {
         // this.props.closeModal();
-        debugger
+        // debugger
     }
 
     serverItems(servers) {
