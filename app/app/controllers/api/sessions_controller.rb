@@ -6,7 +6,7 @@ class Api::SessionsController < ApplicationController
             login!(@user)
             @home = Server.find_by(owner_id: @user.id)
             # debugger
-            render '/api/users/show'
+            render '/api/sessions/session'
         else
             render json: {'creds': [' - Invalid username and / or password']}, status: 418
         end

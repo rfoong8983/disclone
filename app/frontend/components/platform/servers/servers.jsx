@@ -11,10 +11,6 @@ class Servers extends React.Component {
     }
 
     componentDidMount() {
-        // this.props.fetchServers();
-        // debugger
-        // const currentUserId = this.props.currentUser.id;
-        // const currentPath = this.props.location.pathname.slice(10, 13);
         let currentPath = this.props.location.pathname;
         const currentServerRegExp = new RegExp('/[0-9]+/?|/@me');
         // debugger
@@ -28,17 +24,20 @@ class Servers extends React.Component {
                 serversArray = serversArray.filter((server) => server.id === parseInt(currentPath));
                     receiveCurrentServerId(serversArray[0].id, serversArray[0].name);
                 });
+
+        debugger
     }
 
     componentDidUpdate() {
-        this.props.closeModal();
+        // this.props.closeModal();
+        debugger
     }
 
     serverItems(servers) {
-        if (this.props.currentUser === undefined) {
-            this.props.history.push("/");
-            return "";
-        }
+        // if (this.props.currentUser === undefined) {
+            // this.props.history.push("/");
+        //     return "";
+        // }
         // debugger
         const nonHome = servers.filter((server) => server.server_name !== `${this.props.currentUser.id}_@me_home`);
         // use object.values outside ?
@@ -55,7 +54,7 @@ class Servers extends React.Component {
 
     homeServer(servers) {
         if (this.props.currentUser === undefined) {
-            this.props.history.push("/");
+            // this.props.history.push("/");
             return "";
         }
 

@@ -31,10 +31,13 @@ class ServerItem extends React.Component {
     }
 
     renderIcon(serverName) {
+        // debugger
         if (serverName === `${this.props.currentUser.id}_@me_home`) {
             return (
                 <i className="servCo_homeServerLogoIcon fas fa-compact-disc fa-2x"></i>
             );
+        } else if (serverName === undefined) {
+            return ""
         } else {
             return (
                 <div className="servCo_serverIcon normFont" draggable="false">

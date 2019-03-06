@@ -11,10 +11,11 @@ class ChannelItem extends React.Component {
 
     componentDidMount() {
         this.props.receiveCurrentChannelId(this.props.channel.id);
+        debugger
     }
     
     componentDidUpdate() {
-        // debugger
+        debugger
     }
 
     // add in state to track current selected channel

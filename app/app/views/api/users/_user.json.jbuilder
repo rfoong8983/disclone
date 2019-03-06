@@ -1,14 +1,42 @@
 
-json.set! :user do
+json.user do
     json.id user.id
     json.email user.email
     json.username user.username
 end
+
+# SHOULD MIMIC MY FRONT END STATE (SEE BELOW)
+# CAN DESTRUCTURE IN MY REGULAR ACTION
+# const receiveCurrentUser = ({user, server, channel})
+# IN MY REDUCERS, HAVE THE REDUCER ONLY ACCEPT ONE
+# OF THE ACTION.OBJS (e.g., action.channel)
+#
+# json.user do
+#     json.set! user.id do 
+#         json.id user.id
+#         json.email user.email
+#         json.username user.username
+#     end
+# end
 # debugger
-json.set! :home do
+
+json.home do
     json.id home.id
     json.server_name home.server_name
     json.owner_id home.owner_id
+end
+# debugger
+
+json.channel do
+    if @channel.nil?
+        json.id nil
+        json.channel_name nil
+        json.server_id nil
+    else
+        json.id channel.id
+        json.channel_name channel.channel_name
+        json.server_id channel.server_id
+    end
 end
 
 # ==> {user: {}, home: {}} comes back in action

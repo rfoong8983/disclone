@@ -50,6 +50,7 @@ const receiveAllServers = (servers) => {
     };
 };
 
+// export const receiveServer = (server) => {
 export const receiveServer = (server) => {
     return {
         type: RECEIVE_SERVER,

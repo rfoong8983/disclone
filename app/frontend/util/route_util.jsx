@@ -4,16 +4,15 @@ import { Route, withRouter, Redirect } from 'react-router-dom';
 
 const Auth = ({component: Component, path, loggedIn, homeServerId, exact}) => (
     <Route path={path} exact={exact} render={(props) => {
-        // debugger
         return !loggedIn ? (<Component {...props}/>) : (<Redirect to={`/channels/${homeServerId}`}/>)
     }}/>
 );
 
-// const Protected = ({ component: Component, path, loggedIn, exact }) => (
-//     <Route path={path} exact={exact} render={(props) => (
-//         loggedIn ? (<Component {...props} />) : (<Redirect to="/login" />)
-//     )} />
-// );
+const Protected = ({ component: Component, path, loggedIn, exact }) => (
+    <Route path={path} exact={exact} render={(props) => (
+        loggedIn ? (<Component {...props} />) : (<Redirect to="/login" />)
+    )} />
+);
 
 const msp = state => {
     // debugger
@@ -33,4 +32,4 @@ const msp = state => {
 };
 
 export const AuthRoute = withRouter(connect(msp)(Auth));
-// export const ProtectedRoute = withRouter(connect(msp(Protected)));
+export const ProtectedRoute = withRouter(connect(msp)(Protected));

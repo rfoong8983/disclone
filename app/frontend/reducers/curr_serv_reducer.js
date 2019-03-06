@@ -1,4 +1,5 @@
 import { RECEIVE_CURRENT_SERVER_ID } from '../actions/ui_actions';
+import { CLEAR_STATE } from '../actions/session_actions';
 
 //removed @me from oldState
 const currentServerReducer = (oldState={ serverInfo: {serverId: "", alias: "" } }, action) => {
@@ -7,6 +8,8 @@ const currentServerReducer = (oldState={ serverInfo: {serverId: "", alias: "" } 
         case RECEIVE_CURRENT_SERVER_ID:
             // return action.serverId;
             return action.serverInfo;
+        case CLEAR_STATE:
+            return {};
         default:
             return oldState;
     }

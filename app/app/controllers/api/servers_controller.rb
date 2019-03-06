@@ -2,6 +2,9 @@ class Api::ServersController < ApplicationController
     def create
         @server = Server.new(server_params)
         if @server.save
+            @channel = Channel.new(server_id: @server.id, channel_name: 'general')
+            @channel.save
+            
             render '/api/servers/new_server'
         else
             render json: @server.errors.messages, status: 418

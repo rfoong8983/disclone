@@ -4,6 +4,7 @@ import { createServer } from './servers_actions';
 export const RECEIVE_CURRENT_USER = "RECEIVE_CURRENT_USER";
 export const RECEIVE_SESSION_ERRORS = "RECEIVE_SESSION_ERRORS";
 export const LOGOUT_CURRENT_USER = "LOGOUT_CURRENT_USER";
+export const CLEAR_STATE = "CLEAR_STATE";
 
 // thunk action creators
 // err.responseJSON returns an object
@@ -11,10 +12,19 @@ export const LOGOUT_CURRENT_USER = "LOGOUT_CURRENT_USER";
 // action['errors']: above object
 export const signup = (user) => dispatch => (
     SeshApi.signup(user)
-        .then((user) => (dispatch(receiveCurrentUser(user))),
-              (err) => (dispatch(receiveSessionErrors(err.responseJSON))))
-        .then(({ currentUser }) => {
-            dispatch(createServer({owner_id: currentUser.id, server_name: `${currentUser.id}_@me_home`}))})
+        .then((userInfo) => {
+            // debugger
+            return dispatch(receiveCurrentUser(userInfo));
+        },
+            (err) => {
+                return dispatch(receiveSessionErrors(err.responseJSON))
+            })
+        // .then(({ currentUser }) => {
+        //     dispatch(createServer({owner_id: currentUser.id, server_name: `${currentUser.id}_@me_home`}))})
+        // .then((server) => {
+        //     debugger
+        //     return "";
+        // })
 );
 
 export const login = (user) => dispatch => {
@@ -28,6 +38,7 @@ export const login = (user) => dispatch => {
 export const logout = () => dispatch => (
     SeshApi.logout()
         .then(() => dispatch(logoutCurrentUser()))
+        .then(() => dispatch(clearState()))
 );
 
 // action creators
@@ -37,12 +48,20 @@ export const logout = () => dispatch => (
 //         currentUser: currentUser // ADD IN SERVER & CHANNEL HERE
 //     }
 // );
-export const receiveCurrentUser = (currentUserInfo) => (
-    {
+export const receiveCurrentUser = (currentUserInfo) => {
+// export const receiveCurrentUser = ({ user, home, channel}) => {
+// can reference as action.user or action.home    
+// need to test probably currentUserInfo: user, home, channel
+// ... that's the same thing as what's already there
+    // debugger
+    return {
         type: RECEIVE_CURRENT_USER,
         currentUserInfo: currentUserInfo // ADD IN SERVER & CHANNEL HERE
-    }
-);
+        // user,
+        // home,
+        // channel
+    };
+};
 
 const receiveSessionErrors = (errors) => {
     return {
@@ -55,6 +74,13 @@ export const clearSessionErrors = () => {
     return {
         type: RECEIVE_SESSION_ERRORS,
         errors: []
+    };
+};
+
+export const clearState = () => {
+    return {
+        type: CLEAR_STATE,
+        cleared: {}
     };
 };
 

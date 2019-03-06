@@ -15,6 +15,7 @@ const msp = ({ session, entities: { users, servers }, ui: { currServerInfo: { se
     } else {
         userId = null;
     }
+    // debugger
     return {
         // currentUser: users[session.id],
         currentUser: users[userId],

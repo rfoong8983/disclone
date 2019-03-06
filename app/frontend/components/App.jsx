@@ -15,8 +15,9 @@ const App = () => (
             <AuthRoute exact path="/login" component={LogInContainer} />
             <AuthRoute exact path="/signup" component={SignUpContainer} />
             <Route exact path="/" component={SplashContainer} />
-            {/* <Route path="/channels" component={PlatformContainer} /> */}
-            <Route path="/channels/" component={PlatformContainer} />
+            {/* WILD CARD */}
+            <ProtectedRoute path="/channels/:serverId" component={PlatformContainer} />
+            {/* <Route path="/channels/:channelId" render={() => <h1>Channel Show Page</h1>} /> */}
             <Route component={PageNotFound} />
         </Switch>
     </div>

@@ -14,11 +14,6 @@ export const sessionReducer = (oldState={
             // debugger
             return {currentUserInfo: action.currentUserInfo};
         case LOGOUT_CURRENT_USER:
-            // return {
-            //     currentUserInfo: {
-            //         user: {id: null},
-            //         home: {id: null}
-            // }
             return {currentUserInfo: action.currentUserInfo};
         default:
             return oldState;
