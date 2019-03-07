@@ -30,16 +30,28 @@ export const signup = (user) => dispatch => (
 export const login = (user) => dispatch => {
     return SeshApi.login(user)
         .then(
-            (userInfo) => (dispatch(receiveCurrentUser(userInfo))),
+            (userInfo) => {
+                debugger
+                dispatch(receiveCurrentUser(userInfo));
+            },
             (err) => dispatch(receiveSessionErrors(err.responseJSON))
-        )
-        .then(
-            (defaultInfo) => {
-                const defServerId = defaultInfo.currentUserInfo.home.id;
-                const defChannelId = defaultInfo.currentUserInfo.channel.id;
-                this.props.history.push(`/channels/${defServerId}/${defChannelId}`);
-            }
         );
+
+        // default server/channel info
+        // handled in reducers on dispatch of
+        // receiveCurrentUser
+        // removed below afer above was implemented
+
+
+        // .then(
+        //     (defaultInfo) => {
+        //         // this may be unnecessary
+        //         debugger;
+        //         const defServerId = defaultInfo.currentUserInfo.home.id;
+        //         const defChannelId = defaultInfo.currentUserInfo.channel.id;
+        //         this.props.history.push(`/channels/${defServerId}/${defChannelId}`);
+        //     }
+        // );
 };
 
 export const logout = () => dispatch => (
@@ -96,7 +108,8 @@ const logoutCurrentUser = () => (
         type: LOGOUT_CURRENT_USER,
         currentUserInfo: {
             user: {},
-            home: {}
+            home: {},
+            channel: {}
         }
     }
 );

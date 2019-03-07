@@ -2,14 +2,14 @@ class Api::UsersController < ApplicationController
     def create
         @user = User.new(user_params)
         @user.email = @user.email.downcase if @user.valid?
-        # debugger
+        @server = Server.new(owner_id: nil, id: nil, server_name: nil)
         @channel = Channel.new(server_id: nil, id: nil, channel_name: nil)
         if @user.save
             login!(@user)
 
-            @home = Server.new(owner_id: @user.id, server_name: "#{@user.id}_@me_home")
-            if @home.save
-                @channel = Channel.new(server_id: @home.id, channel_name: "general")
+            @server = Server.new(owner_id: @user.id, server_name: "#{@user.id}_@me_home")
+            if @server.save
+                @channel = Channel.new(server_id: @server.id, channel_name: "general")
                 @channel.save
             end
 

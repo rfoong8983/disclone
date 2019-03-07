@@ -23,7 +23,8 @@ class Channels extends React.Component {
             }
             
         } 
-
+        
+        // logic below stays for now 
         if ((this.props.currentServerId !== undefined) && 
                     (this.props.currentChannelId !== undefined) && 
                     (this.props.location.pathname !== `/channels/${this.props.currentServerId}/${this.props.currentChannelId}`))
@@ -36,7 +37,12 @@ class Channels extends React.Component {
     }
 
     displayCurrentServerName() {
-        return this.props.currentServerName;
+        const currentServerName = this.props.currentServerName;
+        if ("@me".indexOf(currentServerName)) {
+            return "@me";
+        } else {
+            return currentServerName;
+        }
     }
 
     channelItems(channels) {

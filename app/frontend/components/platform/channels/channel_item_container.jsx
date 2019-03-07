@@ -5,23 +5,19 @@ import { fetchChannels } from '../../../actions/channel_actions';
 import ChannelItem from './channel_item';
 
 const msp = ({ session, entities: { users } }) => {
-    let userId;
-    if (session.currentUserInfo) {
-        userId = session.currentUserInfo.user.id;
-
-    } else {
-        userId = null;
-    }
 
     return {
         // currentUser: users[session.id]
-        currentUser: users[userId]
-    }
+        currentUser: session.user,
+        channel: session.channel,
+        currentChannelId: session.channel.id,
+        currentChannelName: session.channel.channel_name
+    };
 };
 
 const mdp = (dispatch) => (
     {
-        receiveCurrentChannelId: (serverId, alias) => dispatch(receiveCurrentChannelId(serverId, alias)),
+        receiveCurrentChannelId: (channelId, alias) => dispatch(receiveCurrentChannelId(channelId, alias)),
         fetchChannels: (serverId) => dispatch(fetchChannels(serverId))
     }
 );

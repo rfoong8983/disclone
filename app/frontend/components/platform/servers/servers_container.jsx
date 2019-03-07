@@ -6,22 +6,15 @@ import { receiveCurrentServerId } from '../../../actions/ui_actions';
 import { openModal, closeModal } from '../../../actions/modal_actions';
 import Servers from './servers';
 
-const msp = ({ session, entities: { users, servers }, ui: { currServerInfo: { serverId, serverAlias } } }) => {
+const msp = ({ session, entities: { users, servers } }) => {
     // debugger
-    let userId;
-    if (session.currentUserInfo) {
-        userId = session.currentUserInfo.user.id;
-        
-    } else {
-        userId = null;
-    }
-    // debugger
+
     return {
         // currentUser: users[session.id],
-        currentUser: users[userId],
+        currentUser: session.user,
         servers: servers,
-        currentServerId: serverId,
-        currentServerName: serverAlias
+        currentServerId: session.server.id,
+        currentServerName: session.server.server_name
     };
 };
 

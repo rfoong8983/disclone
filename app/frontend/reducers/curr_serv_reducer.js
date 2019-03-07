@@ -3,14 +3,15 @@ import { CLEAR_STATE } from '../actions/session_actions';
 import { RECEIVE_CURRENT_USER } from '../actions/session_actions';
 
 //removed @me from oldState
-const currentServerReducer = (oldState={ serverInfo: {serverId: "", alias: "" } }, action) => {
+const currentServerReducer = (oldState={}, action) => {
+    debugger
     Object.freeze(oldState);
     switch(action.type) {
         case RECEIVE_CURRENT_SERVER_ID:
             // return action.serverId;
-            return action.serverInfo;
+            return action.server;
         case RECEIVE_CURRENT_USER:
-            return action.currentUserInfo.home;
+            return action.currentUserInfo.server;
         case CLEAR_STATE:
             return {};
         default:

@@ -4,8 +4,19 @@ class Api::SessionsController < ApplicationController
         # debugger
         if @user
             login!(@user)
-            @home = Server.find_by(owner_id: @user.id)
-            @channel = Channel.find_by(server_id: @home.id)
+            # @home.select where owner_id: @user.id
+            #     and server_name: contains '@me'
+            #     order by id
+            #     limit 1;
+            # @home = Server.find_by(owner_id: @user.id)
+            # debugger
+
+            @server = Server.where("server_name like '%?_@me_%'", @user.id)
+                        .where("owner_id = ?", @user.id)
+                        .order(id: :asc)
+                        .limit(1)[0]
+            
+            @channel = Channel.find_by(server_id: @server.id)
             # debugger
             render '/api/sessions/session'
         else

@@ -20,10 +20,10 @@ end
 # end
 # debugger
 
-json.home do
-    json.id home.id
-    json.server_name home.server_name
-    json.owner_id home.owner_id
+json.server do
+    json.id server.id
+    json.server_name server.server_name
+    json.owner_id server.owner_id
 end
 # debugger
 

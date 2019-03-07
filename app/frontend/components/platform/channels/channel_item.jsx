@@ -10,7 +10,7 @@ class ChannelItem extends React.Component {
     }
 
     componentDidMount() {
-        this.props.receiveCurrentChannelId(this.props.channel.id);
+        this.props.receiveCurrentChannelId(this.props.currentChannelId, this.props.currentChannelName);
         debugger
     }
     
@@ -63,7 +63,8 @@ class ChannelItem extends React.Component {
             e.preventDefault();
             // this.state.isActive = true;
             // debugger
-            if (currentChannelPath.match(currChannelRegExp)[0].replace("/","") !== JSON.stringify(channelId)) {
+            // if (currentChannelPath.match(currChannelRegExp)[0].replace("/","") !== JSON.stringify(channelId)) {
+            if (this.props.match.params.channelId !== JSON.stringify(channelId)) {
                 this.props.receiveCurrentChannelId(channelId, channelName);
 
                 // this.props.fetchMessages(channelId) ADD MESSAGES ON CHANNEL SWITCH

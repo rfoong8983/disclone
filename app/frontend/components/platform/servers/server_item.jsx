@@ -9,24 +9,28 @@ class ServerItem extends React.Component {
 
     defaultFocus(serverId, alias) {
         debugger
-        if (this.props.location.pathname.slice(10, 12) === JSON.stringify(serverId)) {
+        const currentServerId = this.props.match.params.serverId;
+
+        if (currentServerId === JSON.stringify(serverId)) {
             // this.props.receiveCurrentServerId(alias === "@me" ? homeId : serverId, alias);
-            this.props.receiveCurrentServerId(serverId, alias);
+            // this.props.receiveCurrentServerId(serverId, alias);
             return "selectedServer";
         }
     }
     
     updateStoreServerId(serverId, serverName) {
         debugger
-        const currentPath = this.props.location.pathname;
+        const currentServerId = this.props.match.params.serverId;
         return (e) => {
             e.preventDefault();
             // this.state.isActive = true;
             // USE REGEX TO ONLY CAPTURE /channels/serverId
-            if (currentPath !== `/channels/${serverId}`) {
+            if (currentServerId !== JSON.stringify(serverId)) {
                 this.props.receiveCurrentServerId(serverId, serverName);
                 this.props.fetchChannels(serverId);
-                this.props.history.push(`/channels/${serverId}`);
+                const defaultChannelId = this.props.defaultChannel.id;
+                
+                this.props.history.push(`/channels/${serverId}/${defaultChannelId}`);
             }
         };
     }
@@ -50,7 +54,7 @@ class ServerItem extends React.Component {
     
     render() {
         const server = this.props.server;
-        // debugger
+        debugger
         return (
             <div 
                 className={`servCo_server`} 

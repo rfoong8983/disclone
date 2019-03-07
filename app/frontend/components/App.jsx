@@ -15,9 +15,11 @@ const App = () => (
             <AuthRoute exact path="/login" component={LogInContainer} />
             <AuthRoute exact path="/signup" component={SignUpContainer} />
             <Route exact path="/" component={SplashContainer} />
-            {/* WILD CARD */}
-            <ProtectedRoute path="/channels/:serverId" component={PlatformContainer} />
-            {/* <Route path="/channels/:channelId" render={() => <h1>Channel Show Page</h1>} /> */}
+
+            {/* redirect user back to home server/channel if */}
+            {/* bad URL && logged_in? */}
+            <ProtectedRoute path="/channels/:serverId/:channelId" component={PlatformContainer} />
+            
             <Route component={PageNotFound} />
         </Switch>
     </div>

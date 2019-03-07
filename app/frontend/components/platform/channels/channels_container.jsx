@@ -8,7 +8,7 @@ import { receiveCurrentChannelId } from '../../../actions/ui_actions';
 import { logout } from '../../../actions/session_actions';
 import Channels from './channels';
 
-const msp = ({ session, entities: { users, channels }, ui: { currServerInfo: { serverId, serverAlias }, currChannelInfo: { channelId, channelAlias } } }) => {
+const msp = ({ session, entities: { users, channels }, ui: { currServerInfo, currChannelInfo } }) => {
     let userId;
     if (session.currentUserInfo) {
         userId = session.currentUserInfo.user.id;
@@ -17,15 +17,17 @@ const msp = ({ session, entities: { users, channels }, ui: { currServerInfo: { s
         userId = null;
     }
 
+    debugger
+
     return {
         // currentUser: users[session.id],
-        currentUser: users[userId],
+        currentUser: session.user,
         // PASS CHANNELS FROM SERVER??
         channels: channels,
-        currentServerId: serverId,
-        currentServerName: serverAlias,
-        currentChannelId: channelId,
-        currentChannelName: channelAlias
+        currentServerId: currServerInfo.id,
+        currentServerName: currServerInfo.server_name,
+        currentChannelId: currChannelInfo.id,
+        currentChannelName: currChannelInfo.channel_name
     };
 };
 

@@ -4,13 +4,17 @@ import { receiveCurrentServerId } from '../../../actions/ui_actions';
 import { fetchChannels } from '../../../actions/channel_actions';
 import ServerItem from './server_item';
 
-const msp = ({ session, entities: { users } }) => (
-    
-    {
-        // currentUser: users[session.id]
-        currentUser: users[session.currentUserInfo.user.id]
-    }
-);
+const msp = ({ entities, session: { user } , ui}) => {
+    //             ,
+    // { ui: currChannelInfo }
+    debugger
+    return {
+        currentUser: user,
+        channels: entities.channels,
+        defaultChannel: ui.currChannelInfo 
+        // currChannelInfo: currChannelInfo
+    };
+};
 
 const mdp = (dispatch) => (
     {
