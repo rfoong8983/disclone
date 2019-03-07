@@ -17,7 +17,7 @@ const Protected = ({ component: Component, path, loggedIn, exact }) => (
 const msp = state => {
     // debugger
     const session = state.session;
-    debugger
+
     const uId = session.user.id;
     const sId = session.server.id;
     const cId = session.channel.id;

@@ -4,7 +4,6 @@ import { RECEIVE_CURRENT_USER } from '../actions/session_actions';
 
 //removed @me from oldState
 const currentServerReducer = (oldState={}, action) => {
-    debugger
     Object.freeze(oldState);
     switch(action.type) {
         case RECEIVE_CURRENT_SERVER_ID:

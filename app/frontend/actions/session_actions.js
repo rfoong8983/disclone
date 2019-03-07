@@ -19,19 +19,12 @@ export const signup = (user) => dispatch => (
             (err) => {
                 return dispatch(receiveSessionErrors(err.responseJSON))
             })
-        // .then(({ currentUser }) => {
-        //     dispatch(createServer({owner_id: currentUser.id, server_name: `${currentUser.id}_@me_home`}))})
-        // .then((server) => {
-        //     debugger
-        //     return "";
-        // })
 );
 
 export const login = (user) => dispatch => {
     return SeshApi.login(user)
         .then(
             (userInfo) => {
-                debugger
                 dispatch(receiveCurrentUser(userInfo));
             },
             (err) => dispatch(receiveSessionErrors(err.responseJSON))

@@ -5,9 +5,7 @@ import { fetchChannels } from '../../../actions/channel_actions';
 import ServerItem from './server_item';
 
 const msp = ({ entities, session: { user } , ui}) => {
-    //             ,
-    // { ui: currChannelInfo }
-    debugger
+
     return {
         currentUser: user,
         channels: entities.channels,

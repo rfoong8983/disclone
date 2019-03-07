@@ -37,11 +37,7 @@ class Servers extends React.Component {
     }
 
     serverItems(servers) {
-        // if (this.props.currentUser === undefined) {
-            // this.props.history.push("/");
-        //     return "";
-        // }
-        debugger
+
         const nonHome = servers.filter((server) => server.server_name !== `${this.props.currentUser.id}_@me_home`);
         // use object.values outside ?
         return nonHome.map((server) => (

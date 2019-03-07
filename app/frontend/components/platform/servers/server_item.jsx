@@ -8,7 +8,6 @@ class ServerItem extends React.Component {
     }
 
     defaultFocus(serverId, alias) {
-        debugger
         const currentServerId = this.props.match.params.serverId;
 
         if (currentServerId === JSON.stringify(serverId)) {
@@ -19,7 +18,6 @@ class ServerItem extends React.Component {
     }
     
     updateStoreServerId(serverId, serverName) {
-        debugger
         const currentServerId = this.props.match.params.serverId;
         return (e) => {
             e.preventDefault();
@@ -54,7 +52,7 @@ class ServerItem extends React.Component {
     
     render() {
         const server = this.props.server;
-        debugger
+        // debugger
         return (
             <div 
                 className={`servCo_server`} 

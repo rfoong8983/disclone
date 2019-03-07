@@ -20,15 +20,11 @@ class ChannelItem extends React.Component {
 
     // add in state to track current selected channel
     defaultWrapperFocus(channelId) {
-        let currChannelPath = this.props.location.pathname;
-        const currChannelRegExp = new RegExp("/[0-9]+$");
-        currChannelPath = currChannelPath.match(currChannelRegExp);
-        
-        if (currChannelPath) {
-            currChannelPath = currChannelPath[0].replace("/","");
-        } else {
-            return "channelContent";
-        }
+        // let currChannelPath = this.props.location.pathname;
+        let currChannelPath = this.props.match.params.channelId;
+        // const currChannelRegExp = new RegExp("/[0-9]+$");
+        // currChannelPath = currChannelPath.match(currChannelRegExp);
+        debugger
         
         if (currChannelPath === JSON.stringify(channelId)) {
             return "channelContentSelected";
@@ -38,33 +34,35 @@ class ChannelItem extends React.Component {
     }
 
     defaultLabelFocus(channelId) {
-        let currChannelPath = this.props.location.pathname;
-        const currChannelRegExp = new RegExp("/[0-9]+$");
-        currChannelPath = currChannelPath.match(currChannelRegExp);
+        debugger
+        let currChannelPath = this.props.match.params.channelId;
+        // const currChannelRegExp = new RegExp("/[0-9]+$");
+        // currChannelPath = currChannelPath.match(currChannelRegExp);
 
-        if (currChannelPath) {
-            currChannelPath = currChannelPath[0].replace("/", "");
-        } else {
-            return "channelContent";
-        }
+        // if (currChannelPath) {
+        //     currChannelPath = currChannelPath[0].replace("/", "");
+        // } else {
+        //     return "channelContent";
+        // }
 
         if (currChannelPath === JSON.stringify(channelId)) {
             return "labelSelected";
         } else {
+            // return "";
             return "";
         }
     }
 
     updateStoreChannelId(channelId, channelName) {
-        const currentChannelPath = this.props.location.pathname;
-        const currChannelRegExp = new RegExp("/[0-9]+$");
-        // debugger
+        const currentChannelPath = this.props.match.params.channelId;
+        // const currChannelRegExp = new RegExp("/[0-9]+$");
+        debugger
         return (e) => {
             e.preventDefault();
             // this.state.isActive = true;
             // debugger
             // if (currentChannelPath.match(currChannelRegExp)[0].replace("/","") !== JSON.stringify(channelId)) {
-            if (this.props.match.params.channelId !== JSON.stringify(channelId)) {
+            if (currentChannelPath !== JSON.stringify(channelId)) {
                 this.props.receiveCurrentChannelId(channelId, channelName);
 
                 // this.props.fetchMessages(channelId) ADD MESSAGES ON CHANNEL SWITCH

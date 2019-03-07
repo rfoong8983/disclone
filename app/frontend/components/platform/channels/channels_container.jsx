@@ -17,8 +17,6 @@ const msp = ({ session, entities: { users, channels }, ui: { currServerInfo, cur
         userId = null;
     }
 
-    debugger
-
     return {
         // currentUser: users[session.id],
         currentUser: session.user,

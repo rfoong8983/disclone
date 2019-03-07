@@ -7,7 +7,6 @@ import { RECEIVE_CURRENT_USER } from '../actions/session_actions';
 import { CLEAR_STATE } from '../actions/session_actions';
 
 const serversReducer = (oldState={}, action) => {
-    debugger
     Object.freeze(oldState);
     let newState = Object.assign({}, oldState);
     // console.log("oldState: ", oldState);
