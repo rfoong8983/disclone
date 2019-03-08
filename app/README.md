@@ -58,6 +58,7 @@ While this may add complexity to the components, it pays dividends in the ease i
 
 ### Animations
 
+Animations were added to the home and 404 pages.
 @keyframes were used to alter CSS animations at specific times to determine their overall appearance.
 
 ```scss
@@ -80,6 +81,23 @@ While this may add complexity to the components, it pays dividends in the ease i
 
 ![404 Animation](https://media.giphy.com/media/2ALbghihz1xVME3bR2/giphy.gif)
 
+### Project Design
+
+Disclone was designed with simplicity at its core. Given the ten-day deadline, it was decided that the focus of development should be on major features that run smoothly. Smaller features will be added in time.
+
+### Technologies
+
+Rails was chosen for Disclone's backend due to its quick setup and out-of-the-box support for relational databases and RESTful architecture. Convenience and speed were prioritized as the goal of this project was to create a smaller-scale portfolio piece.
+
+Redux was used on the front-end to ensure that the any data being passed from the back-end would reach the appropriate components. This allows for components to render the content when updates are made in the database.
+
+### Additional Resources
+
+* [Database Schema](https://github.com/rfoong8983/disclone/wiki/Database-Schema)
+* [API Endpoints](https://github.com/rfoong8983/disclone/wiki/Backend-Routes)
+
 ## Coming Soon!
 
-*
+* Users can create and join channels.
+* Users can message in real-time.
+* Users can open as many sessions as they please.
