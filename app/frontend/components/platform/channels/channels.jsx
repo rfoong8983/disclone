@@ -9,36 +9,39 @@ class Channels extends React.Component {
     }
 
     componentDidMount() {
-        this.props.fetchChannels(this.props.currentServerId);
-        // this.props.receiveCurrentChannel
+        // this.props.fetchChannels(this.props.match.params.serverId);
+        // debugger
     }
 
     // import delete channel for onClick of X
     // NEED ACCESS TO CURRENT SERVER, CURRENT USER, LOGOUT
 
     componentDidUpdate() {
-        debugger
-        if ((this.props.currentServerId !== undefined) && (Object.values(this.props.channels).length === 0)) {
-            this.props.fetchChannels(this.props.currentServerId);
-        } else if ((this.props.currentServerId !== undefined) && (Object.values(this.props.channels > 0))) {
-            const defaultChannel = Object.values(this.props.channels)[0];
-            // debugger
-            if (!this.props.currentChannelId) {
-                this.props.receiveCurrentChannelId(defaultChannel.id, defaultChannel.channel_name);
-            }
+        // if (this.props.currentServer && this.props.currentServerId !== parseInt(this.props.match.params.serverId)) {
+        //     this.props.fetchChannels(this.props.currentServerId);
+        // }
+        // debugger
+        // if ((this.props.currentServerId !== undefined) && (Object.values(this.props.channels).length === 0)) {
+        //     this.props.fetchChannels(this.props.currentServerId);
+        // } else if ((this.props.currentServerId !== undefined) && (Object.values(this.props.channels > 0))) {
+        //     const defaultChannel = Object.values(this.props.channels)[0];
+        //     // debugger
+        //     if (!this.props.currentChannelId) {
+        //         this.props.receiveCurrentChannelId(defaultChannel.id, defaultChannel.channel_name);
+        //     }
             
-        } 
+        // } 
         
         // logic below stays for now 
-        if ((this.props.currentServerId !== undefined) && 
-                    (this.props.currentChannelId !== undefined) && 
-                    (this.props.location.pathname !== `/channels/${this.props.currentServerId}/${this.props.currentChannelId}`))
-        {
+        // if ((this.props.currentServerId !== undefined) && 
+        //             (this.props.currentChannelId !== undefined) && 
+        //             (this.props.location.pathname !== `/channels/${this.props.currentServerId}/${this.props.currentChannelId}`))
+        // {
             // debugger
             // if (this.props.location.pathname !== `/channels/${this.props.currentServerId}/${this.props.currentChannelId}`) {
             //     this.props.history.push(`/channels/${this.props.currentServerId}/${this.props.currentChannelId}`);
             // }
-        }
+        // }
     }
 
     displayCurrentServerName() {

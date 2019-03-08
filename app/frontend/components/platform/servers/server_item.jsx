@@ -50,9 +50,10 @@ class ServerItem extends React.Component {
                 // const defaultChannelId = this.props.defaultChannel.id;
                 // this.props.fetchChannels(serverId);
                 this.props.fetchChannels(serverId).then((channels) => {
-                    debugger
-                    const defaultChannelId = Object.values(channels.channels)[0].id;
                     // debugger
+                    const defaultChannelId = Object.values(channels.channels)[0].id;
+                    const defaultChannelName = Object.values(channels.channels)[0].channel_name;
+                    this.props.receiveCurrentChannelId(defaultChannelId, defaultChannelName);
                     this.props.history.push(`/channels/${serverId}/${defaultChannelId}`);
                 });
             }

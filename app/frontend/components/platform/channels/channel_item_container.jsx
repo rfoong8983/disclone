@@ -10,7 +10,8 @@ const msp = ({ session, entities: { users }, ui}) => {
         // currentUser: users[session.id]
         currentUser: session.user,
         currentServer: session.server,
-        channel: session.channel,
+        // channel: session.channel,
+        channel: ui.currChannelInfo,
         currentChannelId: ui.currChannelInfo.id,
         currentChannelName: ui.currChannelInfo.channel_name
     };

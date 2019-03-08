@@ -11,18 +11,22 @@ class ChannelItem extends React.Component {
 
     componentDidMount() {
         // debugger
-        this.props.receiveCurrentChannelId(this.props.channel.id, this.props.channel.channel_name);
+        // this.props.receiveCurrentChannelId(this.props.channel.id, this.props.channel.channel_name);
         // debugger
     }
     
     componentDidUpdate() {
         // this.props.receiveCurrentChannelId(this.props.channel.id, this.props.channel.channel_name);
+        // debugger
     }
 
     // add in state to track current selected channel
     defaultWrapperFocus(channelId) {
+        
         // let currChannelPath = this.props.location.pathname;
         let currChannelPath = this.props.match.params.channelId;
+        // let currChannelPath = this.props.currentChannelId;
+        debugger
         // const currChannelRegExp = new RegExp("/[0-9]+$");
         // currChannelPath = currChannelPath.match(currChannelRegExp);
         // debugger
@@ -37,6 +41,7 @@ class ChannelItem extends React.Component {
     defaultLabelFocus(channelId) {
         // debugger
         let currChannelPath = this.props.match.params.channelId;
+        debugger
         // let currentChannelPath;
         // currentChannelPath = this.props.match.params.channelId;
         // if (this.props.currentChannelId === undefined) {
@@ -56,7 +61,6 @@ class ChannelItem extends React.Component {
 
         if (currChannelPath === JSON.stringify(channelId)) {
             return "labelSelected";
-            return "";
         } else {
             // return "";
             return "";
@@ -93,15 +97,15 @@ class ChannelItem extends React.Component {
 
     render () {
         const channel = this.props.channel;
-        // debugger
+        debugger
         
         return (
             <div 
                 className="channelItemWrapper"
-                onClick={this.updateStoreChannelId(this.props.currentChannelId, this.props.currentChannelName)}
+                onClick={this.updateStoreChannelId(channel.id, channel.channel_name)}
             >
                 <div className="channelInnerWrapper">
-                    <div className={this.defaultWrapperFocus(this.props.currentChannelId)}>
+                    <div className={this.defaultWrapperFocus(channel.id)}>
                         <div className="channelHashSVGWrapper">
                             {/* hash svg */}
                             <svg className="channelHashSVG" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
@@ -110,7 +114,7 @@ class ChannelItem extends React.Component {
                         </div>
                         
                         {/* channel name */}
-                        <div className="channelName medFont" id={this.defaultLabelFocus(this.props.currentChannelId)}>{this.props.currentChannelName}</div>
+                        <div className="channelName medFont" id={this.defaultLabelFocus(channel.id)}>{channel.channel_name}</div>
                     </div>
                 </div>
             </div>
