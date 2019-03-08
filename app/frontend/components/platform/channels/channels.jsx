@@ -9,8 +9,7 @@ class Channels extends React.Component {
     }
 
     componentDidMount() {
-        debugger
-        this.props.fetchChannels(parseInt(this.props.match.params.serverId));
+        this.props.fetchChannels(this.props.currentServerId);
         // this.props.receiveCurrentChannel
     }
 
@@ -18,16 +17,7 @@ class Channels extends React.Component {
     // NEED ACCESS TO CURRENT SERVER, CURRENT USER, LOGOUT
 
     componentDidUpdate() {
-        debugger
-        // const currentServer = this.props.currentServer;
-        // const currentChannel = this.props.currentChannel;
-
-        // if  ((this.props.currentChannel && this.props.currentServer) && 
-        //     (this.props.currentChannelId !== this.props.match.params.channelId)) {
-        //     this.history.push(`/channels/${currentServer.id}/${currentChannel.id}`);
-        // }
-        
-        
+        // debugger
         if ((this.props.currentServerId !== undefined) && (Object.values(this.props.channels).length === 0)) {
             this.props.fetchChannels(this.props.currentServerId);
         } else if ((this.props.currentServerId !== undefined) && (Object.values(this.props.channels > 0))) {
@@ -61,7 +51,7 @@ class Channels extends React.Component {
     }
 
     channelItems(channels) {
-        debugger
+        // debugger
         return channels.map((channel) => (
             <ChannelItemContainer
                 key={channel.id}

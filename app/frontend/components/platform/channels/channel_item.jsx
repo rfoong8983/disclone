@@ -10,12 +10,13 @@ class ChannelItem extends React.Component {
     }
 
     componentDidMount() {
-        this.props.receiveCurrentChannelId(this.props.currentChannelId, this.props.currentChannelName);
+        debugger
+        this.props.receiveCurrentChannelId(this.props.channel.id, this.props.channel.channel_name);
         // debugger
     }
     
     componentDidUpdate() {
-        // debugger
+        debugger
     }
 
     // add in state to track current selected channel
@@ -91,21 +92,16 @@ class ChannelItem extends React.Component {
     }
 
     render () {
-        let channel = this.props.channel;
-        if (channel.id === undefined) {
-            channel = {channel_id: this.props.currentChannelId, channel_name: this.props.currentChannelName};
-        }
-        debugger
+        const channel = this.props.channel;
+        // debugger
         
         return (
             <div 
                 className="channelItemWrapper"
-                // onClick={this.updateStoreChannelId(this.props.channel.id, this.props.channel.channel_name)}
-                onClick={this.updateStoreChannelId(channel.id, channel.channel_name)}
+                onClick={this.updateStoreChannelId(this.props.currentChannelId, this.props.currentChannelName)}
             >
                 <div className="channelInnerWrapper">
-                    {/* <div className={this.defaultWrapperFocus(this.props.currentChannelId)}> */}
-                    <div className={this.defaultWrapperFocus(channel.id)}>
+                    <div className={this.defaultWrapperFocus(this.props.currentChannelId)}>
                         <div className="channelHashSVGWrapper">
                             {/* hash svg */}
                             <svg className="channelHashSVG" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
@@ -114,7 +110,7 @@ class ChannelItem extends React.Component {
                         </div>
                         
                         {/* channel name */}
-                        <div className="channelName medFont" id={this.defaultLabelFocus(channel.id)}>{channel.channel_name}</div>
+                        <div className="channelName medFont" id={this.defaultLabelFocus(this.props.currentChannelId)}>{this.props.currentChannelName}</div>
                     </div>
                 </div>
             </div>

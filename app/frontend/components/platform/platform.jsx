@@ -10,8 +10,7 @@ class Platform extends React.Component {
     }
 
     componentDidMount() {
-        // this.
-        debugger
+
     }
 
     render() {
