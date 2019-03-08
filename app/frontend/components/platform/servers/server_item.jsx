@@ -5,10 +5,21 @@ class ServerItem extends React.Component {
         super(props);
         this.state={isActive: false};
         this.defaultFocus = this.defaultFocus.bind(this);
+        this.updateStoreServerId = this.updateStoreServerId.bind(this);
     }
 
     componentDidMount() {
-        debugger
+        // debugger
+
+        
+        this.props.fetchChannels(this.props.match.params.serverId);
+        // const defaultChannelId = Object.values(this.props.channels)[0].id;
+        // const defaultChannelName = Object.values(this.props.channels)[0].channel_name;
+        // this.props.receiveCurrentChannelId(defaultChannelId, defaultChannelName);
+        // this.props.history.push(`/channels/${this.props.match.params.serverId}/${defaultChannelId}`);
+        
+        
+        // this.props.receiveCurrentChannelId()
     }
 
     defaultFocus(serverId, alias) {
@@ -21,21 +32,29 @@ class ServerItem extends React.Component {
         }
     }
     
-    updateStoreServerId(serverId) {
+    updateStoreServerId(serverId, serverName) {
+        // debugger
         const currentServerId = this.props.match.params.serverId;
         const currentServerName = this.props.defaultServer.server_name;
-        debugger
+        
+        // receive server
         return (e) => {
+            // debugger
             e.preventDefault();
             // this.state.isActive = true;
             // USE REGEX TO ONLY CAPTURE /channels/serverId
             if (currentServerId !== JSON.stringify(serverId)) {
+                // this.props.receiveCurrentServerId(serverId, currentServerName);
                 this.props.receiveCurrentServerId(serverId, currentServerName);
                 // this.props.receiveCurrentUser({currentUserInfo: {server: {id: serverId, server_name: currentServerName, owner_id: this.props.currentUser.id }}});
-                this.props.fetchChannels(serverId);
-                const defaultChannelId = this.props.defaultChannel.id;
-                
-                this.props.history.push(`/channels/${serverId}/${defaultChannelId}`);
+                // const defaultChannelId = this.props.defaultChannel.id;
+                // this.props.fetchChannels(serverId);
+                this.props.fetchChannels(serverId).then((channels) => {
+                    debugger
+                    const defaultChannelId = Object.values(channels.channels)[0].id;
+                    // debugger
+                    this.props.history.push(`/channels/${serverId}/${defaultChannelId}`);
+                });
             }
         };
     }
@@ -59,7 +78,7 @@ class ServerItem extends React.Component {
     
     render() {
         const server = this.props.server;
-        debugger
+        // debugger
         return (
             <div 
                 key={`${server.id}_item`}
@@ -75,7 +94,7 @@ class ServerItem extends React.Component {
                         id={server.server_name === `${this.props.currentUser.id}_@me_home` ? this.defaultFocus(server.id, '@me') : this.defaultFocus(server.id, server.server_name)} 
                         // onClick={server.server_name === `${this.props.currentUser.id}_@me_home` ? this.updateStoreHomeId(server.id) : this.updateStoreServerId(server.id, server.server_name)}
                         onClick={
-                            this.updateStoreServerId(server.id)
+                            this.updateStoreServerId(server.id, server.server_name)
                         }
                     >
                     {/* <a key={server.id} aria-label="testChan" href={`/#/channels/${server.id}`}></a> */}

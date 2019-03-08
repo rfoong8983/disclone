@@ -10,13 +10,13 @@ class ChannelItem extends React.Component {
     }
 
     componentDidMount() {
-        debugger
+        // debugger
         this.props.receiveCurrentChannelId(this.props.channel.id, this.props.channel.channel_name);
         // debugger
     }
     
     componentDidUpdate() {
-        debugger
+        // this.props.receiveCurrentChannelId(this.props.channel.id, this.props.channel.channel_name);
     }
 
     // add in state to track current selected channel
@@ -25,7 +25,7 @@ class ChannelItem extends React.Component {
         let currChannelPath = this.props.match.params.channelId;
         // const currChannelRegExp = new RegExp("/[0-9]+$");
         // currChannelPath = currChannelPath.match(currChannelRegExp);
-        debugger
+        // debugger
         
         if (currChannelPath === JSON.stringify(channelId)) {
             return "channelContentSelected";
@@ -35,10 +35,10 @@ class ChannelItem extends React.Component {
     }
 
     defaultLabelFocus(channelId) {
-        debugger
-        // let currChannelPath = this.props.match.params.channelId;
-        let currentChannelPath;
-        currentChannelPath = this.props.match.params.channelId;
+        // debugger
+        let currChannelPath = this.props.match.params.channelId;
+        // let currentChannelPath;
+        // currentChannelPath = this.props.match.params.channelId;
         // if (this.props.currentChannelId === undefined) {
         //     currentChannelPath = this.props.match.params.channelId;
         // } else {
@@ -54,7 +54,7 @@ class ChannelItem extends React.Component {
         //     return "channelContent";
         // }
 
-        if (currentChannelPath === JSON.stringify(channelId)) {
+        if (currChannelPath === JSON.stringify(channelId)) {
             return "labelSelected";
             return "";
         } else {
@@ -75,7 +75,7 @@ class ChannelItem extends React.Component {
         // }
         
         // const currChannelRegExp = new RegExp("/[0-9]+$");
-        debugger
+        // debugger
         return (e) => {
             e.preventDefault();
             // this.state.isActive = true;

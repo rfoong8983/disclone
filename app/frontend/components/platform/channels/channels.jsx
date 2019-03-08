@@ -17,7 +17,7 @@ class Channels extends React.Component {
     // NEED ACCESS TO CURRENT SERVER, CURRENT USER, LOGOUT
 
     componentDidUpdate() {
-        // debugger
+        debugger
         if ((this.props.currentServerId !== undefined) && (Object.values(this.props.channels).length === 0)) {
             this.props.fetchChannels(this.props.currentServerId);
         } else if ((this.props.currentServerId !== undefined) && (Object.values(this.props.channels > 0))) {
@@ -35,9 +35,9 @@ class Channels extends React.Component {
                     (this.props.location.pathname !== `/channels/${this.props.currentServerId}/${this.props.currentChannelId}`))
         {
             // debugger
-            if (this.props.location.pathname !== `/channels/${this.props.currentServerId}/${this.props.currentChannelId}`) {
-                this.props.history.push(`/channels/${this.props.currentServerId}/${this.props.currentChannelId}`);
-            }
+            // if (this.props.location.pathname !== `/channels/${this.props.currentServerId}/${this.props.currentChannelId}`) {
+            //     this.props.history.push(`/channels/${this.props.currentServerId}/${this.props.currentChannelId}`);
+            // }
         }
     }
 
@@ -62,7 +62,7 @@ class Channels extends React.Component {
 
     render () {
         const channels = this.props.channels;
-        debugger
+        // debugger
         return (
             // <div className="pf_channelsAndLogoutWrapper">
             <div className="ch_channelsWrapper">

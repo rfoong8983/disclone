@@ -7,10 +7,9 @@ export const RECEIVE_CHANNEL_ERRORS = "RECEIVE_CHANNEL_ERRORS";
 export const CLEAR_CHANNEL_ERRORS = "CLEAR_CHANNEL_ERRORS";
 
 export const fetchChannels = (serverId) => dispatch => {
-    ChannelApi.fetchChannels(serverId)
+    return ChannelApi.fetchChannels(serverId)
         .then((channels => {
-            
-            dispatch(receiveAllChannels(channels));
+            return dispatch(receiveAllChannels(channels));
         })
     );
 };

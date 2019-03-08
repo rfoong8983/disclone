@@ -1,17 +1,19 @@
 import { connect } from 'react-redux';
 import { withRouter } from "react-router";
-import { receiveCurrentServerId } from '../../../actions/ui_actions';
+import { receiveCurrentServerId,
+receiveCurrentChannelId } from '../../../actions/ui_actions';
 import { fetchChannels } from '../../../actions/channel_actions';
 import { receiveCurrentUser } from '../../../actions/session_actions';
 import ServerItem from './server_item';
 
-const msp = ({ entities, session: { user, channel, server } }) => {
+const msp = ({ entities, session: { user, channel, server } }, ui) => {
 
     return {
         currentUser: user,
         channels: entities.channels,
         defaultChannel: channel,
-        defaultServer: server
+        defaultServer: server,
+        currServer: ui.currServerInfo
         // currChannelInfo: currChannelInfo
     };
 };
@@ -19,6 +21,7 @@ const msp = ({ entities, session: { user, channel, server } }) => {
 const mdp = (dispatch) => (
     {
         receiveCurrentServerId: (serverId, alias) => dispatch(receiveCurrentServerId(serverId, alias)),
+        receiveCurrentChannelId: (channelId, alias) => dispatch(receiveCurrentChannelId(channelId, alias)),
         fetchChannels: (serverId) => dispatch(fetchChannels(serverId)),
         receiveCurrentUser: (user) => dispatch(receiveCurrentUser(user))
     }

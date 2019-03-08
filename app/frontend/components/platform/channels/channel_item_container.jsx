@@ -5,7 +5,7 @@ import { fetchChannels } from '../../../actions/channel_actions';
 import ChannelItem from './channel_item';
 
 const msp = ({ session, entities: { users }, ui}) => {
-    debugger
+    // debugger
     return {
         // currentUser: users[session.id]
         currentUser: session.user,
