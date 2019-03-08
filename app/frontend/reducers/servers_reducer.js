@@ -18,9 +18,11 @@ const serversReducer = (oldState={}, action) => {
         case RECEIVE_SERVER:
             // debugger
             // MIGHT BE BREAKING CREATE SERVER
-            newState[action.server.id] = action.server;
-            newState[action.server.server.id] = action.server.server;
+            newState[action.serverAndDefChan.server.id] = action.serverAndDefChan.server;
             return newState;
+            // newState[action.server.id] = action.server;
+            // newState[action.server.server.id] = action.server.server;
+            // return newState;
         // case RECEIVE_CURRENT_USER:
         //     // if (action.currentUserInfo.server) {
         //     //     newState[action.currentUserInfo.server.id] = action.currentUserInfo.server;

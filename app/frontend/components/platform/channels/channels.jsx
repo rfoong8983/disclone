@@ -10,7 +10,7 @@ class Channels extends React.Component {
 
     componentDidMount() {
         debugger
-        this.props.fetchChannels(this.props.currentServerId);
+        this.props.fetchChannels(parseInt(this.props.match.params.serverId));
         // this.props.receiveCurrentChannel
     }
 
@@ -19,6 +19,15 @@ class Channels extends React.Component {
 
     componentDidUpdate() {
         debugger
+        // const currentServer = this.props.currentServer;
+        // const currentChannel = this.props.currentChannel;
+
+        // if  ((this.props.currentChannel && this.props.currentServer) && 
+        //     (this.props.currentChannelId !== this.props.match.params.channelId)) {
+        //     this.history.push(`/channels/${currentServer.id}/${currentChannel.id}`);
+        // }
+        
+        
         if ((this.props.currentServerId !== undefined) && (Object.values(this.props.channels).length === 0)) {
             this.props.fetchChannels(this.props.currentServerId);
         } else if ((this.props.currentServerId !== undefined) && (Object.values(this.props.channels > 0))) {
@@ -63,7 +72,7 @@ class Channels extends React.Component {
 
     render () {
         const channels = this.props.channels;
-        // debugger
+        debugger
         return (
             // <div className="pf_channelsAndLogoutWrapper">
             <div className="ch_channelsWrapper">

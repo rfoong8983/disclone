@@ -22,8 +22,11 @@ const msp = ({ session, entities: { users, channels }, ui }) => {
         currentUser: session.user,
         // PASS CHANNELS FROM SERVER??
         channels: channels,
-        currentServerId: session.server.id,
-        currentServerName: session.server.server_name,
+        defaultServerId: session.server.id,
+        currentServer: ui.currServerInfo,
+        currentServerId: ui.currServerInfo.id,
+        currentServerName: ui.currServerInfo.server_name,
+        currentChannel: ui.currChannelInfo,
         currentChannelId: ui.currChannelInfo.id,
         currentChannelName: ui.currChannelInfo.channel_name
     };

@@ -15,7 +15,7 @@ import { closeModal } from '../../../actions/modal_actions';
 const msp = ({ session, entities, errors: { servers } }) => (
     {
         // currentUser: entities.users[session.id],
-        currentUser: entities.users[session.currentUserInfo.user.id],
+        currentUser: session.user,
         errors: servers,
         servers: entities.servers
     }

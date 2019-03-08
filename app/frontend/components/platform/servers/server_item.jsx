@@ -60,18 +60,19 @@ class ServerItem extends React.Component {
     
     render() {
         const server = this.props.server;
-        // debugger
+        debugger
         return (
             <div 
+                key={`${server.id}_item`}
                 className={`servCo_server`} 
                 id={server.server_name === `${this.props.currentUser.id}_@me_home` ? "homeServer" : ""}
             >
-                <div draggable="true">
+                <div key={`${server.id}_item`} draggable="true">
                     {/* replace with next div with comment */}
                     {/* <div className={`servCo_innerListIcon`}> */}
                         {/* server & channel ids are hashed */}
                         {/* <a aria-label = {`${server.server_name}`} href={`/channels/${server.id}/${server[server.id].channels.first}`}/></a> */}
-                    <a aria-label="testChan" href="" 
+                    <a key={`${server.id}_item`} aria-label="testChan" href="" 
                         id={server.server_name === `${this.props.currentUser.id}_@me_home` ? this.defaultFocus(server.id, '@me') : this.defaultFocus(server.id, server.server_name)} 
                         // onClick={server.server_name === `${this.props.currentUser.id}_@me_home` ? this.updateStoreHomeId(server.id) : this.updateStoreServerId(server.id, server.server_name)}
                         onClick={

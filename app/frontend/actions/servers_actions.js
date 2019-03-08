@@ -25,7 +25,7 @@ export const fetchServers = () => dispatch => {
 export const createServer = (server) => dispatch => {
     return ServerApi.createServer(server)
         .then(
-            (server) => dispatch(receiveServer(server)),
+            (serverAndDefChan) => dispatch(receiveServer(serverAndDefChan)),
             (err) => dispatch(receiveServerErrors(err.responseJSON))
         );
 };
@@ -51,10 +51,10 @@ const receiveAllServers = (servers) => {
 };
 
 // export const receiveServer = (server) => {
-export const receiveServer = (server) => {
+export const receiveServer = (serverAndDefChan) => {
     return {
         type: RECEIVE_SERVER,
-        server: server
+        serverAndDefChan: serverAndDefChan
     };
 };
 

@@ -37,14 +37,14 @@ class Servers extends React.Component {
     }
 
     serverItems(servers) {
-
+        debugger
         const nonHome = servers.filter((server) => server.server_name !== `${this.props.currentUser.id}_@me_home`);
         // use object.values outside ?
         return nonHome.map((server) => (
             // returning nothing if server_name is _home
             
             <ServerItem
-                key={server.id}
+                key={`${server.id}_${this.props.currentUser.id}`}
                 server={server}
                 receiveCurrentServerId={receiveCurrentServerId}
             />
@@ -52,6 +52,7 @@ class Servers extends React.Component {
     }
 
     homeServer(servers) {
+        // debugger
         if (this.props.currentUser === undefined) {
             // this.props.history.push("/");
             return "";
@@ -80,12 +81,6 @@ class Servers extends React.Component {
         return (
             <div className="servCo_outerWrapper">
                 <div className="servCo_innerWrapper">
-
-                    {/* <ServerItem
-                        key={server.id}
-                        server={server}
-                        receiveCurrentServerId={receiveCurrentServerId}
-                    /> */}
                     <div className="serveCo_homeServerIconOuter">
                         {/* ::before in className above, on focus */}
                         {this.homeServer(Object.values(this.props.servers))}

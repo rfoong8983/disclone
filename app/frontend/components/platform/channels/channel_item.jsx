@@ -10,7 +10,7 @@ class ChannelItem extends React.Component {
     }
 
     componentDidMount() {
-        this.props.receiveCurrentChannelId(this.currentChannelId, this.props.currentChannelName);
+        this.props.receiveCurrentChannelId(this.props.currentChannelId, this.props.currentChannelName);
         // debugger
     }
     

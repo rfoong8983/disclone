@@ -18,9 +18,13 @@ export const fetchChannels = (serverId) => dispatch => {
 export const createChannel = (channel) => dispatch => {
     ChannelApi.createChannel(channel)
         .then(
-            (channel) => dispatch(receiveOneChannel(channel)),
+            (channel) => {
+                // debugger
+                dispatch(receiveOneChannel(channel))
+                    .then(() => dispatch(fetchChannels(channel.server_id)))
+            },
             (err) => {
-                console.log(err);
+                // console.log(err);
                 dispatch(receiveChannelErrors(err.responseJSON));
             }
         );
