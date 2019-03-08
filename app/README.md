@@ -11,6 +11,10 @@ Disclone, a Discord clone, is a real-time messaging service that allows users to
 * A default server and channel are created on user sign-up.
 * Object animation on home-page and 404.
 
+### Animations
+
 ![Home Animation](https://media.giphy.com/media/csRkbW4mbZ1Lr2d3Kf/giphy.gif)
+
+![404 Animation](https://media.giphy.com/media/2ALbghihz1xVME3bR2/giphy.gif)
 
 
