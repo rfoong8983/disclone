@@ -315,15 +315,15 @@ class ServerModal extends React.Component {
                 <div className="mod_serverWrapper1">
                     <div className="mod_serverWrapper2">
 
-                        {this.state.loc === 'main' ? <header 
-                            className="mod_serverHeader boldFont" style={joinColor}
-                        >
-                            {this.headerText()}
-                        </header> : ""}
+                        { this.state.loc === 'main' ? 
+                            <header className="mod_serverHeader boldFont" style={joinColor}>
+                                {this.headerText()}
+                            </header> : 
+                        "" }
 
-                        {this.manageDisplay()}
+                        { this.manageDisplay() }
                     </div>
-                    {this.state.loc !== 'main' ? this.formSubmit() : ""}
+                    { this.state.loc !== 'main' ? this.formSubmit() : "" }
 
                     
                 </div>
