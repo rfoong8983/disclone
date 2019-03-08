@@ -5,13 +5,14 @@ import { fetchChannels } from '../../../actions/channel_actions';
 import { receiveCurrentUser } from '../../../actions/session_actions';
 import ServerItem from './server_item';
 
-const msp = ({ entities, session: { user, channel, server } }) => {
+const msp = ({ entities, session: { user, channel, server }, ui }) => {
 
     return {
         currentUser: user,
+        servers: entities.servers,
         channels: entities.channels,
         defaultChannel: channel,
-        defaultServer: server
+        defaultServer: ui.currServerInfo
         // currChannelInfo: currChannelInfo
     };
 };

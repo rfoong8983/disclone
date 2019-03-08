@@ -8,7 +8,7 @@ class ServerItem extends React.Component {
     }
 
     componentDidMount() {
-        debugger
+        // debugger
     }
 
     defaultFocus(serverId, alias) {
@@ -21,16 +21,17 @@ class ServerItem extends React.Component {
         }
     }
     
-    updateStoreServerId(serverId) {
+    updateStoreServerId(serverId, serverName) {
         const currentServerId = this.props.match.params.serverId;
-        const currentServerName = this.props.defaultServer.server_name;
-        debugger
+        // const currentServerName = this.props.defaultServer.server_name;
+        const currentServerName = serverName;
+        // debugger
         return (e) => {
             e.preventDefault();
             // this.state.isActive = true;
             // USE REGEX TO ONLY CAPTURE /channels/serverId
             if (currentServerId !== JSON.stringify(serverId)) {
-                this.props.receiveCurrentServerId(serverId, currentServerName);
+                this.props.receiveCurrentServerId(serverId, this.props.servers[serverId].server_name);
                 // this.props.receiveCurrentUser({currentUserInfo: {server: {id: serverId, server_name: currentServerName, owner_id: this.props.currentUser.id }}});
                 this.props.fetchChannels(serverId);
                 const defaultChannelId = this.props.defaultChannel.id;
@@ -59,7 +60,7 @@ class ServerItem extends React.Component {
     
     render() {
         const server = this.props.server;
-        debugger
+        // debugger
         return (
             <div 
                 className={`servCo_server`} 
@@ -74,7 +75,7 @@ class ServerItem extends React.Component {
                         id={server.server_name === `${this.props.currentUser.id}_@me_home` ? this.defaultFocus(server.id, '@me') : this.defaultFocus(server.id, server.server_name)} 
                         // onClick={server.server_name === `${this.props.currentUser.id}_@me_home` ? this.updateStoreHomeId(server.id) : this.updateStoreServerId(server.id, server.server_name)}
                         onClick={
-                            this.updateStoreServerId(server.id)
+                            this.updateStoreServerId(server.id, this.props.defaultServer.server_name)
                         }
                     >
                     {/* <a key={server.id} aria-label="testChan" href={`/#/channels/${server.id}`}></a> */}
