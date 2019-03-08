@@ -25,7 +25,7 @@ class ChannelItem extends React.Component {
         let currChannelPath = this.props.match.params.channelId;
         // const currChannelRegExp = new RegExp("/[0-9]+$");
         // currChannelPath = currChannelPath.match(currChannelRegExp);
-        // debugger
+        debugger
         
         if (currChannelPath === JSON.stringify(channelId)) {
             return "channelContentSelected";
@@ -35,7 +35,7 @@ class ChannelItem extends React.Component {
     }
 
     defaultLabelFocus(channelId) {
-        // debugger
+        debugger
         // let currChannelPath = this.props.match.params.channelId;
         let currentChannelPath;
         currentChannelPath = this.props.match.params.channelId;
@@ -75,7 +75,7 @@ class ChannelItem extends React.Component {
         // }
         
         // const currChannelRegExp = new RegExp("/[0-9]+$");
-        // debugger
+        debugger
         return (e) => {
             e.preventDefault();
             // this.state.isActive = true;
