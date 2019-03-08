@@ -10,7 +10,7 @@ class ChannelItem extends React.Component {
     }
 
     componentDidMount() {
-        this.props.receiveCurrentChannelId(this.props.currentChannelId, this.props.currentChannelName);
+        this.props.receiveCurrentChannelId(this.currentChannelId, this.props.currentChannelName);
         debugger
     }
     
@@ -35,7 +35,15 @@ class ChannelItem extends React.Component {
 
     defaultLabelFocus(channelId) {
         debugger
-        let currChannelPath = this.props.match.params.channelId;
+        // let currChannelPath = this.props.match.params.channelId;
+        let currentChannelPath;
+        currentChannelPath = this.props.match.params.channelId;
+        // if (this.props.currentChannelId === undefined) {
+        //     currentChannelPath = this.props.match.params.channelId;
+        // } else {
+        //     currentChannelPath = JSON.stringify(this.props.currentChannelId);
+        // }
+
         // const currChannelRegExp = new RegExp("/[0-9]+$");
         // currChannelPath = currChannelPath.match(currChannelRegExp);
 
@@ -45,8 +53,9 @@ class ChannelItem extends React.Component {
         //     return "channelContent";
         // }
 
-        if (currChannelPath === JSON.stringify(channelId)) {
+        if (currentChannelPath === JSON.stringify(channelId)) {
             return "labelSelected";
+            return "";
         } else {
             // return "";
             return "";
@@ -54,7 +63,16 @@ class ChannelItem extends React.Component {
     }
 
     updateStoreChannelId(channelId, channelName) {
-        const currentChannelPath = this.props.match.params.channelId;
+        // const currentChannelPath = this.props.match.params.channelId;
+        let currentChannelPath;
+        currentChannelPath = this.props.match.params.channelId;
+        // let currentChannelPath;
+        // if (this.props.currentChannelId === undefined) {
+        //     currentChannelPath = this.props.currentChannelId;
+        // }   else {
+        //     currentChannelPath = this.props.match.params.channelId;
+        // }
+        
         // const currChannelRegExp = new RegExp("/[0-9]+$");
         debugger
         return (e) => {
@@ -66,7 +84,8 @@ class ChannelItem extends React.Component {
                 this.props.receiveCurrentChannelId(channelId, channelName);
 
                 // this.props.fetchMessages(channelId) ADD MESSAGES ON CHANNEL SWITCH
-                this.props.history.push(`/channels/${this.props.channel.server_id}/${channelId}`);
+                // this.props.receiveCurrentChannelId(channelId, channelName);
+                this.props.history.push(`/channels/${this.props.currentServer.id}/${channelId}`);
             }
         };
     }
@@ -78,10 +97,10 @@ class ChannelItem extends React.Component {
         return (
             <div 
                 className="channelItemWrapper"
-                onClick={this.updateStoreChannelId(channel.id, channel.channel_name)}
+                onClick={this.updateStoreChannelId(this.props.currentChannelId, this.props.currentChannelName)}
             >
                 <div className="channelInnerWrapper">
-                    <div className={this.defaultWrapperFocus(this.props.channel.id)}>
+                    <div className={this.defaultWrapperFocus(this.props.currentChannelId)}>
                         <div className="channelHashSVGWrapper">
                             {/* hash svg */}
                             <svg className="channelHashSVG" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
@@ -90,7 +109,7 @@ class ChannelItem extends React.Component {
                         </div>
                         
                         {/* channel name */}
-                        <div className="channelName medFont" id={this.defaultLabelFocus(this.props.channel.id)}>{this.props.channel.channel_name}</div>
+                        <div className="channelName medFont" id={this.defaultLabelFocus(this.props.currentChannelId)}>{this.props.currentChannelName}</div>
                     </div>
                 </div>
             </div>

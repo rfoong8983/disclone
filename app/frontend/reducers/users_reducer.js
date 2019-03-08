@@ -1,11 +1,6 @@
 import { RECEIVE_CURRENT_USER } from '../actions/session_actions.js';
 import { CLEAR_STATE } from '../actions/session_actions';
 
-// export const usersReducer = (oldState = {
-//                     currentUserInfo: {
-//                         user: { id: undefined, email: undefined, username: undefined },
-//                         home: { id: undefined, server_name: undefined, owner_id: undefined }
-//                     }}, action) => {
 export const usersReducer = (oldState = {}, action) => {
     // debugger
     Object.freeze(oldState);

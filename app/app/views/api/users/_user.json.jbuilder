@@ -28,16 +28,22 @@ end
 # debugger
 
 json.channel do
-    if @channel.nil?
-        json.id nil
-        json.channel_name nil
-        json.server_id nil
-    else
-        json.id channel.id
-        json.channel_name channel.channel_name
-        json.server_id channel.server_id
-    end
+    json.id channel.id
+    json.channel_name channel.channel_name
+    json.server_id channel.server_id
 end
+
+# json.channel do
+#     if @channel.nil?
+#         json.id nil
+#         json.channel_name nil
+#         json.server_id nil
+#     else
+#         json.id channel.id
+#         json.channel_name channel.channel_name
+#         json.server_id channel.server_id
+#     end
+# end
 
 # ==> {user: {}, home: {}} comes back in action
 # json.extract! user, :id, :email, :username

@@ -8,6 +8,11 @@ class Channels extends React.Component {
         this.displayCurrentServerName = this.displayCurrentServerName.bind(this);
     }
 
+    componentDidMount() {
+        this.props.fetchChannels(this.props.currentServerId);
+        // this.props.receiveCurrentChannel
+    }
+
     // import delete channel for onClick of X
     // NEED ACCESS TO CURRENT SERVER, CURRENT USER, LOGOUT
 

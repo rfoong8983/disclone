@@ -1,6 +1,6 @@
 <% if logged_in? %>
     <script id="giveCurrentUser" type="text/javascript">
-        window.currentUser = <%= render("api/users/user.json.jbuilder", user: current_user, home: current_user_home).html_safe %>
+        window.currentUser = <%= render("api/users/user.json.jbuilder", user: current_user, server: current_user_server, channel: current_user_channel).html_safe %>
     </script>
 <% end %>
 

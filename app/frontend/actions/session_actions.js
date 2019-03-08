@@ -101,7 +101,7 @@ const logoutCurrentUser = () => (
         type: LOGOUT_CURRENT_USER,
         currentUserInfo: {
             user: {},
-            home: {},
+            server: {},
             channel: {}
         }
     }
