@@ -26,7 +26,7 @@ class ChannelItem extends React.Component {
         // let currChannelPath = this.props.location.pathname;
         let currChannelPath = this.props.match.params.channelId;
         // let currChannelPath = this.props.currentChannelId;
-        debugger
+        // debugger
         // const currChannelRegExp = new RegExp("/[0-9]+$");
         // currChannelPath = currChannelPath.match(currChannelRegExp);
         // debugger
@@ -41,7 +41,7 @@ class ChannelItem extends React.Component {
     defaultLabelFocus(channelId) {
         // debugger
         let currChannelPath = this.props.match.params.channelId;
-        debugger
+        // debugger
         // let currentChannelPath;
         // currentChannelPath = this.props.match.params.channelId;
         // if (this.props.currentChannelId === undefined) {
@@ -96,8 +96,14 @@ class ChannelItem extends React.Component {
     }
 
     render () {
-        const channel = this.props.channel;
-        debugger
+        let channel;
+        if (this.props.channel.id === undefined) {
+            channel = this.props.defChannel;
+        } else {
+            channel = this.props.channel;
+        }
+        
+        // debugger
         
         return (
             <div 

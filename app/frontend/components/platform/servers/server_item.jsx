@@ -56,6 +56,8 @@ class ServerItem extends React.Component {
                     this.props.receiveCurrentChannelId(defaultChannelId, defaultChannelName);
                     this.props.history.push(`/channels/${serverId}/${defaultChannelId}`);
                 });
+
+                debugger
             }
         };
     }
