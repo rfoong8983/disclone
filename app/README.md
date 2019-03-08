@@ -2,25 +2,15 @@
 
 [Live Demo](https://disclone-rf.herokuapp.com/#/)
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Disclone, a Discord clone, is a real-time messaging service that allows users to create free servers and form communities around specific topics of interest.
 
-Things you may want to cover:
+## Current Features & Highlights
 
-* Ruby version
+* Secure front-end to back-end user-authentication using BCrypt.
+* Users can Create and join servers.
+* A default server and channel are created on user sign-up.
+* Object animation on home-page and 404.
 
-* System dependencies
+![Home Animation](http://www.giphy.com/gifs/csRkbW4mbZ1Lr2d3Kf)
 
-* Configuration
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
