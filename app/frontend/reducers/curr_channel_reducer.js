@@ -10,7 +10,7 @@ const currentChannelReducer = (oldState={ channel: {
                             }, action) => {
 
     Object.freeze(oldState);
-    // debugger
+
     switch(action.type) {
         case RECEIVE_CURRENT_CHANNEL_ID:
             return action.channel;

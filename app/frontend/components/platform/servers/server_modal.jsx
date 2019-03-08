@@ -38,7 +38,7 @@ class ServerModal extends React.Component {
 
     manageDisplay() {
         const currDisplay = this.state.loc;
-        // debugger
+        
         switch(currDisplay) {
             case 'create':
                 return this.createForm();
@@ -59,7 +59,7 @@ class ServerModal extends React.Component {
     handleCreateSubmit(e) {
         e.preventDefault();
         const newServer = Object.assign({}, {server_name: this.state.createServer, owner_id: this.props.currentUser.id});
-        // debugger
+        
         this.props.createServer(newServer);
     }
 
@@ -82,7 +82,7 @@ class ServerModal extends React.Component {
 
     formSubmit() {
         const currDisplay = this.state.loc;
-        // debugger
+        
         return (
             <div className="mod_formLowerWrapper">
                 {currDisplay === 'create' ?
@@ -298,7 +298,7 @@ class ServerModal extends React.Component {
     }
 
     render () {
-        // debugger
+        
         let joinColor;
         if (this.state.loc === 'join') {
             joinColor = {

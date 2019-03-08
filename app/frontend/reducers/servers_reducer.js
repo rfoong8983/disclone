@@ -16,7 +16,7 @@ const serversReducer = (oldState={}, action) => {
         case RECEIVE_ALL_SERVERS:
             return Object.assign({}, newState, action.servers);
         case RECEIVE_SERVER:
-            // debugger
+
             // MIGHT BE BREAKING CREATE SERVER
             newState[action.serverAndDefChan.server.id] = action.serverAndDefChan.server;
             return newState;

@@ -18,7 +18,6 @@ export const createChannel = (channel) => dispatch => {
     ChannelApi.createChannel(channel)
         .then(
             (channel) => {
-                // debugger
                 dispatch(receiveOneChannel(channel))
                     .then(() => dispatch(fetchChannels(channel.server_id)))
             },

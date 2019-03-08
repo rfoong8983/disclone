@@ -7,7 +7,7 @@ class Servers extends React.Component {
     constructor(props) {
         super(props);
         this.defaultFocus = this.defaultFocus.bind(this);
-        // debugger
+        
     }
 
     componentDidMount() {
@@ -15,29 +15,29 @@ class Servers extends React.Component {
         const wildcardPath = this.props.match.params.serverId;
         // let currentPath = this.props.location.pathname;
         // const currentServerRegExp = new RegExp('/[0-9]+/?|/@me');
-        // // debugger
+        // 
         // // => find '/32/' or '/@me', removes "/", and => id
         // currentPath = currentPath.match(currentServerRegExp)[0].replace("/","").slice(0,3);
-        // debugger
+        
         this.props.fetchServers()
             .then((servers) => {
-                // debugger
+                
                 let serversArray = Object.values(servers.servers);
                 serversArray = serversArray.filter((server) => server.id === parseInt(wildcardPath));
                     // receiveCurrentServerId(serversArray[0].id, serversArray[0].name);
                 });
 
-        // debugger
+        
         // THIS MOUNTS FIRST
     }
 
     componentDidUpdate() {
         // this.props.closeModal();
-        // debugger
+        
     }
 
     serverItems(servers) {
-        // debugger
+        
         const nonHome = servers.filter((server) => server.server_name !== `${this.props.currentUser.id}_@me_home`);
         // use object.values outside ?
         return nonHome.map((server) => (
@@ -52,13 +52,13 @@ class Servers extends React.Component {
     }
 
     homeServer(servers) {
-        // debugger
+        
         if (this.props.currentUser === undefined) {
             // this.props.history.push("/");
             return "";
         }
 
-        // debugger
+        
         const home = servers.filter((server) => server.server_name === `${this.props.currentUser.id}_@me_home`);
         return home.map((server) => (
             <ServerItem
@@ -76,7 +76,7 @@ class Servers extends React.Component {
     }
 
     render() {
-        // debugger
+        
         // handle rendering by servId/chanId in component vs in app.jsx routes
         return (
             <div className="servCo_outerWrapper">

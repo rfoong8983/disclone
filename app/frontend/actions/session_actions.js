@@ -13,7 +13,6 @@ export const CLEAR_STATE = "CLEAR_STATE";
 export const signup = (user) => dispatch => (
     SeshApi.signup(user)
         .then((userInfo) => {
-            // debugger
             return dispatch(receiveCurrentUser(userInfo));
         },
             (err) => {
@@ -29,22 +28,6 @@ export const login = (user) => dispatch => {
             },
             (err) => dispatch(receiveSessionErrors(err.responseJSON))
         );
-
-        // default server/channel info
-        // handled in reducers on dispatch of
-        // receiveCurrentUser
-        // removed below afer above was implemented
-
-
-        // .then(
-        //     (defaultInfo) => {
-        //         // this may be unnecessary
-        //         debugger;
-        //         const defServerId = defaultInfo.currentUserInfo.home.id;
-        //         const defChannelId = defaultInfo.currentUserInfo.channel.id;
-        //         this.props.history.push(`/channels/${defServerId}/${defChannelId}`);
-        //     }
-        // );
 };
 
 export const logout = () => dispatch => (
@@ -53,25 +36,15 @@ export const logout = () => dispatch => (
         .then(() => dispatch(clearState()))
 );
 
-// action creators
-// export const receiveCurrentUser = (currentUser) => (
-//     {
-//         type: RECEIVE_CURRENT_USER,
-//         currentUser: currentUser // ADD IN SERVER & CHANNEL HERE
-//     }
-// );
 export const receiveCurrentUser = (currentUserInfo) => {
 // export const receiveCurrentUser = ({ user, home, channel}) => {
 // can reference as action.user or action.home    
 // need to test probably currentUserInfo: user, home, channel
 // ... that's the same thing as what's already there
-    // debugger
+
     return {
         type: RECEIVE_CURRENT_USER,
-        currentUserInfo: currentUserInfo // ADD IN SERVER & CHANNEL HERE
-        // user,
-        // home,
-        // channel
+        currentUserInfo: currentUserInfo
     };
 };
 

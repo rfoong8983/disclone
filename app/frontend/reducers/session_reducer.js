@@ -6,14 +6,14 @@ export const sessionReducer = (oldState={
                             server: {id: undefined, server_name: undefined, owner_id: undefined},
                             channel: {id: undefined, channel_name: undefined, server_id: undefined}
                         }, action) => {
-    // debugger
+
     Object.freeze(oldState);
     const newState = Object.assign({}, oldState);
     
     switch(action.type) {
         case RECEIVE_CURRENT_USER:
             // newState.id = action.currentUser.id;
-            // debugger
+
             return action.currentUserInfo;
         case RECEIVE_CURRENT_SERVER_ID:
             newState['server'] = action.server;

@@ -10,14 +10,11 @@ class ChannelItem extends React.Component {
     }
 
     componentDidMount() {
-        // debugger
-        // this.props.receiveCurrentChannelId(this.props.channel.id, this.props.channel.channel_name);
-        // debugger
+        
     }
     
     componentDidUpdate() {
-        // this.props.receiveCurrentChannelId(this.props.channel.id, this.props.channel.channel_name);
-        // debugger
+        
     }
 
     // add in state to track current selected channel
@@ -26,10 +23,10 @@ class ChannelItem extends React.Component {
         // let currChannelPath = this.props.location.pathname;
         let currChannelPath = this.props.match.params.channelId;
         // let currChannelPath = this.props.currentChannelId;
-        // debugger
+        
         // const currChannelRegExp = new RegExp("/[0-9]+$");
         // currChannelPath = currChannelPath.match(currChannelRegExp);
-        // debugger
+        
         
         if (currChannelPath === JSON.stringify(channelId)) {
             return "channelContentSelected";
@@ -39,9 +36,9 @@ class ChannelItem extends React.Component {
     }
 
     defaultLabelFocus(channelId) {
-        // debugger
+        
         let currChannelPath = this.props.match.params.channelId;
-        // debugger
+        
         // let currentChannelPath;
         // currentChannelPath = this.props.match.params.channelId;
         // if (this.props.currentChannelId === undefined) {
@@ -79,11 +76,11 @@ class ChannelItem extends React.Component {
         // }
         
         // const currChannelRegExp = new RegExp("/[0-9]+$");
-        // debugger
+        
         return (e) => {
             e.preventDefault();
             // this.state.isActive = true;
-            // debugger
+            
             // if (currentChannelPath.match(currChannelRegExp)[0].replace("/","") !== JSON.stringify(channelId)) {
             if (currentChannelPath !== JSON.stringify(channelId)) {
                 this.props.receiveCurrentChannelId(channelId, channelName);
@@ -103,7 +100,7 @@ class ChannelItem extends React.Component {
             channel = this.props.channel;
         }
         
-        // debugger
+        
         
         return (
             <div 

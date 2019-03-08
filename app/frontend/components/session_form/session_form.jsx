@@ -119,7 +119,7 @@ class SessionForm extends React.Component {
     }
 
     emailErrors() {
-        // debugger
+        
         if (this.props.formType === 'signup') {
             return (
                 <ul id="errors">
@@ -136,7 +136,7 @@ class SessionForm extends React.Component {
     }
 
     usernameErrors() {
-        // debugger
+        
         return (
             <ul id="errors">
                 &nbsp;{this.props.errors['username']}
@@ -145,7 +145,7 @@ class SessionForm extends React.Component {
     }
 
     passwordErrors() {
-        // debugger
+        
         if (this.props.formType === 'signup') {
             return (
                 <ul id="errors">
@@ -207,7 +207,7 @@ class SessionForm extends React.Component {
         e.preventDefault();
         const user = Object.assign({}, this.state);
         this.props.processForm(user)
-        // debugger
+        
     }
 
     handleDemoFromLogin(e) {
@@ -240,7 +240,7 @@ class SessionForm extends React.Component {
     }
 
     render() {
-        // debugger
+        
         const backgroundStyles = {
             width: "1920px",
             height: "1080px"

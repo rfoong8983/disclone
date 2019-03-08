@@ -11,21 +11,13 @@ end
 # IN MY REDUCERS, HAVE THE REDUCER ONLY ACCEPT ONE
 # OF THE ACTION.OBJS (e.g., action.channel)
 #
-# json.user do
-#     json.set! user.id do 
-#         json.id user.id
-#         json.email user.email
-#         json.username user.username
-#     end
-# end
-# debugger
+
 
 json.server do
     json.id server.id
     json.server_name server.server_name
     json.owner_id server.owner_id
 end
-# debugger
 
 json.channel do
     json.id channel.id

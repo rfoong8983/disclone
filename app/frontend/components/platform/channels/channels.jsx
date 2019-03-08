@@ -10,7 +10,7 @@ class Channels extends React.Component {
 
     componentDidMount() {
         // this.props.fetchChannels(this.props.match.params.serverId);
-        // debugger
+        
     }
 
     // import delete channel for onClick of X
@@ -20,12 +20,12 @@ class Channels extends React.Component {
         // if (this.props.currentServer && this.props.currentServerId !== parseInt(this.props.match.params.serverId)) {
         //     this.props.fetchChannels(this.props.currentServerId);
         // }
-        // debugger
+        
         // if ((this.props.currentServerId !== undefined) && (Object.values(this.props.channels).length === 0)) {
         //     this.props.fetchChannels(this.props.currentServerId);
         // } else if ((this.props.currentServerId !== undefined) && (Object.values(this.props.channels > 0))) {
         //     const defaultChannel = Object.values(this.props.channels)[0];
-        //     // debugger
+        //     
         //     if (!this.props.currentChannelId) {
         //         this.props.receiveCurrentChannelId(defaultChannel.id, defaultChannel.channel_name);
         //     }
@@ -37,7 +37,7 @@ class Channels extends React.Component {
         //             (this.props.currentChannelId !== undefined) && 
         //             (this.props.location.pathname !== `/channels/${this.props.currentServerId}/${this.props.currentChannelId}`))
         // {
-            // debugger
+            
             // if (this.props.location.pathname !== `/channels/${this.props.currentServerId}/${this.props.currentChannelId}`) {
             //     this.props.history.push(`/channels/${this.props.currentServerId}/${this.props.currentChannelId}`);
             // }
@@ -54,7 +54,7 @@ class Channels extends React.Component {
     }
 
     channelItems(channels) {
-        // debugger
+        
         return channels.map((channel) => (
             <ChannelItemContainer
                 key={channel.id}
@@ -65,7 +65,7 @@ class Channels extends React.Component {
 
     render () {
         const channels = this.props.channels;
-        // debugger
+        
         return (
             // <div className="pf_channelsAndLogoutWrapper">
             <div className="ch_channelsWrapper">

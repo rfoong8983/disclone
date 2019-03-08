@@ -7,13 +7,11 @@ import Platform from './platform';
 
 const msp = ({ session, entities: { users, servers, channels } }) => {
     let userId;
-    // debugger
     if (session.currentUserInfo) {
         userId = session.currentUserInfo.user.id;
     } else {
         userId = null;
     }
-    // debugger
 
     return {
         // currentUser: users[session.id],

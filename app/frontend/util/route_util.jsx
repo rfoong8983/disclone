@@ -15,29 +15,13 @@ const Protected = ({ component: Component, path, loggedIn, exact }) => (
 );
 
 const msp = (state, ownProps) => {
-    // debugger
+    
     const session = state.session;
-    // debugger
+    
     const uId = session.user.id;
     const sId = session.server.id;
     const cId = session.channel.id;
     
-    // const session = state.session;
-    
-    // const uId = session.user.id;
-    // const sId = session.server.id;
-    // const cId = session.channel.id;
-    
-
-    // sub below back in in case there is ever more than one
-    // user, or more likely mult servers/channels in entities state
-    // there should only ever be one of each when Authroute 
-    
-    // const userId = state.session.currentUserInfo.user.id;
-    // const hId = state.session.currentUserInfo.home.id;
-    // debugger
-    // const cId = state.session.currentUserInfo.channel.id;
-
     return {
         loggedIn: Boolean(uId),
         homeServerId: sId,

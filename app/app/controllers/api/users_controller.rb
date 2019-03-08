@@ -15,8 +15,6 @@ class Api::UsersController < ApplicationController
 
             render '/api/users/show'
         else
-            # debugger
-            # render json: @user.errors.full_messages, status: 418
             render json: @user.errors.messages, status: 418
         end
     end

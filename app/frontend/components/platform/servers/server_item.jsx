@@ -9,7 +9,7 @@ class ServerItem extends React.Component {
     }
 
     componentDidMount() {
-        // debugger
+        
 
         
         this.props.fetchChannels(this.props.match.params.serverId);
@@ -33,16 +33,13 @@ class ServerItem extends React.Component {
     }
     
     updateStoreServerId(serverId, serverName) {
-        // debugger
+        
         const currentServerId = this.props.match.params.serverId;
         const currentServerName = this.props.defaultServer.server_name;
         
         // receive server
         return (e) => {
-            // debugger
             e.preventDefault();
-            // this.state.isActive = true;
-            // USE REGEX TO ONLY CAPTURE /channels/serverId
             if (currentServerId !== JSON.stringify(serverId)) {
                 // this.props.receiveCurrentServerId(serverId, currentServerName);
                 this.props.receiveCurrentServerId(serverId, currentServerName);
@@ -50,20 +47,19 @@ class ServerItem extends React.Component {
                 // const defaultChannelId = this.props.defaultChannel.id;
                 // this.props.fetchChannels(serverId);
                 this.props.fetchChannels(serverId).then((channels) => {
-                    // debugger
+                    
                     const defaultChannelId = Object.values(channels.channels)[0].id;
                     const defaultChannelName = Object.values(channels.channels)[0].channel_name;
                     this.props.receiveCurrentChannelId(defaultChannelId, defaultChannelName);
                     this.props.history.push(`/channels/${serverId}/${defaultChannelId}`);
                 });
 
-                debugger
             }
         };
     }
 
     renderIcon(serverName) {
-        // debugger
+        
         if (serverName === `${this.props.currentUser.id}_@me_home`) {
             return (
                 <i className="servCo_homeServerLogoIcon fas fa-compact-disc fa-2x"></i>
@@ -81,7 +77,7 @@ class ServerItem extends React.Component {
     
     render() {
         const server = this.props.server;
-        // debugger
+        
         return (
             <div 
                 key={`${server.id}_item`}

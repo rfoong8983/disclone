@@ -6,7 +6,6 @@ class Platform extends React.Component {
     constructor(props) {
         super(props);
         this.state = {homeId: null};
-        // debugger
     }
 
     componentDidMount() {
@@ -14,7 +13,6 @@ class Platform extends React.Component {
     }
 
     render() {
-        // debugger
         return (
             <div className="pf_platformWrapper">
                 <div className="pf_serversWrapper">

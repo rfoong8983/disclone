@@ -2,16 +2,16 @@ import { RECEIVE_CURRENT_USER } from '../actions/session_actions.js';
 import { CLEAR_STATE } from '../actions/session_actions';
 
 export const usersReducer = (oldState = {}, action) => {
-    // debugger
+    
     Object.freeze(oldState);
     let newState = Object.assign({}, oldState);
-    // debugger
-    // debugger
+    
+    
     switch(action.type) {
         // can add receive all users later for search
         // case RECEIVE_CURRENT_USER:
         //     // newState[action.currentUser.id] = action.currentUser;
-        //     // debugger
+        //     
         //     // newState[action.currentUserInfo.id] = action.currentUserInfo;
         //     // return {currentUserInfo: action.currentUserInfo};
         //     newState[action.currentUserInfo.user.id] = action.currentUserInfo.user;
