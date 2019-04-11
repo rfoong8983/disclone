@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { login, clearSessionErrors } from '../../actions/session_actions';
 import { Link } from 'react-router-dom';
 import SessionForm from './session_form';
+import { closeModal } from '../../actions/modal_actions';
 
 const msp = (state, ownProps) => (
     {
@@ -15,7 +16,8 @@ const msp = (state, ownProps) => (
 const mdp = (dispatch, ownProps) => (
     {
         processForm: (user) => dispatch(login(user)),
-        clearSessionErrors: () => dispatch(clearSessionErrors())
+        clearSessionErrors: () => dispatch(clearSessionErrors()),
+        closeModal: () => dispatch(closeModal())
     }
 );
 
