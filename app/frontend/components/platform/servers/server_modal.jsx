@@ -61,6 +61,7 @@ class ServerModal extends React.Component {
         const newServer = Object.assign({}, {server_name: this.state.createServer, owner_id: this.props.currentUser.id});
         
         this.props.createServer(newServer);
+        this.props.closeModal();
     }
 
     handleJoinSubmit(e) {
@@ -73,6 +74,7 @@ class ServerModal extends React.Component {
         } else {
             this.props.history.push(`/channels/${found[0].id}`);
         }
+        this.props.closeModal();
         
         // if server exists in my props, push route
         // else search db for server?
