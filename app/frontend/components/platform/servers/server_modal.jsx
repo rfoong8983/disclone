@@ -66,7 +66,7 @@ class ServerModal extends React.Component {
 
     handleJoinSubmit(e) {
         const servers = Object.values(this.props.servers);
-        const found = servers.filter((server) => server.server_name === this.state.joinServer);
+        const found = servers.filter((server) => server.server_name.toLowerCase() === this.state.joinServer.toLowerCase());
         e.preventDefault();
         // set var to return val of below line and push to location?
         if (found.length === 0) {
