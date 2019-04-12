@@ -10,7 +10,7 @@ class ServerItem extends React.Component {
 
     componentDidMount() {
         if (JSON.stringify(this.props.server.id) === this.props.match.params.serverId) {
-            this.props.fetchChannels(this.props.match.params.serverId);
+            this.props.fetchChannels(parseInt(this.props.match.params.serverId));
         }
     }
 
@@ -30,7 +30,6 @@ class ServerItem extends React.Component {
 
             if (currentServerId !== JSON.stringify(serverId)) {
                 this.props.receiveCurrentServerId(serverId, currentServerName);
-
                 this.props.fetchChannels(serverId).then((channels) => {
                     
                     const defaultChannelId = Object.values(channels.channels)[0].id;
@@ -80,15 +79,8 @@ class ServerItem extends React.Component {
                             this.updateStoreServerId(server.id, server.server_name)
                         }
                     >
-                    {/* <a key={server.id} aria-label="testChan" href={`/#/channels/${server.id}`}></a> */}
-                        {/* {this.state.isActive ? <div class="servCo_serverActive"></div> : ""} */}
                         {this.renderIcon(server.server_name)}
-                        {/* <div className="servCo_serverIcon normFont" draggable="false">
-                            {server.server_name[0].toLowerCase()}
-                        </div> */}
                     </a>
-
-                    {/* </div> */}
                 </div>
             </div>
         );

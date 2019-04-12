@@ -9,23 +9,9 @@ class ChannelItem extends React.Component {
         this.updateStoreChannelId = this.updateStoreChannelId.bind(this);
     }
 
-    componentDidMount() {
-        
-    }
-    
-    componentDidUpdate() {
-        debugger
-    }
-
     // add in state to track current selected channel
     defaultWrapperFocus(channelId) {
-        
-        // let currChannelPath = this.props.location.pathname;
         let currChannelPath = this.props.match.params.channelId;
-        // let currChannelPath = this.props.currentChannelId;
-        
-        // const currChannelRegExp = new RegExp("/[0-9]+$");
-        // currChannelPath = currChannelPath.match(currChannelRegExp);
         
         
         if (currChannelPath === JSON.stringify(channelId)) {
@@ -36,7 +22,6 @@ class ChannelItem extends React.Component {
     }
 
     defaultLabelFocus(channelId) {
-        
         let currChannelPath = this.props.match.params.channelId;
         
         // let currentChannelPath;
@@ -94,10 +79,9 @@ class ChannelItem extends React.Component {
 
     render () {
         let channel;
-        if (this.props.channel.id === undefined) {
-            channel = this.props.defChannel;
-        } else {
-            channel = this.props.channel;
+        
+        if (JSON.stringify(this.props.channel2.server_id) === this.props.match.params.serverId) {
+            channel = this.props.channel2;
         }
         
         

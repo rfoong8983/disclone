@@ -54,6 +54,7 @@ class Channels extends React.Component {
     }
 
     channelItems(channels) {
+        channels = channels.filter(chan => JSON.stringify(chan.server_id) === this.props.match.params.serverId);
         
         return channels.map((channel) => (
             <ChannelItemContainer
