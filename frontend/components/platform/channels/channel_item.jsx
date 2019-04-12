@@ -9,17 +9,8 @@ class ChannelItem extends React.Component {
         this.updateStoreChannelId = this.updateStoreChannelId.bind(this);
     }
 
-    componentDidMount() {
-        
-    }
-    
-    componentDidUpdate() {
-        debugger
-    }
-
     // add in state to track current selected channel
     defaultWrapperFocus(channelId) {
-        
         // let currChannelPath = this.props.location.pathname;
         let currChannelPath = this.props.match.params.channelId;
         // let currChannelPath = this.props.currentChannelId;

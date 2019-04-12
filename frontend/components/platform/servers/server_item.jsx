@@ -80,15 +80,8 @@ class ServerItem extends React.Component {
                             this.updateStoreServerId(server.id, server.server_name)
                         }
                     >
-                    {/* <a key={server.id} aria-label="testChan" href={`/#/channels/${server.id}`}></a> */}
-                        {/* {this.state.isActive ? <div class="servCo_serverActive"></div> : ""} */}
                         {this.renderIcon(server.server_name)}
-                        {/* <div className="servCo_serverIcon normFont" draggable="false">
-                            {server.server_name[0].toLowerCase()}
-                        </div> */}
                     </a>
-
-                    {/* </div> */}
                 </div>
             </div>
         );
