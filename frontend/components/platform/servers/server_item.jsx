@@ -9,43 +9,28 @@ class ServerItem extends React.Component {
     }
 
     componentDidMount() {
-        
-
-        
-        this.props.fetchChannels(this.props.match.params.serverId);
-        // const defaultChannelId = Object.values(this.props.channels)[0].id;
-        // const defaultChannelName = Object.values(this.props.channels)[0].channel_name;
-        // this.props.receiveCurrentChannelId(defaultChannelId, defaultChannelName);
-        // this.props.history.push(`/channels/${this.props.match.params.serverId}/${defaultChannelId}`);
-        
-        
-        // this.props.receiveCurrentChannelId()
+        if (JSON.stringify(this.props.server.id) === this.props.match.params.serverId) {
+            this.props.fetchChannels(this.props.match.params.serverId);
+        }
     }
 
     defaultFocus(serverId, alias) {
         const currentServerId = this.props.match.params.serverId;
 
         if (currentServerId === JSON.stringify(serverId)) {
-            // this.props.receiveCurrentServerId(alias === "@me" ? homeId : serverId, alias);
-            // this.props.receiveCurrentServerId(serverId, alias);
             return "selectedServer";
         }
     }
     
     updateStoreServerId(serverId, serverName) {
-        
-        const currentServerId = this.props.match.params.serverId;
-        const currentServerName = this.props.defaultServer.server_name;
-        
-        // receive server
         return (e) => {
             e.preventDefault();
+            const currentServerId = this.props.match.params.serverId;
+            const currentServerName = this.props.defaultServer.server_name;
+
             if (currentServerId !== JSON.stringify(serverId)) {
-                // this.props.receiveCurrentServerId(serverId, currentServerName);
                 this.props.receiveCurrentServerId(serverId, currentServerName);
-                // this.props.receiveCurrentUser({currentUserInfo: {server: {id: serverId, server_name: currentServerName, owner_id: this.props.currentUser.id }}});
-                // const defaultChannelId = this.props.defaultChannel.id;
-                // this.props.fetchChannels(serverId);
+
                 this.props.fetchChannels(serverId).then((channels) => {
                     
                     const defaultChannelId = Object.values(channels.channels)[0].id;
@@ -53,7 +38,6 @@ class ServerItem extends React.Component {
                     this.props.receiveCurrentChannelId(defaultChannelId, defaultChannelName);
                     this.props.history.push(`/channels/${serverId}/${defaultChannelId}`);
                 });
-
             }
         };
     }
