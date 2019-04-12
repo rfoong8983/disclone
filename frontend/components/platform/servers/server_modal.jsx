@@ -68,18 +68,17 @@ class ServerModal extends React.Component {
         e.preventDefault();
         const servers = Object.values(this.props.servers);
         const found = servers.filter((server) => server.server_name.toLowerCase() === this.state.joinServer.toLowerCase());
-        debugger
+        
         if (found.length === 0) {
             this.props.receiveServerErrors({ server_name: [' - Server does not exist'] });
         } else {
-            debugger
             this.props.fetchChannels(found[0].id)
                 .then(channels => {
-                        const arr = Object.values(channels.channels);
-                        const genChan = arr.filter(chan => chan.channel_name === "General");
-                        this.props.history.push(`/channels/${found[0].id}/${genChan[0].id}`);
-                    }
-                );
+                    const arr = Object.values(channels.channels);
+                    const genChan = arr.filter(chan => chan.channel_name.toLowerCase() === "general");
+                    this.props.history.push(`/channels/${found[0].id}/${genChan[0].id}`);
+                }
+            );
         }
 
         
@@ -221,7 +220,7 @@ class ServerModal extends React.Component {
                         <h5 className="mod_joinFormTitle boldFont">Join a server</h5>
                         <div className="mod_joinFormInstrWrapper">
                             <p className="mod_joinFormDescription medFont">
-                                Enter an Instant Invite below to join an existing server. The invite will look something like these:
+                                Enter a name below to join an existing server.
                             </p>
                             <p className="mod_joinExamplesPlaceholder">
                             </p>
