@@ -14,7 +14,7 @@ class ChannelItem extends React.Component {
     }
     
     componentDidUpdate() {
-        
+        debugger
     }
 
     // add in state to track current selected channel
