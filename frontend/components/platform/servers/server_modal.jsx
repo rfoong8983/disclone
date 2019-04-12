@@ -65,15 +65,26 @@ class ServerModal extends React.Component {
     }
 
     handleJoinSubmit(e) {
+        e.preventDefault();
         const servers = Object.values(this.props.servers);
         const found = servers.filter((server) => server.server_name.toLowerCase() === this.state.joinServer.toLowerCase());
-        e.preventDefault();
-        // set var to return val of below line and push to location?
+        debugger
         if (found.length === 0) {
-            this.props.receiveServerErrors({server_name: [' - Server does not exist']});
+            this.props.receiveServerErrors({ server_name: [' - Server does not exist'] });
         } else {
-            this.props.history.push(`/channels/${found[0].id}`);
+            debugger
+            this.props.fetchChannels(found[0].id)
+                .then(channels => {
+                        const arr = Object.values(channels.channels);
+                        const genChan = arr.filter(chan => chan.channel_name === "General");
+                        this.props.history.push(`/channels/${found[0].id}/${genChan[0].id}`);
+                    }
+                );
         }
+
+        
+        // set var to return val of below line and push to location?
+        
         this.props.closeModal();
         
         // if server exists in my props, push route

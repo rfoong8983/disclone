@@ -10,7 +10,7 @@ class ServerItem extends React.Component {
 
     componentDidMount() {
         if (JSON.stringify(this.props.server.id) === this.props.match.params.serverId) {
-            this.props.fetchChannels(this.props.match.params.serverId);
+            this.props.fetchChannels(parseInt(this.props.match.params.serverId));
         }
     }
 
@@ -30,7 +30,6 @@ class ServerItem extends React.Component {
 
             if (currentServerId !== JSON.stringify(serverId)) {
                 this.props.receiveCurrentServerId(serverId, currentServerName);
-
                 this.props.fetchChannels(serverId).then((channels) => {
                     
                     const defaultChannelId = Object.values(channels.channels)[0].id;
