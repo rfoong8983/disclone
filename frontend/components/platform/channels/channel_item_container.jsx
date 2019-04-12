@@ -4,12 +4,13 @@ import { receiveCurrentChannelId } from '../../../actions/ui_actions';
 import { fetchChannels } from '../../../actions/channel_actions';
 import ChannelItem from './channel_item';
 
-const msp = ({ session, entities: { users }, ui}) => {
+const msp = ({ session, entities: { users }, ui}, ownProps) => {
     return {
         currentUser: session.user,
         currentServer: session.server,
         defChannel: session.channel,
         channel: ui.currChannelInfo,
+        channel2: ownProps.channel,
         currentChannelId: ui.currChannelInfo.id,
         currentChannelName: ui.currChannelInfo.channel_name
     };
