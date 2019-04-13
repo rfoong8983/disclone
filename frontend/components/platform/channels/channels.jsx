@@ -8,42 +8,6 @@ class Channels extends React.Component {
         this.displayCurrentServerName = this.displayCurrentServerName.bind(this);
     }
 
-    componentDidMount() {
-        // this.props.fetchChannels(this.props.match.params.serverId);
-        
-    }
-
-    // import delete channel for onClick of X
-    // NEED ACCESS TO CURRENT SERVER, CURRENT USER, LOGOUT
-
-    componentDidUpdate() {
-        // if (this.props.currentServer && this.props.currentServerId !== parseInt(this.props.match.params.serverId)) {
-        //     this.props.fetchChannels(this.props.currentServerId);
-        // }
-        
-        // if ((this.props.currentServerId !== undefined) && (Object.values(this.props.channels).length === 0)) {
-        //     this.props.fetchChannels(this.props.currentServerId);
-        // } else if ((this.props.currentServerId !== undefined) && (Object.values(this.props.channels > 0))) {
-        //     const defaultChannel = Object.values(this.props.channels)[0];
-        //     
-        //     if (!this.props.currentChannelId) {
-        //         this.props.receiveCurrentChannelId(defaultChannel.id, defaultChannel.channel_name);
-        //     }
-            
-        // } 
-        
-        // logic below stays for now 
-        // if ((this.props.currentServerId !== undefined) && 
-        //             (this.props.currentChannelId !== undefined) && 
-        //             (this.props.location.pathname !== `/channels/${this.props.currentServerId}/${this.props.currentChannelId}`))
-        // {
-            
-            // if (this.props.location.pathname !== `/channels/${this.props.currentServerId}/${this.props.currentChannelId}`) {
-            //     this.props.history.push(`/channels/${this.props.currentServerId}/${this.props.currentChannelId}`);
-            // }
-        // }
-    }
-
     displayCurrentServerName() {
         const currentServerName = this.props.currentServerName;
         if ("@me".indexOf(currentServerName)) {
@@ -97,9 +61,10 @@ class Channels extends React.Component {
                                         <div className="ch_channelItemsTitle semiFont">Text Channels</div>
                                         <div className="ch_channelItemsCreateButton">
                                             {/* RENDER CREATE CHANNEL MODAL HERE */}
-                                            <button className="ch_createChannelButton">
+                                            {this.props.displayAddChannelButton}
+                                            {/* <button className="ch_createChannelButton">
                                                 <div className="ch_createChannelIcon normFont"><span>+</span></div>
-                                            </button>
+                                            </button> */}
                                         </div>
 
                                         </div>

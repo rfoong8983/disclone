@@ -19,6 +19,8 @@
 //   -webkit-transform: translateZ(0) scale(1.0, 1.0);
   height: 420px;
   width: 540px;
+  display: flex;
+  justify-content: center;
 }
 
 // START MAIN FORM SERVER STYLING
@@ -680,3 +682,254 @@ strong { font-weight: 700; font-family: Whitney-semi; }
     font-size: 12px;
 }
 
+// 
+// 
+// 
+// CHANNELS
+
+.mod_ChannelModalWrap {
+    flex-direction: column;
+    pointer-events: auto;
+    -webkit-box-direction: normal;
+    -webkit-box-orient: vertical;
+    display: flex;
+    outline: 0;
+    height: 382px;
+}
+
+.mod_ChannelFormWrap {
+    background-color: #36393f;
+    box-shadow: 0 0 0 1px rgba(32,34,37,.6), 0 2px 10px 0 rgba(0,0,0,.2);
+    width: 440px;
+    max-height: 660px;
+    min-height: 200px;
+    position: relative;
+    -webkit-box-direction: normal;
+    -webkit-box-flex: 1;
+    -webkit-box-orient: vertical;
+    border-radius: 5px;
+    contain: layout;
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+}
+
+.mod_ChannelHeaderWrap {
+    flex: 0 0 auto;
+    transition: box-shadow .1s ease-out,-webkit-box-shadow .1s ease-out;
+    word-wrap: break-word;
+    -webkit-box-flex: 0;
+    overflow-x: hidden;
+    padding: 20px;
+    position: relative;
+    z-index: 1;    
+    -webkit-box-direction: normal;
+    -webkit-box-orient: horizontal;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    -webkit-box-pack: start;
+    justify-content: flex-start;
+    -webkit-box-align: center;
+    align-items: center;
+    display: flex;
+    outline: 0;
+}
+
+.mod_ChannelHeaderTextWrap {
+    flex: 1 1 auto;
+    margin-right: 0;
+    margin-left: 0;
+    outline: 0;
+}
+
+.mod_ChannelHeaderTextTitle {
+    color: #f6f6f7;
+    text-transform: uppercase;
+    letter-spacing: .3px;
+    -webkit-box-flex: 1;
+    cursor: default;
+    flex: 1;
+    margin-bottom: 0;
+    margin-top: 0;
+    line-height: 20px;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.mod_ChannelHeaderTextSubtitle {
+    color: #b9bbbe;
+    line-height: 16px;
+    font-size: 12px;
+    outline: 0;
+}
+
+.mod_ChannelInputWrap {
+    border-radius: 5px 5px 0 0;
+    z-index: 0;
+    position: relative;
+    -webkit-box-flex: 1;
+    display: flex;
+    flex: 1 1 auto;
+    height: 228px;
+    min-height: 0;
+    outline: 0;
+}
+
+.mod_ChannelInputInnerWrap {
+    overflow-x: hidden;
+    padding: 0 12px 0 20px;
+    -webkit-box-flex: 1;
+    flex: 1 1 auto;
+    overflow-y: scroll;
+    min-height: 0;
+    outline: 0;
+    width: 400px;
+    height: 228px;
+}
+
+.mod_ChannelInputPlaceholder {
+    width: 400px;
+    height: 124px;
+    margin-bottom: 20px;
+}
+
+.mod_ChannelInputInput {
+    margin-bottom: 20px;
+    outline: 0;
+}
+
+.mod_ChannelInputInputTitle {
+    letter-spacing: .5px;
+    text-transform: uppercase;
+    -webkit-box-flex: 1;
+    cursor: default;
+    flex: 1;
+    margin-bottom: 8px;
+    line-height: 16px;
+    font-size: 12px;
+    font-weight: 600;
+    color: #b9bbbe;
+}
+
+.mod_ChannelInputInputWrap {
+    -webkit-box-direction: normal;
+    -webkit-box-orient: vertical;
+    flex-direction: column;
+    display: flex;
+    outline: 0;
+    width: 400px;
+}
+
+.mod_ChannelActualInput {
+    background-color: rgba(0,0,0,.1);
+    border-color: rgba(0,0,0,.3);
+    color: #f6f6f7;
+    height: 40px;
+    padding: 10px;
+    border-radius: 3px;
+    border-style: solid;
+    border-width: 1px;
+    box-sizing: border-box;
+    transition: background-color .15s ease,border .15s ease;
+    font-size: 16px;
+    outline: 0;
+    -webkit-appearance: textfield;
+    -webkit-rtl-ordering: logical;
+    cursor: text;
+    border-image: initial;
+    width: 400px;
+}
+
+.mod_ChannelActualInput:focus {
+    outline-offset: -2px;
+    border-color: #7289da;
+}
+
+.mod_ChannelSubmitWrap {
+    flex: 0 0 auto;
+    background-color: #2f3136;
+    box-shadow: inset 0 1px 0 rgba(47,49,54,.6);
+    border-radius: 0 0 5px 5px;
+    -webkit-box-flex: 0;
+    overflow-x: hidden;
+    padding: 20px;
+    position: relative;
+    z-index: 1;
+    -webkit-box-direction: reverse;
+    -webkit-box-orient: horizontal;
+    flex-direction: row-reverse;
+    flex-wrap: nowrap;
+    -webkit-box-pack: start;
+    justify-content: flex-start;
+    -webkit-box-align: stretch;
+    align-items: stretch;
+    display: flex;
+    outline: 0;
+}
+
+.mod_ChannelSubmitButton {
+    background-color: #7289da;
+    color: #fff;
+    width: auto;
+    height: 38px;
+    min-height: 38px;
+    min-width: 96px;
+    transition: background-color .17s ease,color .17s ease;
+    -webkit-box-align: center;
+    -webkit-box-pack: center;
+    align-items: center;
+    border: none;
+    border-radius: 3px;
+    box-sizing: border-box;
+    display: flex;
+    font-size: 14px;
+    font-weight: 500;
+    justify-content: center;
+    line-height: 16px;
+    padding: 2px 16px;
+    position: relative;
+    user-select: none;
+    outline: 0;
+}
+
+.mod_ChannelSubmitButtonText {
+    margin: 0 auto;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    outline: 0;
+}
+
+.mod_ChannelCancelButton {
+    width: auto;
+    height: 38px;
+    min-height: 38px;
+    min-width: 96px;
+    -webkit-box-align: center;
+    -webkit-box-pack: center;
+    align-items: center;
+    background: none;
+    border: none;
+    border-radius: 3px;
+    box-sizing: border-box;
+    display: flex;
+    font-size: 14px;
+    font-weight: 500;
+    justify-content: center;
+    line-height: 16px;
+    padding: 2px 16px;
+    position: relative;
+    user-select: none;
+    outline: 0;
+}
+
+.mod_ChannelCancelButtonText {
+    margin: 0 auto;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    outline: 0;
+    color: #fff;
+    line-height: 16px;
+    user-select: none;
+}

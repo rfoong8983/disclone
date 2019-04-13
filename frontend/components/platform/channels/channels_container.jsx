@@ -37,7 +37,15 @@ const mdp = (dispatch) => (
         fetchChannels: (serverId) => dispatch(fetchChannels(serverId)),
         closeModal: () => dispatch(closeModal()),
         receiveCurrentChannelId: (channelId, alias) => dispatch(receiveCurrentChannelId(channelId, alias)),
-        logout: () => dispatch(logout())
+        logout: () => dispatch(logout()),
+        displayAddChannelButton: (
+            <button
+                onClick={() => dispatch(openModal('createChannel'))}
+                className="ch_createChannelButton lightFont"
+            >
+                <span className="ch_createChannelIcon normFont">+</span>
+            </button>
+        )
     }
 );
 
