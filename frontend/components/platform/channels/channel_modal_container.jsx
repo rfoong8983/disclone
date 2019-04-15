@@ -13,7 +13,7 @@ const msp = (state) => {
 const mdp = (dispatch) => (
     {
         closeModal: () => dispatch(closeModal()),
-        createChannel: (channel) => dispatch(createChannel(channel))
+        createChannel: (channel) => dispatch(createChannel(channel.channel))
     }
 );
 

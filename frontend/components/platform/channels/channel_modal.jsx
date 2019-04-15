@@ -28,9 +28,7 @@ class ChannelModal extends React.Component {
     handleCreate(state, serverId) {
         return (e) => {
             e.preventDefault();
-            const newChannel = {channel_name: state, server_id: serverId};
-            // const newChannel = {channel: {channel_name: state, server_id: serverId}};
-            debugger
+            const newChannel = { channel: { server_id: serverId, channel_name: state}};
             this.props.createChannel(newChannel);
         };
     }

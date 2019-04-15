@@ -1,7 +1,6 @@
 class Api::ChannelsController < ApplicationController
     def create
         @channel = Channel.new(channel_params)
-        debugger
         if @channel.save
             render 'api/channels/new_channel'
         else

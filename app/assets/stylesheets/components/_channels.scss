@@ -99,7 +99,8 @@
     padding-bottom: 20px;
     -webkit-box-flex: 1;
     flex: 1 1 auto;
-    overflow-y: scroll;
+    // overflow-y: scroll;
+    overflow-y: none;
     min-height: 0;
     outline: 0;
 }
