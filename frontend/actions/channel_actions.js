@@ -19,7 +19,8 @@ export const createChannel = (channel) => dispatch => {
         .then(
             (channel) => {
                 dispatch(receiveOneChannel(channel))
-                    .then(() => dispatch(fetchChannels(channel.server_id)))
+                dispatch( fetchChannels(channel.server_id))
+                    // .then(() => dispatch( fetchChannels(channel.server_id)))
             },
             (err) => {
                 // console.log(err);

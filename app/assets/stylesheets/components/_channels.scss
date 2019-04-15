@@ -99,7 +99,8 @@
     padding-bottom: 20px;
     -webkit-box-flex: 1;
     flex: 1 1 auto;
-    overflow-y: scroll;
+    // overflow-y: scroll;
+    overflow-y: none;
     min-height: 0;
     outline: 0;
 }
@@ -218,6 +219,10 @@
     outline: 0;
 }
 
+.ch_createChannelIcon:hover {
+    color: white;
+}
+
 .ch_createChannelIcon {
     text-align: center;
     height: 18px;
@@ -230,6 +235,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    transition: .15s ease-in;
 }
 
 .ch_createChannelIcon span {
