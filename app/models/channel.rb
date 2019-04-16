@@ -17,4 +17,9 @@ class Channel < ApplicationRecord
         primary_key: :id,
         foreign_key: :server_id,
         class_name: :Server
+
+    has_one :conversation,
+        primary_key: :id,
+        foreign_key: :channel_id,
+        class_name: :Channel
 end

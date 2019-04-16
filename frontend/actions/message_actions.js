@@ -1,0 +1,2 @@
+// export const RECEIVE_ALL_MESSAGES = 'RECEIVE_ALL_MESSAGES';
+

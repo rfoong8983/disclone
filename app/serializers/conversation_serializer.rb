@@ -8,10 +8,7 @@
 #  updated_at :datetime         not null
 #
 
-require 'test_helper'
-
-class ConversationTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+class ConversationSerializer < ActiveModel::Serializer
+  attributes :id, :channel_id
+  has_many :messages
 end

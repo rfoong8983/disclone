@@ -10,14 +10,6 @@
 #  updated_at      :datetime         not null
 #
 
-class Message < ApplicationRecord
-  belongs_to :conversation,
-  primary_key: :channel_id,
-  foreign_key: :conversation_id,
-  class_name: :Conversation
-
-  belongs_to :user,
-  primary_key: :id,
-  foreign_key: :user_id,
-  class_name: :User
+class MessageSerializer < ActiveModel::Serializer
+  attributes :id, :conversation_id, :text, :user_id, :created_at
 end
