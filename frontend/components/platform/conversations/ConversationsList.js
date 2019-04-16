@@ -1,4 +1,5 @@
 import React from 'react';
+import { withRouter } from 'react-router';
 import { ActionCable } from 'react-actioncable-provider';
 import { API_ROOT } from '../../../constants/constants';
 import NewConversationForm from './NewConversationForm';
@@ -21,7 +22,10 @@ class ConversationsList extends React.Component {
     
 
     componentDidMount () {
-        fetch(`${API_ROOT}/api/conversations`)
+        const currServerId = parseInt(this.props.match.params.serverId);
+        const currChannelId = parseInt(this.props.match.params.channelId);
+        
+        fetch(`${API_ROOT}/api/conversations?channel_id=${currChannelId}`)
             .then(res => res.json())
             .then(conversations => this.setState({ conversations }));
     }
@@ -43,28 +47,29 @@ class ConversationsList extends React.Component {
         const conversation = conversations.find(
             conversation => conversation.id === message.conversation_id
         );
-        debugger
+
         conversation.messages = [...conversation.messages, message];
         this.setState({ conversations });
     }
 
     render () {
         const { conversations, activeConversation } = this.state;
-        debugger
+        
         return (
             <div className="conversationsList">
                 <ActionCable
                     channel={{ channel: 'ConversationsChannel' }}
                     onReceived={this.handleReceivedConversation}
                 />
-                {this.state.conversations.length ? (
+                {/* {this.state.conversations.length ? ( */}
+                {this.state.conversations[0] !== null ? (
                     <Cable
                         conversations={conversations}
                         handleReceivedMessage={this.handleReceivedMessage}
                     />
                 ) : null}
                 <h2>Conversations</h2>
-                <ul>{mapConversations(conversations, this.handleClick)}</ul>
+                {conversations[0] === null ? "" : <ul>{mapConversations(conversations, this.handleClick)}</ul>}
                 <NewConversationForm />
                 {activeConversation ? (
                     <MessageArea
@@ -79,12 +84,12 @@ class ConversationsList extends React.Component {
     };
 }
 
-export default ConversationsList;
+export default withRouter(ConversationsList);
 
 // helpers
 
 const findActiveConversation = (conversations, activeConversation) => {
-    debugger
+    // debugger
     return conversations.find(
         conversation => conversation.id === activeConversation
     );

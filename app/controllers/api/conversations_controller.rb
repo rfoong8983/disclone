@@ -1,7 +1,7 @@
 class Api::ConversationsController < ApplicationController
     def index
-        conversations = Conversation.all
-        render json: conversations
+        conversations = [Conversation.find_by(channel_id: params[:channel_id].to_i)]
+        render json: conversations unless conversations.nil?
     end
 
     def create
