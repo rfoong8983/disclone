@@ -73,6 +73,7 @@ class ConversationsList extends React.Component {
 
     render () {
         const { conversations, activeConversation } = this.state;
+        debugger
         return (
             <div className="conversationsList">
                 <ActionCable
@@ -89,7 +90,7 @@ class ConversationsList extends React.Component {
                 <h2>Conversations</h2>
                 {conversations[0] === null ? "" : <ul>{mapConversations(conversations, this.handleClick)}</ul>}
                 <NewConversationForm />
-                {activeConversation && conversations[0] !== null ? (
+                {activeConversation && conversations[0] !== null && conversations[0].id === activeConversation ? (
                     <MessageArea
                         conversation={findActiveConversation(
                             conversations,
