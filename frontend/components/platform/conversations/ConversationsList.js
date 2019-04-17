@@ -19,7 +19,20 @@ class ConversationsList extends React.Component {
         this.handleReceivedConversation = this.handleReceivedConversation.bind(this);
         this.handleReceivedMessage = this.handleReceivedMessage.bind(this);
     }
-    
+
+    componentDidUpdate(prevProps) {
+        const prevChan = prevProps.match.params.channelId;
+        const currChan = this.props.match.params.channelId;
+        if (prevChan !== currChan) {
+            fetch(`${API_ROOT}/api/conversations?channel_id=${parseInt(currChan)}`)
+                .then(res => res.json())
+                .then(conversations => this.setState({ conversations }))
+                .then(el => {
+                    const a = document.getElementsByClassName('test');
+                    if (a.length > 0) a[0].click();
+                });
+        }
+    }
 
     componentDidMount () {
         const currServerId = parseInt(this.props.match.params.serverId);
@@ -27,7 +40,13 @@ class ConversationsList extends React.Component {
         
         fetch(`${API_ROOT}/api/conversations?channel_id=${currChannelId}`)
             .then(res => res.json())
-            .then(conversations => this.setState({ conversations }));
+            .then(conversations => this.setState({ conversations }))
+            .then(el => {
+                const a = document.getElementsByClassName('test');
+                if (a.length > 0) a[0].click();
+            });
+
+        this.state.activeConversation = null;
     }
 
     handleClick (id) {
@@ -54,7 +73,6 @@ class ConversationsList extends React.Component {
 
     render () {
         const { conversations, activeConversation } = this.state;
-        
         return (
             <div className="conversationsList">
                 <ActionCable
@@ -71,7 +89,7 @@ class ConversationsList extends React.Component {
                 <h2>Conversations</h2>
                 {conversations[0] === null ? "" : <ul>{mapConversations(conversations, this.handleClick)}</ul>}
                 <NewConversationForm />
-                {activeConversation ? (
+                {activeConversation && conversations[0] !== null ? (
                     <MessageArea
                         conversation={findActiveConversation(
                             conversations,
@@ -98,7 +116,7 @@ const findActiveConversation = (conversations, activeConversation) => {
 const mapConversations = (conversations, handleClick) => {
     return conversations.map(conversation => {
         return (
-            <li key={conversation.id} onClick={() => handleClick(conversation.id)}>
+            <li className='test' key={conversation.id} onClick={() => handleClick(conversation.id)}>
                 {conversation.channel_id}
             </li>
         );
