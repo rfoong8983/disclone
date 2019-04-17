@@ -5,11 +5,19 @@ class Api::ServerSubsController < ApplicationController
     end
 
     def create
+        debugger
+        @sub = ServerSub.new(sub_params);
+        if @sub.save
+            return
+            # work on creating subscription on join
+        else
+            render json: @server.errors.messages, status: 418
+        end
     end
 
     private
 
     def sub_params
-        params.permit(:sub).require(:user_id, :server_id)
+        params.require(:sub).permit(:user_id, :server_id)
     end
 end

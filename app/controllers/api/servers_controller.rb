@@ -2,6 +2,8 @@ class Api::ServersController < ApplicationController
     def create
         @server = Server.new(server_params)
         if @server.save
+            @sub = ServerSub.new(server_id: @server.id, user_id: current_user.id)
+            @sub.save
             @channel = Channel.new(server_id: @server.id, channel_name: 'general')
             @channel.save
             
@@ -25,7 +27,11 @@ class Api::ServersController < ApplicationController
         #     @servers = Server.where(:id => ids)
         # end
 
-        debugger
+
+
+        # next, add subscription to server on server creation
+        # add subscription to server on new user, this may be superfluous
+        
         if params[:server][:all] == "false"
             # ids = params[:server][:all].map(&:to_i)
             subs = current_user.subscriptions.map do |sub|

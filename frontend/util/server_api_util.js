@@ -32,6 +32,7 @@ export const fetchSubs = () => {
 };
 
 export const newSub = (sub) => {
+    debugger
     return $.ajax({
         method: "POST",
         url: `/api/server_subs`,
