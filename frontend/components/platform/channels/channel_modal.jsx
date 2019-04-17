@@ -30,6 +30,7 @@ class ChannelModal extends React.Component {
             e.preventDefault();
             const newChannel = { channel: { server_id: serverId, channel_name: state}};
             this.props.createChannel(newChannel);
+            this.props.closeModal();
         };
     }
 

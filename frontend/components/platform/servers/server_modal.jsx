@@ -66,25 +66,31 @@ class ServerModal extends React.Component {
 
     handleJoinSubmit(e) {
         e.preventDefault();
-        const servers = Object.values(this.props.servers);
-        const found = servers.filter((server) => server.server_name.toLowerCase() === this.state.joinServer.toLowerCase());
-        
-        if (found.length === 0) {
-            this.props.receiveServerErrors({ server_name: [' - Server does not exist'] });
-        } else {
-            this.props.fetchChannels(found[0].id)
-                .then(channels => {
-                    const arr = Object.values(channels.channels);
-                    const genChan = arr.filter(chan => chan.channel_name.toLowerCase() === "general");
-                    this.props.history.push(`/channels/${found[0].id}/${genChan[0].id}`);
+        // this.props.fetchServers("true")
+        this.props.apiServers("true")
+            .then(servers => {
+                // const s = Object.values(this.props.servers);
+                servers = Object.values(servers);
+                debugger
+                const found = servers.filter((server) => server.server_name.toLowerCase() === this.state.joinServer.toLowerCase());
+
+                if (found.length === 0) {
+                    this.props.receiveServerErrors({ server_name: [' - Server does not exist'] });
+                } else {
+                    this.props.fetchChannels(found[0].id)
+                        .then(channels => {
+                            const arr = Object.values(channels.channels);
+                            const genChan = arr.filter(chan => chan.channel_name.toLowerCase() === "general");
+                            this.props.history.push(`/channels/${found[0].id}/${genChan[0].id}`);
+                        }
+                        );
                 }
-            );
-        }
+            })
+            .then(this.props.closeModal());
+        
 
         
         // set var to return val of below line and push to location?
-        
-        this.props.closeModal();
         
         // if server exists in my props, push route
         // else search db for server?

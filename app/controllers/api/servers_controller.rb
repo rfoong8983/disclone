@@ -16,7 +16,12 @@ class Api::ServersController < ApplicationController
         # if owner_id in params or request body
         # return owner.servers
         # else return all servers
-        @servers = current_user.servers
+        debugger
+        if server_params[:all] === "false"
+            @servers = current_user.servers
+        else
+            @servers = Server.all
+        end
         render '/api/servers/servers_index'
     end
 
@@ -28,6 +33,6 @@ class Api::ServersController < ApplicationController
     private
 
     def server_params
-        params.require(:server).permit(:owner_id, :server_name)
+        params.require(:server).permit(:owner_id, :server_name, :all)
     end
 end

@@ -6,6 +6,7 @@ import SplashContainer from './splash/splash_container';
 import LogInContainer from './session_form/login_container';
 import SignUpContainer from './session_form/signup_container';
 import PlatformContainer from './platform/platform_container';
+import ConversationsList from '../components/platform/conversations/ConversationsList';
 import Modal from './platform/modal/modal';
 
 const App = () => (
@@ -19,7 +20,7 @@ const App = () => (
             {/* redirect user back to home server/channel if */}
             {/* bad URL && logged_in? */}
             <ProtectedRoute path="/channels/:serverId/:channelId" component={PlatformContainer} />
-            
+            {/* <ProtectedRoute path="/channels/:serverId/:channelId" component={ConversationsList} /> */}
             <Route component={PageNotFound} />
         </Switch>
     </div>
