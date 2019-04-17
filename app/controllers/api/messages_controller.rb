@@ -1,8 +1,8 @@
 class Api::MessagesController < ApplicationController
     def create
+
         message = Message.new(message_params)
-        conversation = Conversation.find_by(channel_id: message_params[:conversation])
-        # debugger
+        conversation = Conversation.find_by(channel_id: message_params[:conversation_id])
 
         if message.save
             serialized_data = ActiveModelSerializers::Adapter::Json.new(

@@ -28,7 +28,8 @@ class ConversationsList extends React.Component {
                 .then(res => res.json())
                 .then(conversations => this.setState({ conversations }))
                 .then(el => {
-                    const a = document.getElementsByClassName('test');
+                    const a = document.getElementsByClassName('currConversation');
+                    debugger
                     if (a.length > 0) a[0].click();
                 });
         }
@@ -42,7 +43,8 @@ class ConversationsList extends React.Component {
             .then(res => res.json())
             .then(conversations => this.setState({ conversations }))
             .then(el => {
-                const a = document.getElementsByClassName('test');
+                const a = document.getElementsByClassName('currConversation');
+                
                 if (a.length > 0) a[0].click();
             });
 
@@ -64,16 +66,18 @@ class ConversationsList extends React.Component {
         const { message } = response;
         const conversations = [...this.state.conversations];
         const conversation = conversations.find(
-            conversation => conversation.id === message.conversation_id
+            conversation => conversation.channel_id === message.conversation_id
         );
+        debugger
 
-        conversation.messages = [...conversation.messages, message];
+        // conversation.messages = [...conversation.messages, message];
+        conversation.messages.push(message);
         this.setState({ conversations });
     }
 
     render () {
         const { conversations, activeConversation } = this.state;
-        debugger
+        
         return (
             <div className="conversationsList">
                 <ActionCable
@@ -87,17 +91,18 @@ class ConversationsList extends React.Component {
                         handleReceivedMessage={this.handleReceivedMessage}
                     />
                 ) : null}
-                <h2>Conversations</h2>
-                {conversations[0] === null ? "" : <ul>{mapConversations(conversations, this.handleClick)}</ul>}
-                <NewConversationForm />
-                {activeConversation && conversations[0] !== null && conversations[0].id === activeConversation ? (
-                    <MessageArea
-                        conversation={findActiveConversation(
-                            conversations,
-                            activeConversation
-                        )}
-                    />
-                ) : null}
+                <div className="conversations normFont">
+                    {conversations[0] === null ? "" : <ul className="conv_channelId">{mapConversations(conversations, this.handleClick)}</ul>}
+                    {/* <NewConversationForm /> */}
+                    {activeConversation && conversations[0] !== null && conversations[0].id === activeConversation ? (
+                        <MessageArea
+                            conversation={findActiveConversation(
+                                conversations,
+                                activeConversation
+                            )}
+                        />
+                    ) : null}
+                </div>
             </div>
         );
     };
@@ -117,7 +122,7 @@ const findActiveConversation = (conversations, activeConversation) => {
 const mapConversations = (conversations, handleClick) => {
     return conversations.map(conversation => {
         return (
-            <li className='test' key={conversation.id} onClick={() => handleClick(conversation.id)}>
+            <li className='currConversation' key={conversation.id} onClick={() => handleClick(conversation.id)}>
                 {conversation.channel_id}
             </li>
         );

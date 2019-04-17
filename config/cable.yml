@@ -1,8 +1,10 @@
 development:
   adapter: async
+  # adapter: redis
 
 test:
   adapter: async
+  # adapter: redis
 
 production:
   adapter: redis
