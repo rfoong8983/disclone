@@ -1,4 +1,5 @@
 import React from 'react';
+import { newSub } from '../../../util/server_api_util';
 import { clearServerErrors } from '../../../actions/servers_actions';
 
 class ServerModal extends React.Component {
@@ -71,12 +72,20 @@ class ServerModal extends React.Component {
             .then(servers => {
                 // const s = Object.values(this.props.servers);
                 servers = Object.values(servers);
+                debugger
                 
                 const found = servers.filter((server) => server.server_name.toLowerCase() === this.state.joinServer.toLowerCase());
+                const sub = {
+                    user_id: this.props.currentUser.id,
+                    server_id: found
+                }
+                newSub(this.props.currentUser.id)
 
+                
                 if (found.length === 0) {
                     this.props.receiveServerErrors({ server_name: [' - Server does not exist'] });
                 } else {
+
                     this.props.fetchChannels(found[0].id)
                         .then(channels => {
                             const arr = Object.values(channels.channels);

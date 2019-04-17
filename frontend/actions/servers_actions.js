@@ -1,13 +1,28 @@
 import * as ServerApi from '../util/server_api_util';
 
 export const RECEIVE_ALL_SERVERS = "RECEIVE_ALL_SERVERS";
+export const RECEIVE_ALL_SUBS = "RECEIVE_ALL_SUBS";
 export const RECEIVE_SERVER = "RECEIVE_SERVER";
 export const RECEIVE_SERVER_ERRORS = "RECEIVE_SERVER_ERRORS";
 export const REMOVE_SERVER = "REMOVE_SERVER";
 
 export const fetchServers = (all) => dispatch => {
+    // debugger
     return ServerApi.fetchServers(all)
         .then((servers) => dispatch(receiveAllServers(servers)));
+};
+
+export const fetchSubs = () => dispatch => {
+    // debugger
+    return ServerApi.fetchSubs()
+        .then((subs) => dispatch(receiveAllSubs(subs)));
+};
+
+const receiveAllSubs = subs => {
+    return {
+        type: RECEIVE_ALL_SUBS,
+        subs
+    };
 };
 
 // export const fetchServersByName = () => dispatch => {

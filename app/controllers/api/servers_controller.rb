@@ -17,8 +17,22 @@ class Api::ServersController < ApplicationController
         # return owner.servers
         # else return all servers
         
-        if server_params[:all] === "false"
-            @servers = current_user.servers
+        # if params[:server][:all] == "true"
+        #     @servers = Server.all
+        # elsif params[:server][:all].class == Array
+        #     ids = params[:server][:all].map(&:to_i)
+        #     # @servers = current_user.servers
+        #     @servers = Server.where(:id => ids)
+        # end
+
+        debugger
+        if params[:server][:all] == "false"
+            # ids = params[:server][:all].map(&:to_i)
+            subs = current_user.subscriptions.map do |sub|
+                sub.server_id
+            end
+            @servers = Server.where(:id => subs)
+        # elsif params[:server][:all].class == Array
         else
             @servers = Server.all
         end

@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
-import { fetchServers } from '../../../actions/servers_actions';
+import { fetchServers, fetchSubs } from '../../../actions/servers_actions';
 import { receiveCurrentServerId } from '../../../actions/ui_actions';
 import { openModal, closeModal } from '../../../actions/modal_actions';
 import Servers from './servers';
@@ -17,7 +17,8 @@ const msp = ({ session, entities: { servers } }) => {
 
 const mdp = (dispatch) => (
     {
-        fetchServers: () => dispatch(fetchServers()),
+        fetchServers: (arr) => dispatch(fetchServers(arr)),
+        fetchSubs: () => dispatch(fetchSubs()),
         closeModal: () => dispatch(closeModal()),
         receiveCurrentServerId: (serverId, alias) => dispatch(receiveCurrentServerId(serverId, alias)),
         createServer: (server) => dispatch(createServer(server)),
