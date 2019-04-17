@@ -71,7 +71,7 @@ class ServerModal extends React.Component {
             .then(servers => {
                 // const s = Object.values(this.props.servers);
                 servers = Object.values(servers);
-                debugger
+                
                 const found = servers.filter((server) => server.server_name.toLowerCase() === this.state.joinServer.toLowerCase());
 
                 if (found.length === 0) {

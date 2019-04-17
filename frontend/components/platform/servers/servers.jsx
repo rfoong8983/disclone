@@ -21,7 +21,7 @@ class Servers extends React.Component {
         
         this.props.fetchServers()
             .then((servers) => {
-                
+                debugger
                 let serversArray = Object.values(servers.servers);
                 serversArray = serversArray.filter((server) => server.id === parseInt(wildcardPath));
                     // receiveCurrentServerId(serversArray[0].id, serversArray[0].name);

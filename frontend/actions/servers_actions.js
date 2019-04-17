@@ -6,7 +6,6 @@ export const RECEIVE_SERVER_ERRORS = "RECEIVE_SERVER_ERRORS";
 export const REMOVE_SERVER = "REMOVE_SERVER";
 
 export const fetchServers = (all) => dispatch => {
-    debugger
     return ServerApi.fetchServers(all)
         .then((servers) => dispatch(receiveAllServers(servers)));
 };

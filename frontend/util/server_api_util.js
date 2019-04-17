@@ -15,12 +15,12 @@ export const destroyServer = (serverId) => (
 
 export const fetchServers = (all) => {
     if (all === undefined) all = false;
-    debugger
+    
     return $.ajax({
         method: "GET",
         url: `/api/servers`,
         data: { 'server': { 'all': all }}
-    })
+    });
 };
 
 // export const fetchUserServers = (currentUserId) => (

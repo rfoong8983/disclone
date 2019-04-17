@@ -16,7 +16,7 @@ class Api::ServersController < ApplicationController
         # if owner_id in params or request body
         # return owner.servers
         # else return all servers
-        debugger
+        
         if server_params[:all] === "false"
             @servers = current_user.servers
         else
