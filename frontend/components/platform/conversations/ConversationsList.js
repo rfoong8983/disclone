@@ -29,7 +29,7 @@ class ConversationsList extends React.Component {
                 .then(conversations => this.setState({ conversations }))
                 .then(el => {
                     const a = document.getElementsByClassName('currConversation');
-                    debugger
+                    // debugger
                     if (a.length > 0) a[0].click();
                 });
         }
@@ -68,11 +68,13 @@ class ConversationsList extends React.Component {
         const conversation = conversations.find(
             conversation => conversation.channel_id === message.conversation_id
         );
-        debugger
+        // debugger
 
         // conversation.messages = [...conversation.messages, message];
-        conversation.messages.push(message);
-        this.setState({ conversations });
+        if (conversation.messages.every(msg => msg.id !== message.id)) {
+            conversation.messages.push(message);
+            this.setState({ conversations });
+        }
     }
 
     render () {

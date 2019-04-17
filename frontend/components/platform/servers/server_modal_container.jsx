@@ -12,6 +12,7 @@ import {
 } from '../../../actions/servers_actions';
 import { fetchChannels } from '../../../actions/channel_actions';
 import { closeModal } from '../../../actions/modal_actions';
+import * as serverApi from '../../../util/server_api_util';
 
 const msp = ({ session, entities, errors: { servers } }) => (
     {
@@ -28,8 +29,9 @@ const mdp = (dispatch) => (
         closeModal: () => dispatch(closeModal()),
         clearServerErrors: () => dispatch(clearServerErrors()),
         receiveServerErrors: (errors) => dispatch(receiveServerErrors(errors)),
-        fetchServers: () => dispatch(fetchServers()),
-        fetchChannels: (serverId) => dispatch(fetchChannels(serverId))
+        fetchServers: (all) => dispatch(fetchServers(all)),
+        fetchChannels: (serverId) => dispatch(fetchChannels(serverId)),
+        apiServers: (all) => serverApi.fetchServers(all)
         // findServer: (name) => dispatch(fetchServersByName())
         //     .then((servers) => {
         //         const found = servers[`${name}`];
