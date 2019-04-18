@@ -28,7 +28,8 @@ class NewMessageForm extends React.Component {
         const newMessage = {
             message: {
                 conversation_id: parseInt(channelId),
-                user_id: this.props.currUserId,
+                user_id: this.props.currUser.id,
+                username: this.props.currUser.username,
                 text: this.state.text
             }
         };
@@ -61,7 +62,7 @@ class NewMessageForm extends React.Component {
 
 const msp = state => {
     return {
-        currUserId: state.session.user.id
+        currUser: state.session.user
     }
 }
 

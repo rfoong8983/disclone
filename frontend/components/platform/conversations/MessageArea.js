@@ -23,9 +23,8 @@ class MessageArea extends React.Component {
     render() {
         return (
             <div className="messageArea">
-                <h2>{this.title}</h2>
                 <ul>{orderedMessages(this.messages)}</ul>
-                <NewMessageForm conversation_id={this.id} />
+                {/* <NewMessageForm conversation_id={this.id} /> */}
             </div>
         );
     }
@@ -45,7 +44,23 @@ const orderedMessages = messages => {
     const sortedMessages = messages.sort(
         (a, b) => new Date(a.created_at) - new Date(b.created_at)
     );
+    let talker;
     return sortedMessages.map(message => {
-        return <li key={message.id}>{message.text}</li>;
+        if (message.username === talker) {
+            return (
+                <li className="singleMessage" key={message.id}>
+                    <div className="metadata"><div className="timestamp">{new Date(message.created_at).toLocaleTimeString()}</div></div>
+                    <div className="text">{message.text}</div>
+                </li>
+            )
+        } else {
+            talker = message.username
+            return (
+                <li className="singleMessage" key={message.id}>
+                    <div className="metadata">{message.username}&nbsp;<div className="timestamp">{new Date(message.created_at).toLocaleTimeString()}</div></div>
+                    <div className="text">{message.text}</div>
+                </li>
+            )
+        }
     });
 };

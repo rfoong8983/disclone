@@ -6,6 +6,8 @@ class Api::ServersController < ApplicationController
             @sub.save
             @channel = Channel.new(server_id: @server.id, channel_name: 'general')
             @channel.save
+            @conversation = Conversation.new(channel_id: @channel.id)
+            @conversation.save
             
             render '/api/servers/new_server'
         else

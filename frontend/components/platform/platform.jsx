@@ -30,7 +30,7 @@ class Platform extends React.Component {
                 </div>
 
                 <div className="pf_conversations">
-                    <ConversationsList />
+                    <ConversationsList currentUser={this.props.currentUser}/>
                     {/* fix rendering of conversations */}
                 </div>
 

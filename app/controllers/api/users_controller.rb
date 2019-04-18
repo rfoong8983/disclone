@@ -9,8 +9,13 @@ class Api::UsersController < ApplicationController
 
             @server = Server.new(owner_id: @user.id, server_name: "#{@user.id}_@me_home")
             if @server.save
+                @sub = ServerSub.new(server_id: @server.id, user_id: current_user.id, username: current_user.username)
+                @sub.save
                 @channel = Channel.new(server_id: @server.id, channel_name: "general")
-                @channel.save
+                if @channel.save
+                    @conversation = Conversation.new(channel_id: @channel.id)
+                    @conversation.save
+                end
             end
 
             render '/api/users/show'

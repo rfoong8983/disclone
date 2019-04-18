@@ -2,6 +2,9 @@ class Api::ChannelsController < ApplicationController
     def create
         @channel = Channel.new(channel_params)
         if @channel.save
+            # create new convo on channel creation
+            @conversation = Conversation.new(channel_id: @channel.id)
+            @conversation.save
             render 'api/channels/new_channel'
         else
             render json: @channel.errors.messages, status: 418

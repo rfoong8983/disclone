@@ -1,8 +1,10 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
 import { ActionCable } from 'react-actioncable-provider';
 import { API_ROOT } from '../../../constants/constants';
 import NewConversationForm from './NewConversationForm';
+import NewMessageForm from './NewMessageForm';
 import MessageArea from '../../platform/conversations/MessageArea';
 import Cable from './Cable';
 
@@ -97,12 +99,15 @@ class ConversationsList extends React.Component {
                     {conversations[0] === null ? "" : <ul className="conv_channelId">{mapConversations(conversations, this.handleClick)}</ul>}
                     {/* <NewConversationForm /> */}
                     {activeConversation && conversations[0] !== null && conversations[0].id === activeConversation ? (
-                        <MessageArea
-                            conversation={findActiveConversation(
-                                conversations,
-                                activeConversation
-                            )}
-                        />
+                        <div className="messagesWrap">
+                            <MessageArea
+                                conversation={findActiveConversation(
+                                    conversations,
+                                    activeConversation
+                                )}
+                            />
+                            <NewMessageForm conversation_id={conversations[0].id} />
+                        </div>
                     ) : null}
                 </div>
             </div>
