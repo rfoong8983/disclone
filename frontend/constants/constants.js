@@ -11,9 +11,10 @@ if (process.env.NODE_ENV !== 'production') {
 // export const API_ROOT = 'http://localhost:3000';
 // export const API_WS_ROOT = 'ws://localhost:3000/cable';
 
-export { API_ROOT, API_WS_ROOT };
 
-export const HEADERS = {
+const HEADERS = {
     'Content-Type': 'application/json',
     Accept: 'application/json'
 };
+
+module.exports = { API_ROOT, API_WS_ROOT, HEADERS };

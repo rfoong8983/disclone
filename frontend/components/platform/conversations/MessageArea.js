@@ -48,16 +48,23 @@ const orderedMessages = messages => {
     return sortedMessages.map(message => {
         if (message.username === talker) {
             return (
-                <li className="singleMessage" key={message.id}>
-                    <div className="metadata">
-                        <div className="timeStampWrap">
-                            <span className="timestamp">{new Date(message.created_at).toLocaleTimeString()}</span>
+                <div className="badgeMessageWrap" key={message.id}>
+                    <div className="userIconWrap">
+                        <div className="userIconPlaceholder">
                         </div>
                     </div>
-                    <div className="textWrap">
-                        <span className="text">{message.text}</span>
-                    </div>
-                </li>
+                    
+                    <li className="singleMessage" key={message.id}>
+                        <div className="metadata">
+                            <div className="timeStampWrap">
+                                <span className="timestamp">{new Date(message.created_at).toLocaleTimeString()}</span>
+                            </div>
+                        </div>
+                        <div className="textWrap">
+                            <span className="text">{message.text}</span>
+                        </div>
+                    </li>
+                </div>
             )
         } else {
             talker = message.username
