@@ -41,13 +41,13 @@ document.addEventListener("DOMContentLoaded", () => {
     } else {
         store = configureStore();
     }
-    window.store = store; // access to state & dispatch
-    window.createChannel = createChannel;
-    window.destroyChannel = destroyChannel;
-    window.fetchChannels = fetchChannels;
-    window.receiveChannelErrors = receiveChannelErrors;
-    window.removeChannelErrors = removeChannelErrors;
-    window.receiveCurrentServerId = receiveCurrentServerId;
+    // window.store = store; // access to state & dispatch
+    // window.createChannel = createChannel;
+    // window.destroyChannel = destroyChannel;
+    // window.fetchChannels = fetchChannels;
+    // window.receiveChannelErrors = receiveChannelErrors;
+    // window.removeChannelErrors = removeChannelErrors;
+    // window.receiveCurrentServerId = receiveCurrentServerId;
 
     const root = document.getElementById("root");
     ReactDOM.render(<Root store={store}/>, root);

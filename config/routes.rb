@@ -4,6 +4,7 @@ Rails.application.routes.draw do
     resources :users, only: [:create]
     resource :session, only: [:create, :destroy]
     resources :servers, only: [:index, :create, :destroy]
+    resources :server_subs, only: [:index, :create]
     resources :channels, only: [:index, :create, :destroy]
     resources :conversations, only: [:index, :create]
     resources :messages, only: [:create]

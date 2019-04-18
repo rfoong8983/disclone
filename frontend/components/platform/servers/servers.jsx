@@ -19,9 +19,25 @@ class Servers extends React.Component {
         // // => find '/32/' or '/@me', removes "/", and => id
         // currentPath = currentPath.match(currentServerRegExp)[0].replace("/","").slice(0,3);
         
+
+
+        // call fetch subscriptions here and pass into fetch servers
+        // change logic in API fetch servers
+        // this.props.fetchSubs()
+        //     .then(({ subs }) => {
+        //         const serverIds = Object.keys(subs);
+        //         this.props.fetchServers(serverIds);
+        //         // let serversArray = Object.values(servers.servers);
+        //         // serversArray = serversArray.filter((server) => server.id === parseInt(wildcardPath));
+
+
+        //         // receiveCurrentServerId(serversArray[0].id, serversArray[0].name);
+        //     });
+
+        
+
         this.props.fetchServers()
             .then((servers) => {
-                
                 let serversArray = Object.values(servers.servers);
                 serversArray = serversArray.filter((server) => server.id === parseInt(wildcardPath));
                     // receiveCurrentServerId(serversArray[0].id, serversArray[0].name);

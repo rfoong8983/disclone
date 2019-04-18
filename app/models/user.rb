@@ -25,6 +25,11 @@ class User < ApplicationRecord
         class_name: :Server,
         dependent: :destroy #destroy instantiates all children, and runs their dependent callbacks
 
+    has_many :subscriptions,
+        primary_key: :id,
+        foreign_key: :user_id,
+        class_name: :ServerSub
+
     has_many :messages,
         primary_key: :id,
         foreign_key: :user_id,

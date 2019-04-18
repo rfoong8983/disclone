@@ -28,7 +28,8 @@ class NewMessageForm extends React.Component {
         const newMessage = {
             message: {
                 conversation_id: parseInt(channelId),
-                user_id: this.props.currUserId,
+                user_id: this.props.currUser.id,
+                username: this.props.currUser.username,
                 text: this.state.text
             }
         };
@@ -43,16 +44,17 @@ class NewMessageForm extends React.Component {
 
     render () {
         return (
-            <div className="newMessageForm">
-                <form onSubmit={this.handleSubmit}>
-                    <label>New Message:</label>
-                    <br />
-                    <input
+            <div className="newMessageFormWrap">
+                <form className="newMessageForm" onSubmit={this.handleSubmit}>
+                    {/* <label>New Message:</label> */}
+                    {/* <br /> */}
+                    <input className="newMessageInput normFont"
                         type="text"
                         value={this.state.text}
                         onChange={this.handleChange}
+                        placeholder="Say hello!"
                     />
-                    <input type="submit" />
+                    {/* <input type="submit" /> */}
                 </form>
             </div>
         );
@@ -61,7 +63,7 @@ class NewMessageForm extends React.Component {
 
 const msp = state => {
     return {
-        currUserId: state.session.user.id
+        currUser: state.session.user
     }
 }
 
