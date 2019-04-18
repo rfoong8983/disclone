@@ -211,7 +211,12 @@ class SessionForm extends React.Component {
 
     handleDemoFromLogin(e) {
         // e.preventDefault(e);
-        const user = { email: "not_a_dog@gmail.com".split(''), password: "passwordpassword".split('') }
+        let user;
+        if (process.env.NODE_ENV !== 'production') {
+            user = { email: "not_a_dog@gmail.com".split(''), password: "passwordpassword".split('') }
+        } else {
+            user = { email: "not_a_dog@gmail.com".split(''), password: "password".split('') }
+        }
 
         setTimeout(() => {
             setInterval(() => {
