@@ -74,12 +74,18 @@ class ServerModal extends React.Component {
                 servers = Object.values(servers);
                 
                 const found = servers.filter((server) => server.server_name.toLowerCase() === this.state.joinServer.toLowerCase());
+                
                 const sub = {
                     user_id: this.props.currentUser.id,
+                    username: this.props.currentUser.username,
                     server_id: found[0].id
                 }
-                debugger
+                
                 newSub(sub)
+                    .then(() => {
+                        debugger
+                        this.props.fetchServers();
+                    });
 
                 
                 if (found.length === 0) {
@@ -97,6 +103,7 @@ class ServerModal extends React.Component {
             })
             .then(this.props.closeModal());
         
+            // fetchServers after?
 
         
         // set var to return val of below line and push to location?

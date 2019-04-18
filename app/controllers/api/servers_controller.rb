@@ -2,7 +2,7 @@ class Api::ServersController < ApplicationController
     def create
         @server = Server.new(server_params)
         if @server.save
-            @sub = ServerSub.new(server_id: @server.id, user_id: current_user.id)
+            @sub = ServerSub.new(server_id: @server.id, user_id: current_user.id, username: current_user.username)
             @sub.save
             @channel = Channel.new(server_id: @server.id, channel_name: 'general')
             @channel.save

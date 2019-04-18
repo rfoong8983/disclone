@@ -5,7 +5,6 @@ class Api::ServerSubsController < ApplicationController
     end
 
     def create
-        debugger
         @sub = ServerSub.new(sub_params);
         if @sub.save
             return
@@ -18,6 +17,6 @@ class Api::ServerSubsController < ApplicationController
     private
 
     def sub_params
-        params.require(:sub).permit(:user_id, :server_id)
+        params.require(:sub).permit(:user_id, :server_id, :username)
     end
 end
