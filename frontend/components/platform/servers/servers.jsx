@@ -34,7 +34,7 @@ class Servers extends React.Component {
         //         // receiveCurrentServerId(serversArray[0].id, serversArray[0].name);
         //     });
 
-
+        
 
         this.props.fetchServers()
             .then((servers) => {

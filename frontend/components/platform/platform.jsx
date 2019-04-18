@@ -12,7 +12,6 @@ class Platform extends React.Component {
     }
 
     componentDidMount() {
-
     }
 
     render() {

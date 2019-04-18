@@ -98,6 +98,9 @@ class ConversationsList extends React.Component {
                 <div className="conversations normFont">
                     {conversations[0] === null ? "" : <ul className="conv_channelId">{mapConversations(conversations, this.handleClick)}</ul>}
                     {/* <NewConversationForm /> */}
+                    <div className="convHeader">
+                        <div className="convHeaderChannelName"></div>
+                    </div>
                     {activeConversation && conversations[0] !== null && conversations[0].id === activeConversation ? (
                         <div className="messagesWrap">
                             <MessageArea

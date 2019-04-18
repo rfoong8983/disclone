@@ -44,16 +44,17 @@ class NewMessageForm extends React.Component {
 
     render () {
         return (
-            <div className="newMessageForm">
-                <form onSubmit={this.handleSubmit}>
-                    <label>New Message:</label>
-                    <br />
-                    <input
+            <div className="newMessageFormWrap">
+                <form className="newMessageForm" onSubmit={this.handleSubmit}>
+                    {/* <label>New Message:</label> */}
+                    {/* <br /> */}
+                    <input className="newMessageInput normFont"
                         type="text"
                         value={this.state.text}
                         onChange={this.handleChange}
+                        placeholder="Say hello!"
                     />
-                    <input type="submit" />
+                    {/* <input type="submit" /> */}
                 </form>
             </div>
         );
