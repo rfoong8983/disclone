@@ -5,7 +5,7 @@ if (process.env.NODE_ENV !== 'production') {
     API_ROOT = 'http://localhost:3000';
     API_WS_ROOT = 'ws://localhost:3000/cable';
 } else {
-    API_ROOT = 'https://disclone-rf.herokuapp.com';
+    API_ROOT = 'http://disclone-rf.herokuapp.com';
     API_WS_ROOT = 'ws://disclone-rf.herokuapp.com/cable';
 }
 // export const API_ROOT = 'http://localhost:3000';
