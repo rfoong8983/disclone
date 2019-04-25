@@ -30,6 +30,9 @@ gem 'bcrypt', '~> 3.1.7'
 # Use jquery-rails
 gem 'jquery-rails'
 
+# Use rack-cors, allow requests from frontend to backend api
+gem 'rack-cors'
+
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 

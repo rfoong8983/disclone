@@ -43,14 +43,16 @@ class ConversationsList extends React.Component {
         
         fetch(`${API_ROOT}/api/conversations?channel_id=${currChannelId}`)
             .then(res => res.json())
-            .then(conversations => this.setState({ conversations }))
+            .then(conversations => {
+                this.setState({ conversations });
+            })
             .then(el => {
                 const a = document.getElementsByClassName('currConversation');
-                
+                // debugger
                 if (a.length > 0) a[0].click();
             });
 
-        this.state.activeConversation = null;
+        // this.state.activeConversation = null;
     }
 
     handleClick (id) {
@@ -81,11 +83,15 @@ class ConversationsList extends React.Component {
 
     render () {
         const { conversations, activeConversation } = this.state;
+        let convId;
+        if (conversations.length > 0) {
+            convId = conversations[0].id;
+        }
         
         return (
             <div className="conversationsList">
                 <ActionCable
-                    channel={{ channel: 'ConversationsChannel' }}
+                    channel={{ channel: 'ConversationsChannel', convId }}
                     onReceived={this.handleReceivedConversation}
                 />
                 {/* {this.state.conversations.length ? ( */}
