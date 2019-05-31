@@ -9,6 +9,9 @@ class Api::MessagesController < ApplicationController
                 MessageSerializer.new(message)
             ).serializable_hash
 
+            
+
+            # ActionCable.server.broadcast("conversations_channel_#{conversation.id}", serialized_data[:message][:text])
             MessagesChannel.broadcast_to conversation, serialized_data
             head :ok
         end

@@ -20,6 +20,12 @@ class MessageArea extends React.Component {
         this.messages = props.conversation.messages;
     }
 
+    componentDidMount() {
+    }
+
+    componentDidUpdate() {
+    }
+
     render() {
         return (
             <div className="messageArea">

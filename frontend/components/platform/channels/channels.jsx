@@ -30,6 +30,8 @@ class Channels extends React.Component {
 
     render () {
         const channels = this.props.channels;
+        // const a = document.getElementsByClassName('currConversation');
+        // if (a.length > 0) a[0].click();
         
         return (
             // <div className="pf_channelsAndLogoutWrapper">
