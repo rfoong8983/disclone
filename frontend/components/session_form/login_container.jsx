@@ -15,7 +15,7 @@ const msp = (state, ownProps) => (
 
 const mdp = (dispatch, ownProps) => (
     {
-        processForm: (user) => dispatch(login(user)),
+        processForm: (user) => dispatch(login(user)), // login(user)(di)
         clearSessionErrors: () => dispatch(clearSessionErrors()),
         closeModal: () => dispatch(closeModal())
     }

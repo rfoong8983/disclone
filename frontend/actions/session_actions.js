@@ -10,17 +10,17 @@ export const CLEAR_STATE = "CLEAR_STATE";
 // err.responseJSON returns an object
 // formatted {email:['error'], user:['error']...}
 // action['errors']: above object
-export const signup = (user) => dispatch => (
+export const signup = (user) => test => (
     SeshApi.signup(user)
         .then((userInfo) => {
-            return dispatch(receiveCurrentUser(userInfo));
+            return test(receiveCurrentUser(userInfo));
         },
             (err) => {
-                return dispatch(receiveSessionErrors(err.responseJSON))
+                return test(receiveSessionErrors(err.responseJSON))
             })
 );
 
-export const login = (user) => dispatch => {
+export const login = (user) => (dispatch, getState) => {
     return SeshApi.login(user)
         .then(
             (userInfo) => {
@@ -29,6 +29,16 @@ export const login = (user) => dispatch => {
             (err) => dispatch(receiveSessionErrors(err.responseJSON))
         );
 };
+
+// export const login = (user) => dispatch => {
+//     return SeshApi.login(user)
+//         .then(
+//             (userInfo) => {
+//                 dispatch(receiveCurrentUser(userInfo));
+//             },
+//             (err) => dispatch(receiveSessionErrors(err.responseJSON))
+//         );
+// };
 
 export const logout = () => dispatch => (
     SeshApi.logout()
